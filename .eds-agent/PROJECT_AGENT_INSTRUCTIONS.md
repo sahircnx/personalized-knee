@@ -1,0 +1,1 @@
+/Users/sahir.khan/downloads/eds-agent-main/templates/project-root/.eds-agent/PROJECT_AGENT_INSTRUCTIONS.md
