@@ -2,7 +2,7 @@ import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 
 // media query match that indicates mobile/tablet width
-const isDesktop = window.matchMedia('(min-width: 900px)');
+const isDesktop = window.matchMedia('(min-width: 1200px)');
 
 function closeOnEscape(e) {
   if (e.code === 'Escape') {
@@ -17,6 +17,12 @@ function closeOnEscape(e) {
       // eslint-disable-next-line no-use-before-define
       toggleMenu(nav, navSections);
       nav.querySelector('button').focus();
+    }
+    // Close modal if open
+    const modal = document.querySelector('.header-modal');
+    if (modal && !modal.hasAttribute('hidden')) {
+      modal.setAttribute('hidden', '');
+      document.body.style.overflowY = '';
     }
   }
 }
@@ -38,7 +44,7 @@ function closeOnFocusLost(e) {
 
 function openOnKeydown(e) {
   const focused = document.activeElement;
-  const isNavDrop = focused.className === 'nav-drop';
+  const isNavDrop = focused.classList.contains('nav-drop');
   if (isNavDrop && (e.code === 'Enter' || e.code === 'Space')) {
     const dropExpanded = focused.getAttribute('aria-expanded') === 'true';
     // eslint-disable-next-line no-use-before-define
@@ -75,6 +81,7 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
   toggleAllNavSections(navSections, expanded || isDesktop.matches ? 'false' : 'true');
   button.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
+
   // enable nav dropdown keyboard accessibility
   const navDrops = navSections.querySelectorAll('.nav-drop');
   if (isDesktop.matches) {
@@ -103,6 +110,44 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   }
 }
 
+function createModal() {
+  const modal = document.createElement('div');
+  modal.className = 'header-modal';
+  modal.setAttribute('hidden', '');
+  modal.innerHTML = `
+    <div class="header-modal-container">
+      <div class="header-modal-header">
+        <button class="header-modal-close" aria-label="Close"></button>
+      </div>
+      <div class="header-modal-content">
+        <div class="header-modal-form">
+          <div class="form-group">
+            <label for="modal-location">I’m looking for a doctor in</label>
+            <input type="text" id="modal-location" name="location" placeholder="City, Zip or State" />
+          </div>
+          <div class="form-group">
+            <label for="modal-treatment">that specializes in</label>
+            <select name="treatment" id="modal-treatment">
+              <option value="Knee">Knee</option>
+              <option value="Knee Pain Injection">Knee Pain Injection</option>
+            </select>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="button glow">Find a doctor</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  modal.querySelector('.header-modal-close').addEventListener('click', () => {
+    modal.setAttribute('hidden', '');
+    document.body.style.overflowY = '';
+  });
+
+  return modal;
+}
+
 /**
  * loads and decorates the header, mainly the nav
  * @param {Element} block The header block element
@@ -126,23 +171,54 @@ export default async function decorate(block) {
   });
 
   const navBrand = nav.querySelector('.nav-brand');
-  const brandLink = navBrand.querySelector('.button');
+  const brandLink = navBrand.querySelector('a');
   if (brandLink) {
-    brandLink.className = '';
-    brandLink.closest('.button-container').className = '';
+    brandLink.classList.add('nav-brand-link');
+    const img = brandLink.querySelector('img');
+    if (img) {
+      img.classList.add('nav-brand-logo');
+    }
   }
 
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
-      if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
-      navSection.addEventListener('click', () => {
-        if (isDesktop.matches) {
+      if (navSection.querySelector('ul')) {
+        navSection.classList.add('nav-drop');
+        const link = navSection.querySelector('a');
+        if (link) {
+          link.classList.add('nav-drop-title');
+        }
+      }
+      navSection.addEventListener('click', (e) => {
+        if (isDesktop.matches && navSection.classList.contains('nav-drop')) {
           const expanded = navSection.getAttribute('aria-expanded') === 'true';
           toggleAllNavSections(navSections);
           navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+          e.stopPropagation();
         }
       });
+    });
+  }
+
+  // Tools (CTAs)
+  const navTools = nav.querySelector('.nav-tools');
+  if (navTools) {
+    const modal = createModal();
+    document.body.append(modal);
+
+    navTools.querySelectorAll('a').forEach((cta) => {
+      cta.classList.add('button');
+      if (cta.textContent.toLowerCase().includes('doctor')) {
+        cta.classList.add('glow');
+        cta.addEventListener('click', (e) => {
+          e.preventDefault();
+          modal.removeAttribute('hidden');
+          document.body.style.overflowY = 'hidden';
+        });
+      } else if (cta.textContent.toLowerCase().includes('quiz')) {
+        cta.classList.add('stroke');
+      }
     });
   }
 
@@ -155,6 +231,7 @@ export default async function decorate(block) {
   hamburger.addEventListener('click', () => toggleMenu(nav, navSections));
   nav.prepend(hamburger);
   nav.setAttribute('aria-expanded', 'false');
+
   // prevent mobile nav behavior on window resize
   toggleMenu(nav, navSections, isDesktop.matches);
   isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
@@ -164,3 +241,4 @@ export default async function decorate(block) {
   navWrapper.append(nav);
   block.append(navWrapper);
 }
+

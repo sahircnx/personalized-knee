@@ -1,0 +1,62 @@
+id: TBD
+type: task
+description: Replace this placeholder with the agreed task summary.
+
+constraints: []
+
+definition_of_done: []
+
+allowed_actions:
+  - inspect_logs
+  - inspect_runtime_output
+  - inspect_jobs
+  - manage_task_contract
+  - report_tooling_issue
+  - run_dev_bootstrap
+  - run_dev_init
+  - run_dev_reset
+  - run_dev_start
+  - run_dev_stop
+  - run_dev_status
+  - run_analyze_url
+  - run_analyze_site
+  - run_analyze_blocks
+  - run_analyze_ue_config
+  - run_dev_orchestration_status
+
+plan:
+  goal: []
+  implementation_scope: []
+  target_urls: []
+  blocks_in_scope: []
+  ue_config_changes: []
+  loading_phase_plan:
+    eager: []
+    lazy: []
+    delayed: []
+  performance_budget:
+    lighthouse_score: 100
+    lcp_ms: 2500
+    cls: 0.1
+    tbt_ms: 200
+  validation_steps: []
+  validation_plan:
+    url: null
+    selectors: []
+    actions: []
+    dom_assertions: []
+    smoke_checks: []
+  exit_criteria: []
+  risks: []
+
+execution_protocol:
+  - clarify_if_needed
+  - plan
+  - await_approval
+  - execute_autonomously
+  - validate_and_summarize
+
+status:
+  phase: plan
+  approval: pending
+  current_step: null

@@ -1,0 +1,25 @@
+{
+  "project": "personalized-knee",
+  "updated_at": "2026-04-16T11:52:24Z",
+  "current_step": null,
+  "last_status": "initialized",
+  "dev_server": {
+    "running": false,
+    "host_ip": "100.96.4.218",
+    "port": null,
+    "pid": null,
+    "started_at": null,
+    "url": null,
+    "probe_url": null
+  },
+  "completed_steps": [
+    "init"
+  ],
+  "steps": {
+    "init": {
+      "status": "success",
+      "started_at": "2026-04-16T11:52:24Z",
+      "finished_at": "2026-04-16T11:52:24Z"
+    }
+  }
+}
