@@ -1,8 +1,8 @@
 {
   "mappings": [
-    "/content/aem-boilerplate/:/"
+    "/content/personalized-knee/:/"
   ],
   "includes": [
-    "/content/aem-boilerplate/"
+    "/content/personalized-knee/"
   ]
 }
