@@ -39,6 +39,7 @@
           "component": "multiselect",
           "name": "style",
           "label": "Style",
+          "required": true,
           "options": [
             {
               "name": "Personalized cards",
