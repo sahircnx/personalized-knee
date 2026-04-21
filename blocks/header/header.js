@@ -122,7 +122,7 @@ function createModal() {
       <div class="header-modal-content">
         <div class="header-modal-form">
           <div class="form-group">
-            <label for="modal-location">I’m looking for a doctor in</label>
+            <label for="modal-location">I'm looking for a doctor in</label>
             <input type="text" id="modal-location" name="location" placeholder="City, Zip or State" />
           </div>
           <div class="form-group">
@@ -133,7 +133,7 @@ function createModal() {
             </select>
           </div>
           <div class="form-actions">
-            <button type="button" class="button glow">Find a doctor</button>
+            <button type="button" class="button">Find a doctor</button>
           </div>
         </div>
       </div>
@@ -145,7 +145,62 @@ function createModal() {
     document.body.style.overflowY = '';
   });
 
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.setAttribute('hidden', '');
+      document.body.style.overflowY = '';
+    }
+  });
+
   return modal;
+}
+
+/**
+ * Loads nav content with fallback for local development.
+ * Tries loadFragment first, falls back to fetching the full nav.html.
+ */
+async function loadNavContent() {
+  const navMeta = getMetadata('nav');
+  const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
+
+  // Try standard fragment loading first
+  const fragment = await loadFragment(navPath);
+  const section = fragment && fragment.querySelector('.section');
+  if (section && section.textContent.trim()) {
+    return fragment;
+  }
+
+  // Fallback: fetch full nav.html and parse it
+  const resp = await fetch(`${navPath}.html`);
+  if (!resp.ok) return null;
+  const html = await resp.text();
+  const doc = new DOMParser().parseFromString(html, 'text/html');
+  const main = document.createElement('main');
+
+  // Find content separators (hr) to split into sections
+  const body = doc.querySelector('body') || doc.documentElement;
+  const children = [...body.children].filter((el) => el.tagName !== 'SCRIPT');
+
+  let currentSection = document.createElement('div');
+  currentSection.classList.add('section');
+  const wrapper = document.createElement('div');
+  wrapper.classList.add('default-content-wrapper');
+  currentSection.append(wrapper);
+
+  children.forEach((child) => {
+    if (child.tagName === 'HR') {
+      main.append(currentSection);
+      currentSection = document.createElement('div');
+      currentSection.classList.add('section');
+      const w = document.createElement('div');
+      w.classList.add('default-content-wrapper');
+      currentSection.append(w);
+    } else {
+      currentSection.querySelector('.default-content-wrapper').append(child.cloneNode(true));
+    }
+  });
+  main.append(currentSection);
+  return main;
 }
 
 /**
@@ -153,16 +208,21 @@ function createModal() {
  * @param {Element} block The header block element
  */
 export default async function decorate(block) {
-  // load nav as fragment
-  const navMeta = getMetadata('nav');
-  const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
-  const fragment = await loadFragment(navPath);
+  const fragment = await loadNavContent();
+  if (!fragment) return;
 
   // decorate nav DOM
   block.textContent = '';
   const nav = document.createElement('nav');
   nav.id = 'nav';
-  while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
+
+  // Extract sections from the fragment
+  const sections = fragment.querySelectorAll('.section');
+  if (sections.length > 0) {
+    sections.forEach((section) => nav.append(section));
+  } else {
+    while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
+  }
 
   const classes = ['brand', 'sections', 'tools'];
   classes.forEach((c, i) => {
@@ -171,12 +231,14 @@ export default async function decorate(block) {
   });
 
   const navBrand = nav.querySelector('.nav-brand');
-  const brandLink = navBrand.querySelector('a');
-  if (brandLink) {
-    brandLink.classList.add('nav-brand-link');
-    const img = brandLink.querySelector('img');
-    if (img) {
-      img.classList.add('nav-brand-logo');
+  if (navBrand) {
+    const brandLink = navBrand.querySelector('a');
+    if (brandLink) {
+      brandLink.classList.add('nav-brand-link');
+      const img = brandLink.querySelector('img');
+      if (img) {
+        img.classList.add('nav-brand-logo');
+      }
     }
   }
 
@@ -185,17 +247,38 @@ export default async function decorate(block) {
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
       if (navSection.querySelector('ul')) {
         navSection.classList.add('nav-drop');
-        const link = navSection.querySelector('a');
-        if (link) {
-          link.classList.add('nav-drop-title');
+        // Only check direct child links, not nested sub-menu links
+        const directLink = [...navSection.children].find((child) => child.tagName === 'A');
+        if (directLink) {
+          directLink.classList.add('nav-drop-title');
+        } else {
+          // Top-level items without links (just text + dropdown)
+          const textNodes = [];
+          navSection.childNodes.forEach((node) => {
+            if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
+              textNodes.push(node);
+            }
+          });
+          if (textNodes.length > 0) {
+            const span = document.createElement('span');
+            span.classList.add('nav-drop-title');
+            span.textContent = textNodes[0].textContent.trim();
+            textNodes[0].replaceWith(span);
+          }
         }
       }
       navSection.addEventListener('click', (e) => {
-        if (isDesktop.matches && navSection.classList.contains('nav-drop')) {
-          const expanded = navSection.getAttribute('aria-expanded') === 'true';
-          toggleAllNavSections(navSections);
-          navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-          e.stopPropagation();
+        if (navSection.classList.contains('nav-drop')) {
+          const target = e.target.closest('a');
+          // Only toggle if clicking the title area, not a sub-link
+          if (!target || target.classList.contains('nav-drop-title')) {
+            const expanded = navSection.getAttribute('aria-expanded') === 'true';
+            if (isDesktop.matches) {
+              toggleAllNavSections(navSections);
+            }
+            navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+            e.stopPropagation();
+          }
         }
       });
     });
@@ -236,9 +319,15 @@ export default async function decorate(block) {
   toggleMenu(nav, navSections, isDesktop.matches);
   isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
 
+  // close dropdowns when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!nav.contains(e.target) && isDesktop.matches) {
+      toggleAllNavSections(navSections, false);
+    }
+  });
+
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
   block.append(navWrapper);
 }
-
