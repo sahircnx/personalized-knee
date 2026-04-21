@@ -171,7 +171,7 @@ async function loadNavContent() {
   }
 
   // Fallback: fetch full nav.html and parse it
-  const resp = await fetch(`${navPath}.html`);
+  const resp = await fetch(`${navPath}.plain.html`);
   if (!resp.ok) return null;
   const html = await resp.text();
   const doc = new DOMParser().parseFromString(html, 'text/html');
