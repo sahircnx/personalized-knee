@@ -82,6 +82,15 @@ header .nav-brand {
   flex-shrink: 0;
 }
 
+header .nav-brand .default-content-wrapper img {
+  display: block;
+  max-width: 205px;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+  height: auto;
+}
+
 header .nav-brand .default-content-wrapper {
   margin: 0;
 }
@@ -146,7 +155,7 @@ header nav .nav-sections a:hover {
   text-decoration: none;
 }
 
-header nav .nav-sections .nav-drop-title {
+header nav .nav-sections .nav-drop>p {
   color: #2b2a80;
   font-weight: 400;
   font-size: 14px;
@@ -211,13 +220,13 @@ header nav .nav-sections>.default-content-wrapper>ul>li:last-child {
     line-height: 1.2;
   }
 
-  header nav .nav-sections .nav-drop-title {
+  header nav .nav-sections .nav-drop>p {
     display: flex;
     align-items: center;
     gap: 6px;
   }
 
-  header nav .nav-sections .nav-drop-title::after {
+  header nav .nav-sections .nav-drop>p::after {
     content: '';
     width: 5px;
     height: 5px;
@@ -229,7 +238,7 @@ header nav .nav-sections>.default-content-wrapper>ul>li:last-child {
     margin-top: -2px;
   }
 
-  header nav .nav-sections li[aria-expanded='true'] .nav-drop-title::after {
+  header nav .nav-sections li[aria-expanded='true'] .nav-drop>p::after {
     transform: rotate(-135deg);
     margin-top: 3px;
   }

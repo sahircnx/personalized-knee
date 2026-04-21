@@ -177,29 +177,55 @@ async function loadNavContent() {
   const doc = new DOMParser().parseFromString(html, 'text/html');
   const main = document.createElement('main');
 
-  // Find content separators (hr) to split into sections
   const body = doc.querySelector('body') || doc.documentElement;
-  const children = [...body.children].filter((el) => el.tagName !== 'SCRIPT');
+  let children = [...body.children].filter((el) => el.tagName !== 'SCRIPT');
 
-  let currentSection = document.createElement('div');
-  currentSection.classList.add('section');
-  const wrapper = document.createElement('div');
-  wrapper.classList.add('default-content-wrapper');
-  currentSection.append(wrapper);
+  // If the body contains a single div wrapper, unwrap it to find the real sections
+  if (children.length === 1 && children[0].tagName === 'DIV' && children[0].children.length > 1) {
+    children = [...children[0].children].filter((el) => el.tagName !== 'SCRIPT');
+  }
 
-  children.forEach((child) => {
-    if (child.tagName === 'HR') {
-      main.append(currentSection);
-      currentSection = document.createElement('div');
-      currentSection.classList.add('section');
-      const w = document.createElement('div');
-      w.classList.add('default-content-wrapper');
-      currentSection.append(w);
-    } else {
-      currentSection.querySelector('.default-content-wrapper').append(child.cloneNode(true));
-    }
-  });
-  main.append(currentSection);
+  // Check if we have HR separators. If not, use multiple top-level divs as sections.
+  const hasHR = children.some((el) => el.tagName === 'HR');
+
+  if (!hasHR && children.length > 0) {
+    children.forEach((child) => {
+      const section = document.createElement('div');
+      section.classList.add('section');
+      const wrapper = document.createElement('div');
+      wrapper.classList.add('default-content-wrapper');
+      // If the child is a div, move its children directly to avoid extra nesting
+      if (child.tagName === 'DIV') {
+        wrapper.append(...child.cloneNode(true).childNodes);
+      } else {
+        wrapper.append(child.cloneNode(true));
+      }
+      section.append(wrapper);
+      main.append(section);
+    });
+  } else {
+    // Traditional HR parsing
+    let currentSection = document.createElement('div');
+    currentSection.classList.add('section');
+    const wrapper = document.createElement('div');
+    wrapper.classList.add('default-content-wrapper');
+    currentSection.append(wrapper);
+
+    children.forEach((child) => {
+      if (child.tagName === 'HR') {
+        main.append(currentSection);
+        currentSection = document.createElement('div');
+        currentSection.classList.add('section');
+        const w = document.createElement('div');
+        w.classList.add('default-content-wrapper');
+        currentSection.append(w);
+      } else {
+        currentSection.querySelector('.default-content-wrapper').append(child.cloneNode(true));
+      }
+    });
+    main.append(currentSection);
+  }
+
   return main;
 }
 
@@ -287,8 +313,11 @@ export default async function decorate(block) {
   // Tools (CTAs)
   const navTools = nav.querySelector('.nav-tools');
   if (navTools) {
-    const modal = createModal();
-    document.body.append(modal);
+    let modal = document.querySelector('.header-modal');
+    if (!modal) {
+      modal = createModal();
+      document.body.append(modal);
+    }
 
     navTools.querySelectorAll('a').forEach((cta) => {
       cta.classList.add('button');
