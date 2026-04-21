@@ -148,6 +148,18 @@
           {
             "name": "Light Blue Background color",
             "value": "background-color-light-blue"
+          },
+          {
+            "name": "Container-small",
+            "value": "container-small"
+          },
+          {
+            "name": "Container-medium",
+            "value": "container-medium"
+          },
+          {
+            "name": "Container-large",
+            "value": "container-large"
           }
         ]
       }
