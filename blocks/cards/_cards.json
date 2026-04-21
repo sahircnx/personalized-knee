@@ -33,7 +33,7 @@
   ],
   "models": [
     {
-      "id": "card",
+      "id": "cards",
       "fields": [
         {
           "component": "multiselect",
@@ -45,7 +45,12 @@
               "value": "personalized-cards"
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "card",
+      "fields": [
         {
           "component": "reference",
           "valueType": "string",
