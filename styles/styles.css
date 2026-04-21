@@ -186,7 +186,7 @@ h6 {
   font-family: var(--heading-font-family);
   font-weight: 400;
   line-height: 1.1;
-  margin: 1pc 0;
+  margin: 0;
 }
 
 h1 {
@@ -219,8 +219,7 @@ ol,
 p,
 pre,
 ul {
-  margin-bottom: 1pc;
-  margin-top: 1pc;
+  margin: 0;
 }
 
 div :is(p, ul):last-child {
@@ -344,7 +343,13 @@ main img {
 
 /* sections */
 main>.section {
-  margin: 40px 0;
+  padding: 24px 0;
+}
+
+@media (width >=900px) {
+  main>.section {
+    padding: 72px 0;
+  }
 }
 
 main>.section>div {
@@ -368,7 +373,15 @@ main .section.light,
 main .section.highlight {
   background-color: var(--light-color);
   margin: 0;
-  padding: 40px 0;
+  padding: 24px 0;
+}
+
+@media (width >=900px) {
+
+  main .section.light,
+  main .section.highlight {
+    padding: 72px 0;
+  }
 }
 
 .background-color-sky-blue {
@@ -421,6 +434,10 @@ footer {
   margin: 0 auto;
   max-width: 1440px;
   padding: 88px 48px;
+}
+
+.no-padding {
+  padding: 0 !important;
 }
 
 /* Animations */

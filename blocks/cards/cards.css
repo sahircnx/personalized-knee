@@ -1,4 +1,4 @@
-.cards > ul {
+.cards>ul {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -7,7 +7,7 @@
   gap: 24px;
 }
 
-.cards > ul > li {
+.cards>ul>li {
   border: 1px solid #dadada;
   background-color: var(--background-color);
 }
@@ -20,19 +20,23 @@
   line-height: 0;
 }
 
-.cards > ul > li img {
+.cards>ul>li img {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
 
-/* personalized-cards variant */
-.cards.personalized-cards > ul {
-  grid-template-columns: repeat(2, 1fr);
-  gap: 80px 60px;
+.cards.personalized-cards {
+  padding: 48px 0;
 }
 
-.cards.personalized-cards > ul > li {
+/* personalized-cards variant */
+.cards.personalized-cards>ul {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 96px 60px;
+}
+
+.cards.personalized-cards>ul>li {
   display: flex;
   align-items: flex-start;
   gap: 24px;
@@ -60,27 +64,37 @@
 .cards.personalized-cards .cards-card-body :is(h1, h2, h3, h4, h5, h6, strong, b) {
   display: block;
   font-family: var(--bold-font-family);
-  font-size: 26px;
-  font-weight: 400; /* Bold font usually has its own weight set or we use 400 with the bold font face */
+  font-size: 18px;
+  font-weight: 400;
+  /* Bold font usually has its own weight set or we use 400 with the bold font face */
   color: var(--dark-color);
   margin: 0 0 10px;
   line-height: 1.1;
 }
 
-.cards.personalized-cards .cards-card-body p {
-  font-size: 19px;
-  line-height: 1.35;
-  color: var(--text-color);
+.cards.personalized-cards .cards-card-body p:first-child {
   margin: 0;
 }
 
+.cards.personalized-cards .cards-card-body p:last-child {
+  font-size: 18px;
+  line-height: 1.35;
+  color: var(--text-color);
+  margin: 16px 0;
+}
+
+.section.cards-container:has(.personalized-cards) {
+  padding: 40px 8px !important;
+  border-radius: 24px;
+}
+
 @media (width < 960px) {
-  .cards.personalized-cards > ul {
+  .cards.personalized-cards>ul {
     grid-template-columns: 1fr;
     gap: 48px;
   }
 
-  .cards.personalized-cards > ul > li {
+  .cards.personalized-cards>ul>li {
     gap: 20px;
   }
 
