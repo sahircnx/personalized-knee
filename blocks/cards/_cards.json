@@ -36,6 +36,17 @@
       "id": "card",
       "fields": [
         {
+          "component": "multiselect",
+          "name": "style",
+          "label": "Style",
+          "options": [
+            {
+              "name": "Personalized cards",
+              "value": "personalized-cards"
+            }
+          ]
+        },
+        {
           "component": "reference",
           "valueType": "string",
           "name": "image",
