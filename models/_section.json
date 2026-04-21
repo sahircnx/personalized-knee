@@ -33,6 +33,18 @@
             {
               "name": "Highlight",
               "value": "highlight"
+            },
+            {
+              "name": "Sky Blue Background color",
+              "value": "background-color-sky-blue"
+            },
+            {
+              "name": "White Background color",
+              "value": "background-color-white"
+            },
+            {
+              "name": "Light Blue Background color",
+              "value": "background-color-light-blue"
             }
           ]
         }
