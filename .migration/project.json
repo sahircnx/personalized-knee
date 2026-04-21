@@ -1,0 +1,9 @@
+{
+  "type": "xwalk",
+  "contentHostUrl": "author-p92368-e968987.adobeaemcloud.com",
+  "aemSitePath": "/content/personalized-knee",
+  "aemAssetsFolderPath": "/content/dam/personalized-knee",
+  "aemSiteName": "personalized-knee",
+  "aemSiteTitle": "The Personalized Knee",
+  "baseUrl": "https://www.thepersonalizedknee.com"
+}
