@@ -78,7 +78,8 @@
         "hero",
         "cards",
         "columns",
-        "fragment"
+        "fragment",
+        "knee-stories-card"
       ]
     }
   ]
