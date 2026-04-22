@@ -1,20 +1,295 @@
+/* Footer overall */
 footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
+  background-color: #2b2a80;
+  color: #fff;
+  font-size: 14px;
+}
+
+footer .footer {
+  visibility: visible;
 }
 
 footer .footer > div {
-  margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+  margin: 0 auto;
+  max-width: unset;
+  padding: 0;
 }
 
 footer .footer p {
   margin: 0;
 }
 
+footer .footer a:any-link {
+  color: #fff;
+  text-decoration: none;
+}
+
+footer .footer a:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
+/* Footer Hero Section — "A new knee?" */
+footer .footer-hero {
+  text-align: center;
+  padding: 60px 24px 40px;
+  overflow: hidden;
+}
+
+footer .footer-hero .default-content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+footer .footer-hero h4 {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 400;
+  margin: 0 0 8px;
+  font-family: var(--body-font-family);
+}
+
+footer .footer-hero p {
+  color: #fff;
+  font-size: 80px;
+  font-weight: 400;
+  line-height: 1;
+  margin: 0 0 16px;
+  font-family: var(--heading-font-family);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+footer .footer-hero h5 {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+  margin: 16px 0 0;
+  font-family: var(--body-font-family);
+}
+
+/* Footer Links Section */
+footer .footer-links {
+  padding: 0 0 24px;
+}
+
+footer .footer-links .default-content-wrapper {
+  max-width: unset;
+  margin: 0;
+}
+
+footer .footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+footer .footer-links li {
+  padding: 0;
+  margin: 0 0 24px;
+}
+
+footer .footer-links li a:any-link {
+  font-size: 16px;
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+
+footer .footer-links li a:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+
+/* Social links row */
+footer .footer-links .default-content-wrapper > p {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+footer .footer-links .default-content-wrapper > p a {
+  font-size: 14px;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+footer .footer-links .default-content-wrapper > p a:hover {
+  opacity: 1;
+}
+
+/* Footer Middle Wrapper (links + disclaimer) */
+footer .footer-middle {
+  padding: 60px 24px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Footer Disclaimer Section */
+footer .footer-disclaimer {
+  padding: 0;
+}
+
+footer .footer-disclaimer .default-content-wrapper {
+  max-width: unset;
+  margin: 0;
+}
+
+footer .footer .footer-disclaimer p {
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.6;
+  font-weight: 700;
+  margin: 0 0 16px;
+  opacity: 0.9;
+}
+
+footer .footer .footer-disclaimer p a:any-link {
+  text-decoration: underline;
+}
+
+/* Footer Logos Section */
+footer .footer-logos {
+  background-color: #1a1a5e;
+  padding: 40px 24px 24px;
+}
+
+footer .footer-logos .default-content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+footer .footer-logos picture {
+  display: block;
+}
+
+footer .footer-logos img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* First image (large brand logo) */
+footer .footer-logos .default-content-wrapper > p:first-child {
+  margin: 0 0 24px;
+}
+
+footer .footer-logos .default-content-wrapper > p:first-child img {
+  max-width: 600px;
+  width: 100%;
+}
+
+/* Second image (Zimmer Biomet logo) */
+footer .footer-logos .default-content-wrapper > p:nth-child(2) {
+  margin: 0 0 24px;
+}
+
+footer .footer-logos .default-content-wrapper > p:nth-child(2) img {
+  max-width: 200px;
+}
+
+/* Copyright text */
+footer .footer-logos .default-content-wrapper > p:last-child {
+  font-size: 11px;
+  color: #fff;
+  opacity: 0.7;
+  margin: 16px 0 0;
+}
+
+/* Desktop styles */
 @media (width >= 900px) {
-  footer .footer > div {
-    padding: 40px 32px 24px;
+  footer .footer-hero {
+    padding: 80px 35px 50px;
+  }
+
+  footer .footer-hero h4 {
+    font-size: 32px;
+  }
+
+  footer .footer-hero p {
+    font-size: 140px;
+  }
+
+  footer .footer-hero h5 {
+    font-size: 24px;
+  }
+
+  /* Links + Disclaimer side by side layout */
+  footer .footer-middle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 40px;
+    padding: 80px 35px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  footer .footer-links {
+    padding: 0;
+  }
+
+  footer .footer-links ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    column-gap: 60px;
+    margin-bottom: 40px;
+  }
+
+  footer .footer-links li {
+    margin-bottom: 40px;
+  }
+
+  footer .footer-links li a {
+    font-size: 18px;
+  }
+
+  footer .footer-disclaimer {
+    padding: 0;
+  }
+
+  /* Logos section desktop */
+  footer .footer-logos {
+    padding: 50px 35px 30px;
+  }
+
+  footer .footer-logos .default-content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  footer .footer-logos .default-content-wrapper > p:first-child {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  footer .footer-logos .default-content-wrapper > p:first-child img {
+    max-width: 800px;
+  }
+
+  footer .footer-logos .default-content-wrapper > p:nth-child(2) {
+    margin: 0;
+  }
+
+  footer .footer-logos .default-content-wrapper > p:nth-child(2) img {
+    max-width: 250px;
+  }
+
+  footer .footer-logos .default-content-wrapper > p:last-child {
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+
+/* Large desktop */
+@media (width >= 1200px) {
+  footer .footer-hero p {
+    font-size: 180px;
   }
 }
