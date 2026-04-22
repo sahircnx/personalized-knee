@@ -136,6 +136,51 @@
           {
             "name": "Highlight",
             "value": "highlight"
+          },
+          {
+            "name": "Sky Blue Background color",
+            "value": "background-color-sky-blue"
+          },
+          {
+            "name": "White Background color",
+            "value": "background-color-white"
+          },
+          {
+            "name": "Light Blue Background color",
+            "value": "background-color-light-blue"
+          },
+          {
+            "name": "Container-small",
+            "value": "container-small"
+          },
+          {
+            "name": "Container-medium",
+            "value": "container-medium"
+          },
+          {
+            "name": "Container-large",
+            "value": "container-large"
+          },
+          {
+            "name": "Section No Padding",
+            "value": "section-no-padding"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cards",
+    "fields": [
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "label": "Style",
+        "required": true,
+        "options": [
+          {
+            "name": "Personalized cards",
+            "value": "personalized-cards"
           }
         ]
       }
