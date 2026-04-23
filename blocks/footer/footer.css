@@ -77,7 +77,7 @@ footer .footer-marquee {
 
 footer .footer-marquee-track {
   display: inline-flex;
-  animation: footer-marquee-scroll 20s linear infinite;
+  animation: footer-marquee-scroll 110s linear infinite;
 }
 
 footer .footer-marquee-item {
