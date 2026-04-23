@@ -41,6 +41,12 @@
     ]
   },
   {
+    "id": "ecosystem",
+    "components": [
+      "ecosystem-card"
+    ]
+  },
+  {
     "id": "hero-banner-carousel",
     "components": [
       "hero-banner-carousel-item"
@@ -50,6 +56,18 @@
     "id": "knee-stories",
     "components": [
       "knee-stories-card"
+    ]
+  },
+  {
+    "id": "marquee",
+    "components": [
+      "marquee-card"
+    ]
+  },
+  {
+    "id": "personalized-knee",
+    "components": [
+      "personalized-knee-feature"
     ]
   }
 ]

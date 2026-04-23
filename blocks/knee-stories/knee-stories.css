@@ -5,100 +5,115 @@
 }
 
 .knee-stories {
-  --ks-bg: #2b2a80;
-  --ks-text: #fff;
-  --ks-card-radius: 24px;
-  --ks-card-width: 317px;
-  --ks-card-height: 443px;
-  --ks-gap: 15px;
+  --block-bg: #f1faff;
+  --block-text: #2b2a80;
+  --block-padding: 144px 0;
+  --card-radius: 24px;
+  --card-width: 317px;
+  --card-height: 443px;
 
-  background-image: url('/drafts/images/knee-stories-background.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center top;
-  padding: 100px 0 120px;
+  background: url('/drafts/images/knee-stories-background.png') center / cover no-repeat;
+  color: var(--block-text);
+  padding: var(--block-padding);
+  text-align: center;
   overflow: hidden;
 }
 
 /* Header row */
-.knee-stories .knee-stories-header {
-  text-align: center;
+.knee-stories > div:first-child {
+  max-width: 900px;
+  margin: 0 auto 40px;
   padding: 0 24px;
-  margin-bottom: 40px;
 }
 
-.knee-stories .knee-stories-header h5 {
-  color: var(--ks-bg);
-  font-size: 24px;
+.knee-stories > div:first-child h5 {
+  font-size: var(--heading-font-size-s, 24px);
   font-weight: 400;
   margin-bottom: 12px;
+  color: var(--block-text);
 }
 
-.knee-stories .knee-stories-header h2 {
-  color: var(--ks-bg);
-  font-size: var(--heading-font-size-xxl);
+.knee-stories > div:first-child h1 {
+  font-size: var(--heading-font-size-xxl, 64px);
   font-weight: 500;
-  margin-bottom: 32px;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.05;
+  margin-bottom: 24px;
+  color: var(--block-text);
+  line-height: 1.1;
 }
 
-main .knee-stories .knee-stories-header a.button:any-link {
-  background-color: var(--ks-bg);
-  color: var(--ks-text);
-  border: 2px solid var(--ks-bg);
+/* CTA button override */
+main .knee-stories .button-container {
+  display: inline-block;
+}
+
+main .knee-stories a.button:any-link {
+  background-color: var(--block-text);
+  color: #fff;
+  border: 2px solid var(--block-text);
   border-radius: 10000px;
   padding: 16px 24px;
   font-size: 18px;
   font-weight: 400;
   text-decoration: none;
+  text-align: center;
   display: inline-block;
+  white-space: nowrap;
+  margin: 0;
 }
 
-/* Marquee track */
-.knee-stories .knee-stories-track {
+main .knee-stories a.button:hover {
+  background-color: #1a1960;
+  border-color: #1a1960;
+}
+
+/* Card track (marquee container) */
+.knee-stories .cards-track {
   display: flex;
-  gap: var(--ks-gap);
-  animation: knee-stories-scroll 30s linear infinite;
+  gap: 20px;
+  animation: knee-stories-scroll 40s linear infinite;
   width: max-content;
+  padding: 0 10px;
 }
 
-/* Cards */
-.knee-stories .knee-stories-card {
-  flex-shrink: 0;
-  width: var(--ks-card-width);
-  height: var(--ks-card-height);
-  border-radius: var(--ks-card-radius);
+.knee-stories .cards-track:hover {
+  animation-play-state: paused;
+}
+
+/* Individual cards */
+.knee-stories .card {
+  flex: 0 0 var(--card-width);
+  width: var(--card-width);
+  height: var(--card-height);
+  border-radius: var(--card-radius);
   overflow: hidden;
   position: relative;
   background-size: cover;
-  background-position: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+.knee-stories .card-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   padding: 24px;
-  box-sizing: border-box;
+  text-align: left;
+  background: linear-gradient(to top, rgba(0, 0, 50, 0.75) 0%, rgba(0, 0, 50, 0.35) 45%, transparent 100%);
 }
 
-.knee-stories .knee-stories-card picture {
-  display: none;
-}
-
-.knee-stories .knee-stories-card h5 {
-  color: var(--ks-text);
+.knee-stories .card-text h5 {
+  color: #fff;
   font-size: 24px;
   font-weight: 400;
-  margin-bottom: 8px;
+  margin: 0 0 4px;
   line-height: 1.2;
-  text-align: left;
 }
 
-.knee-stories .knee-stories-card p {
+.knee-stories .card-text p {
   color: #b2d9ef;
   font-size: 18px;
-  text-align: left;
+  margin: 0;
 }
 
 @keyframes knee-stories-scroll {
@@ -107,21 +122,19 @@ main .knee-stories .knee-stories-header a.button:any-link {
   }
 
   100% {
-    transform: translateX(-33.333%);
+    transform: translateX(-50%);
   }
 }
 
-@media (max-width: 959px) {
+/* Mobile adjustments */
+@media (max-width: 899px) {
   .knee-stories {
-    padding: 80px 0;
+    --block-padding: 64px 0;
+    --card-width: 240px;
+    --card-height: 336px;
   }
 
-  .knee-stories .knee-stories-header h2 {
-    font-size: var(--heading-font-size-xl);
-  }
-
-  .knee-stories .knee-stories-card {
-    width: 260px;
-    height: 370px;
+  .knee-stories > div:first-child h1 {
+    font-size: var(--heading-font-size-xl, 40px);
   }
 }

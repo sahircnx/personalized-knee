@@ -132,6 +132,7 @@ footer .footer-header-section h5 {
    ========================= */
 footer .footer-legal-section {
   padding: 0 24px 24px;
+  text-align: left;
 }
 
 footer .footer-legal-section .default-content-wrapper {
@@ -216,6 +217,7 @@ footer .footer-social-icon svg {
    ========================= */
 footer .footer-disclaimer-section {
   padding: 24px;
+  text-align: left;
 }
 
 footer .footer-disclaimer-section .default-content-wrapper {
@@ -241,6 +243,7 @@ footer .footer-disclaimer-section p:last-child {
    ========================= */
 footer .footer-bottom-section {
   padding: 32px 24px 24px;
+  text-align: left;
 }
 
 footer .footer-bottom-section .default-content-wrapper {
@@ -258,22 +261,22 @@ footer .footer-bottom-section picture img {
   height: auto;
 }
 
-/* First picture paragraph (The Personalized Knee logo - large) */
-footer .footer-bottom-section p:first-child img {
+/* First picture (The Personalized Knee logo - large) */
+footer .footer-bottom-section picture:first-child {
+  margin-bottom: 24px;
+}
+
+footer .footer-bottom-section picture:first-child img {
   max-width: 100%;
   width: 100%;
 }
 
-footer .footer-bottom-section p:first-child {
-  margin-bottom: 24px;
-}
-
-/* Second picture paragraph (Zimmer Biomet logo - smaller) */
-footer .footer-bottom-section p:nth-child(2) img {
+/* Second picture (Zimmer Biomet logo - smaller) */
+footer .footer-bottom-section picture:nth-child(2) img {
   max-width: 170px;
 }
 
-footer .footer-bottom-section p:nth-child(2) {
+footer .footer-bottom-section picture:nth-child(2) {
   margin-bottom: 24px;
 }
 

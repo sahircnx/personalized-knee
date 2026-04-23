@@ -1,0 +1,164 @@
+/* personalized-knee block */
+.personalized-knee {
+  --block-text: #2b2a80;
+  --block-cards-bg: #f1faff;
+  --block-cards-radius: 24px;
+  --block-cards-padding: 40px;
+
+  color: var(--block-text);
+  text-align: center;
+  padding: 0;
+}
+
+/* Heading row */
+.personalized-knee .heading-row {
+  margin-bottom: 24px;
+}
+
+.personalized-knee .heading-row h2 {
+  font-size: var(--heading-font-size-xl);
+  font-weight: 500;
+  line-height: 1.1;
+  color: var(--block-text);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.personalized-knee .heading-row p {
+  font-size: var(--body-font-size-xs);
+  margin-top: 12px;
+  color: var(--block-text);
+}
+
+/* Body text row */
+.personalized-knee .body-row {
+  margin-bottom: 32px;
+}
+
+.personalized-knee .body-row h5 {
+  font-size: var(--heading-font-size-s);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--block-text);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* GIF row */
+.personalized-knee .gif-row {
+  margin-bottom: 40px;
+}
+
+.personalized-knee .gif-row > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.personalized-knee .gif-row img {
+  max-width: 650px;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Cards section (blue box) */
+.personalized-knee .cards-section {
+  background: var(--block-cards-bg);
+  border-radius: var(--block-cards-radius);
+  padding: var(--block-cards-padding);
+  margin-bottom: 24px;
+}
+
+.personalized-knee .cards-heading {
+  margin-bottom: 24px;
+}
+
+.personalized-knee .cards-heading h4 {
+  font-size: 30px;
+  font-weight: 400;
+  text-align: left;
+  color: var(--block-text);
+}
+
+/* Cards grid — 2x2 on desktop */
+.personalized-knee .cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (width >= 900px) {
+  .personalized-knee .cards-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 48px;
+  }
+}
+
+.personalized-knee .card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  text-align: left;
+}
+
+.personalized-knee .card-icon {
+  flex-shrink: 0;
+  width: 61px;
+  height: 61px;
+}
+
+.personalized-knee .card-icon img {
+  width: 61px;
+  height: 61px;
+}
+
+.personalized-knee .card-text h5 {
+  font-size: var(--body-font-size-m);
+  font-weight: 400;
+  margin-bottom: 4px;
+  color: var(--block-text);
+}
+
+.personalized-knee .card-text p {
+  font-size: var(--body-font-size-s);
+  line-height: 1.3;
+  color: var(--block-text);
+}
+
+/* Disclaimer row */
+.personalized-knee .disclaimer-row {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.personalized-knee .disclaimer-row p {
+  font-size: var(--body-font-size-xs);
+  line-height: 1.4;
+  color: var(--block-text);
+  text-align: center;
+}
+
+/* CTA row */
+.personalized-knee .cta-row {
+  margin-bottom: 16px;
+}
+
+main .personalized-knee .cta-row a.button:any-link {
+  background: var(--block-text);
+  color: #fff;
+  border: 2px solid var(--block-text);
+  border-radius: 10000px;
+  padding: 16px 24px;
+  font-size: var(--body-font-size-m);
+  font-weight: 400;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+main .personalized-knee .cta-row a.button:hover {
+  opacity: 0.9;
+}

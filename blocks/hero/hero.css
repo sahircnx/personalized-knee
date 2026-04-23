@@ -1,37 +1,170 @@
+/* Hero Carousel Block */
+main > .section:has(.hero-wrapper) {
+  padding: 0 !important;
+}
+
+main > .section:has(.hero-wrapper) > div {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+
 .hero-container .hero-wrapper {
-  max-width: unset;
-  padding: 0;
+  max-width: 100% !important;
+  padding: 0 !important;
 }
 
 .hero {
   position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  overflow: hidden;
 }
 
-.hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
-}
-
-.hero picture {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  object-fit: cover;
+/* Slide (row) */
+.hero > div {
+  position: relative;
+  display: none;
+  min-height: 600px;
+  padding: 200px 48px 120px;
   box-sizing: border-box;
+  color: #fff;
+  text-align: left;
 }
 
-.hero img {
-  object-fit: cover;
+.hero > div.active {
+  display: block;
+}
+
+/* Background image cell */
+.hero > div > div:first-child {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero > div > div:first-child picture,
+.hero > div > div:first-child img {
+  display: block;
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
+/* Text content cell */
+.hero > div > div:last-child {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Heading (h4) */
+.hero h4 {
+  font-size: 24px;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+/* Large tagline (p) */
+.hero > div > div:last-child > p:first-of-type {
+  font-size: 80px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -1.5px;
+  color: #fff;
+  margin: 0 0 8px;
+}
+
+/* Subtitle (h5) */
+.hero h5 {
+  font-size: 18px;
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 24px;
+}
+
+/* Button containers */
+main .hero .button-container {
+  display: inline-block !important;
+  margin-right: 12px;
+  margin-bottom: 12px;
+}
+
+/* Both buttons - shared base (primary) */
+main .hero a.button:any-link {
+  background: #fff;
+  color: #2b2a80;
+  border: 2px solid #fff;
+  border-radius: 10000px;
+  padding: 16px 24px;
+  font-size: 18px;
+  font-weight: 400;
+  text-decoration: none;
+  display: inline-block;
+  white-space: nowrap;
+  margin: 0;
+}
+
+/* Secondary button (second .button-container) */
+main .hero .button-container + .button-container a.button:any-link {
+  background: rgba(255, 247, 240, 0.3);
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+/* Footnote (em paragraph at bottom) */
+.hero > div > div:last-child > p:last-child {
+  position: absolute;
+  bottom: -80px;
+  right: 0;
+  font-size: 14px;
+  font-style: italic;
+  color: #fff;
+  opacity: 0.9;
+}
+
+/* Carousel indicators */
+.hero .hero-indicators {
+  display: flex;
+  gap: 8px;
+  position: absolute;
+  bottom: 24px;
+  left: 108px;
+  z-index: 2;
+}
+
+.hero .hero-indicators button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.hero .hero-indicators button.active {
+  background: #fff;
+}
+
+/* Desktop */
 @media (width >= 900px) {
-  .hero {
-    padding: 40px 32px;
+  .hero > div {
+    min-height: 900px;
+    padding: 325px 108px 240px;
+  }
+
+  .hero h4 {
+    font-size: 32px;
+  }
+
+  .hero > div > div:last-child > p:first-of-type {
+    font-size: 152px;
+    line-height: 1;
+    letter-spacing: -3px;
+  }
+
+  .hero h5 {
+    font-size: 24px;
   }
 }

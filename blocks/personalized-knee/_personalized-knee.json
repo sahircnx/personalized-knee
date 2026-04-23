@@ -1,0 +1,126 @@
+{
+  "definitions": [
+    {
+      "title": "Personalized Knee",
+      "id": "personalized-knee",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Personalized Knee",
+              "model": "personalized-knee",
+              "filter": "personalized-knee"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Personalized Knee Feature",
+      "id": "personalized-knee-feature",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Personalized Knee Feature",
+              "model": "personalized-knee-feature"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "personalized-knee",
+      "fields": [
+        {
+          "component": "richtext",
+          "name": "heading",
+          "label": "Main Heading",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "footnote",
+          "label": "Heading Footnote"
+        },
+        {
+          "component": "richtext",
+          "name": "body",
+          "label": "Body Text",
+          "valueType": "string"
+        },
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "modelImage",
+          "label": "Model Image (GIF/PNG)",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "featuresHeading",
+          "label": "Features Section Heading"
+        },
+        {
+          "component": "richtext",
+          "name": "disclaimer",
+          "label": "Disclaimer Text",
+          "valueType": "string"
+        },
+        {
+          "component": "aem-content",
+          "name": "ctaLink",
+          "label": "CTA Link"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "ctaText",
+          "label": "CTA Text"
+        }
+      ]
+    },
+    {
+      "id": "personalized-knee-feature",
+      "fields": [
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "icon",
+          "label": "Icon Image",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "iconAlt",
+          "label": "Icon Alt Text"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "title",
+          "label": "Feature Title"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "description",
+          "label": "Feature Description"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "personalized-knee",
+      "components": ["personalized-knee-feature"]
+    }
+  ]
+}

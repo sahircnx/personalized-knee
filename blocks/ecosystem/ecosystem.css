@@ -1,0 +1,264 @@
+/* Ecosystem Block */
+.ecosystem {
+  --eco-dark: #2b2a80;
+  --eco-card-bg: #f0faff;
+  --eco-card-radius: 24px;
+  --eco-card-padding: 40px 56px;
+  --eco-card-height: 600px;
+  --eco-gap: 22px;
+
+  color: var(--eco-dark);
+  text-align: center;
+  position: relative;
+}
+
+/* Full-width override */
+.ecosystem-wrapper {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+
+/* Row 1: Hero image (sticky behind content) */
+.ecosystem > div:first-child {
+  position: sticky;
+  top: 88px;
+  z-index: 0;
+  padding: 0 48px;
+}
+
+.ecosystem > div:first-child img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 24px;
+}
+
+/* Row 2: Hero heading overlay */
+.ecosystem > div:nth-child(2) {
+  position: relative;
+  z-index: 1;
+  padding: 0 48px;
+  margin-top: -200px;
+  text-align: left;
+}
+
+.ecosystem > div:nth-child(2) p {
+  font-size: 80px;
+  font-weight: 400;
+  line-height: 1;
+  color: #fff;
+  margin: 0;
+}
+
+/* Cards grid (child 3 after JS restructure) */
+.ecosystem > .ecosystem-cards-grid {
+  position: relative;
+  z-index: 1;
+}
+
+/* Cards container layout — 2-column grid */
+.ecosystem .ecosystem-cards-grid {
+  display: flex;
+  flex-direction: row;
+  gap: var(--eco-gap);
+  justify-content: center;
+  align-items: flex-start;
+  padding: 48px 48px 0;
+}
+
+/* Left column: 2 stacked cards */
+.ecosystem .ecosystem-cards-left {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Right column: 1 card — centered vertically */
+.ecosystem .ecosystem-cards-right {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+/* Each card */
+.ecosystem .eco-card {
+  background: var(--eco-card-bg);
+  border-radius: var(--eco-card-radius);
+  overflow: hidden;
+  position: relative;
+  width: 588px;
+  height: var(--eco-card-height);
+  display: flex;
+  flex-direction: column;
+  padding: var(--eco-card-padding);
+  box-sizing: border-box;
+  text-align: left;
+}
+
+/* Card image — absolute fill behind text */
+.ecosystem .eco-card-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+.ecosystem .eco-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Card header text */
+.ecosystem .eco-card-header {
+  position: relative;
+  z-index: 1;
+}
+
+.ecosystem .eco-card-header p {
+  font-size: 16px;
+  color: var(--eco-dark);
+  margin: 0 0 4px;
+}
+
+.ecosystem .eco-card-header h4 {
+  font-size: 32px;
+  color: var(--eco-dark);
+  margin: 0;
+  line-height: 1.1;
+}
+
+/* Card footer text */
+.ecosystem .eco-card-footer {
+  position: relative;
+  z-index: 1;
+  margin-top: auto;
+}
+
+.ecosystem .eco-card-footer p {
+  font-size: 16px;
+  color: var(--eco-dark);
+  margin: 0 0 8px;
+  line-height: 1.4;
+}
+
+.ecosystem .eco-card-footer p:last-child {
+  margin-bottom: 0;
+}
+
+/* Bottom area wrapper - dark bg simulating the sticky hero image */
+.ecosystem .ecosystem-bottom {
+  background: #2b2a80;
+  padding: 80px 48px 48px;
+  text-align: center;
+}
+
+/* Bottom heading */
+.ecosystem .ecosystem-bottom > div:first-child {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.ecosystem .ecosystem-bottom h5 {
+  font-size: 24px;
+  color: #fff;
+  margin: 0 0 16px;
+}
+
+.ecosystem .ecosystem-bottom h2 {
+  font-size: 48px;
+  color: #fff;
+  margin: 0;
+  line-height: 1.1;
+}
+
+/* CTA buttons row */
+.ecosystem .ecosystem-bottom > div:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 0 0;
+}
+
+/* Primary button (Find a Doctor) */
+main .ecosystem .ecosystem-bottom > div:nth-child(2) > div:first-child a.button:any-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: #000;
+  border: 2px solid #fff;
+  border-radius: 10000px;
+  padding: 16px 24px;
+  font-size: 18px;
+  font-weight: 400;
+  text-decoration: none;
+  white-space: nowrap;
+  margin: 0;
+}
+
+/* Secondary button (Take quiz) */
+main .ecosystem .ecosystem-bottom > div:nth-child(2) > div:nth-child(2) a.button:any-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 10000px;
+  padding: 16px 24px;
+  font-size: 18px;
+  font-weight: 400;
+  text-decoration: none;
+  white-space: nowrap;
+  margin: 0;
+}
+
+main .ecosystem .ecosystem-bottom .button-container {
+  display: inline;
+}
+
+/* Mobile */
+@media (max-width: 899px) {
+  .ecosystem > div:first-child {
+    padding: 0 16px;
+  }
+
+  .ecosystem > div:nth-child(2) {
+    padding: 0 16px;
+  }
+
+  .ecosystem > div:nth-child(2) p {
+    font-size: 40px;
+  }
+
+  .ecosystem .ecosystem-cards-grid {
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 16px 0;
+  }
+
+  .ecosystem .eco-card {
+    width: 100%;
+    height: auto;
+    min-height: 400px;
+    padding: 24px;
+  }
+
+  .ecosystem .ecosystem-bottom {
+    padding: 48px 16px;
+  }
+
+  .ecosystem .ecosystem-bottom h2 {
+    font-size: 32px;
+  }
+
+  .ecosystem .ecosystem-bottom > div:nth-child(2) {
+    flex-direction: column;
+  }
+}

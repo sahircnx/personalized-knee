@@ -1,3 +1,5 @@
+@import url('brand.css');
+
 /*
  * Copyright 2020 Adobe. All rights reserved.
  * This file is licensed to you under the Apache License, Version 2.0 (the "License");
@@ -20,9 +22,9 @@
   --link-hover-color: #2b2a80;
 
   /* fonts */
-  --body-font-family: 'Popins Regular', sans-serif;
-  --heading-font-family: 'Popins Medium', sans-serif;
-  --bold-font-family: 'Popins Bold', sans-serif;
+  --body-font-family: "Poppins", sans-serif;
+  --heading-font-family: "Poppins", sans-serif;
+  --bold-font-family: "Poppins", sans-serif;
 
   /* body sizes */
   --body-font-size-m: 18px;
@@ -39,6 +41,13 @@
 
   /* nav height */
   --nav-height: 104px;
+}
+
+main .button-container { display: inline; }
+main a.button:any-link {
+  background: none; border: none; border-radius: 0;
+  color: var(--link-color); font-size: inherit; font-weight: inherit;
+  padding: 0; margin: 0; text-decoration: underline; white-space: normal;
 }
 
 @media (width >=960px) {

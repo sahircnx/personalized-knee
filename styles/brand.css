@@ -1,0 +1,12 @@
+:root {
+  --heading-font-family: "Poppins", sans-serif;
+  --body-font-family: "Poppins", sans-serif;
+  --background-color: #ffffff;
+  --text-color: rgb(43, 42, 128);
+  --link-color: rgb(43, 42, 128);
+  --link-hover-color: rgb(43, 42, 128);
+  --section-padding: 0px;
+  --nav-height: 80px;
+}
+
+html, body { overflow: auto !important; }
