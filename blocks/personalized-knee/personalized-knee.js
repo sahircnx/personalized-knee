@@ -1,81 +1,107 @@
 export default async function decorate(block) {
   const rows = [...block.children];
 
-  // Row 0: heading
-  // Row 1: body text
-  // Row 2: gif image
-  // Row 3: cards heading
-  // Row 4: card pair 1 (icon, text, icon, text)
-  // Row 5: card pair 2 (icon, text, icon, text)
-  // Row 6: disclaimer
-  // Row 7: CTA button
+  // Authored row structure:
+  // Row 0: h2 heading
+  // Row 1: *Compared to... footnote (small text, belongs with heading)
+  // Row 2: h5 body paragraph
+  // Row 3: gif image
+  // Row 4: cards section heading ("Why The Personalized Knee...")
+  // Row 5: disclaimer text
+  // Row 6: empty (spacer)
+  // Row 7: CTA button ("Explore the Persona Knee")
+  // Rows 8+: icon cards (3 cols: icon, title, description)
 
-  // Build the cards section (rows 3-5)
-  if (rows.length >= 6) {
-    const cardsHeadingRow = rows[3];
-    const cardRow1 = rows[4];
-    const cardRow2 = rows[5];
+  // Tag heading rows
+  if (rows[0]) rows[0].classList.add('heading-row');
+  if (rows[1]) rows[1].classList.add('body-row');  // *Compared footnote sits under heading
+  if (rows[2]) rows[2].classList.add('gif-row');   // h5 body text
+  if (rows[3]) rows[3].classList.add('gif-row');   // actual gif image — merge with body
 
-    // Create the blue cards container
+  // Merge footnote into heading row so it renders beneath the h2
+  if (rows[1]) {
+    rows[0].appendChild(rows[1].firstElementChild || rows[1]);
+    rows[1].remove();
+  }
+
+  // Re-read rows after removal
+  const updatedRows = [...block.children];
+
+  // updatedRows[0] = heading-row (h2 + footnote)
+  // updatedRows[1] = gif-row (h5 body)
+  // updatedRows[2] = gif-row (gif image)
+  // updatedRows[3] = cards heading
+  // updatedRows[4] = disclaimer
+  // updatedRows[5] = empty spacer
+  // updatedRows[6] = CTA
+  // updatedRows[7+] = icon cards
+
+  const cardsHeadingRow = updatedRows[3];
+  const disclaimerRow = updatedRows[4];
+  const ctaRow = updatedRows[6];
+  const iconCardRows = updatedRows.slice(7);
+
+  // Build cards section
+  if (cardsHeadingRow && iconCardRows.length > 0) {
     const cardsSection = document.createElement('div');
     cardsSection.classList.add('cards-section');
 
-    // Add the cards heading
+    // Cards heading
     const cardsHeading = document.createElement('div');
     cardsHeading.classList.add('cards-heading');
-    cardsHeading.innerHTML = cardsHeadingRow.querySelector('div').innerHTML;
+    cardsHeading.innerHTML = cardsHeadingRow.querySelector('div')?.innerHTML || cardsHeadingRow.innerHTML;
     cardsSection.appendChild(cardsHeading);
 
-    // Build the 2x2 grid
+    // Cards grid — each icon card row has 3 cells: icon, title, description
     const cardsGrid = document.createElement('div');
     cardsGrid.classList.add('cards-grid');
 
-    // Process card pairs (each row has: icon, text, icon, text = 4 cells)
-    [cardRow1, cardRow2].forEach((row) => {
+    iconCardRows.forEach((row) => {
       const cells = [...row.children];
-      for (let i = 0; i < cells.length; i += 2) {
-        const card = document.createElement('div');
-        card.classList.add('card');
+      const card = document.createElement('div');
+      card.classList.add('card');
 
-        const iconCell = cells[i];
-        const textCell = cells[i + 1];
-
-        if (iconCell) {
-          const iconWrap = document.createElement('div');
-          iconWrap.classList.add('card-icon');
-          iconWrap.innerHTML = iconCell.innerHTML;
-          card.appendChild(iconWrap);
-        }
-
-        if (textCell) {
-          const textWrap = document.createElement('div');
-          textWrap.classList.add('card-text');
-          textWrap.innerHTML = textCell.innerHTML;
-          card.appendChild(textWrap);
-        }
-
-        cardsGrid.appendChild(card);
+      const iconCell = cells[0];
+      if (iconCell) {
+        const iconWrap = document.createElement('div');
+        iconWrap.classList.add('card-icon');
+        iconWrap.innerHTML = iconCell.innerHTML;
+        card.appendChild(iconWrap);
       }
+
+      // Title (cell 1) + description (cell 2) go into card-text
+      if (cells[1] || cells[2]) {
+        const textWrap = document.createElement('div');
+        textWrap.classList.add('card-text');
+        if (cells[1]) {
+          const strong = document.createElement('p');
+          strong.innerHTML = `<strong>${cells[1].textContent.trim()}</strong>`;
+          textWrap.appendChild(strong);
+        }
+        if (cells[2]) {
+          const p = document.createElement('p');
+          p.textContent = cells[2].textContent.trim();
+          textWrap.appendChild(p);
+        }
+        card.appendChild(textWrap);
+      }
+
+      cardsGrid.appendChild(card);
     });
 
     cardsSection.appendChild(cardsGrid);
 
-    // Replace rows 3-5 with the cards section
+    // Replace cards heading row with assembled section; remove icon rows
     cardsHeadingRow.replaceWith(cardsSection);
-    cardRow1.remove();
-    cardRow2.remove();
+    iconCardRows.forEach((row) => row.remove());
   }
 
-  // Tag specific rows for styling
-  if (rows[0]) rows[0].classList.add('heading-row');
-  if (rows[1]) rows[1].classList.add('body-row');
-  if (rows[2]) rows[2].classList.add('gif-row');
-
-  // Tag disclaimer and CTA (they shifted after removal)
-  const remaining = [...block.children];
-  const disclaimerRow = remaining.find((r) => r.querySelector('p') && r.textContent.includes('Not all patients'));
+  // Tag disclaimer and CTA
   if (disclaimerRow) disclaimerRow.classList.add('disclaimer-row');
-
-  const ctaRow = remaining.find((r) => r.querySelector('a') && r.textContent.includes('Explore'));
   if (ctaRow) ctaRow.classList.add('cta-row');
+
+  // Remove empty spacer row
+  if (updatedRows[5] && !updatedRows[5].textContent.trim()) {
+    updatedRows[5].remove();
+  }
 }

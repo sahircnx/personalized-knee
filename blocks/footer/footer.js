@@ -119,7 +119,7 @@ export default async function decorate(block) {
     const hasH4 = section.querySelector('h4');
     const hasUl = section.querySelector('ul');
     const hasPictures = section.querySelectorAll('picture').length > 0;
-    const hasCopyright = section.textContent.includes('Â©');
+    const hasCopyright = section.textContent.includes('©');
     const hasLongText = [...section.querySelectorAll('p')].some(
       (p) => p.textContent.length > 200,
     );

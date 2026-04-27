@@ -1,10 +1,14 @@
 export default async function decorate(block) {
   const rows = [...block.children];
 
-  // Split rows into two tracks: first 3 cards → row 1, next 3 → row 2
-  const midpoint = Math.ceil(rows.length / 2);
-  const track1Cards = rows.slice(0, midpoint);
-  const track2Cards = rows.slice(midpoint);
+  // Skip header rows (rows that have no image and only 1 col of text)
+  // Card rows have an image in cell 0; header rows are plain text rows.
+  const cardRows = rows.filter((row) => row.querySelector('img'));
+
+  // Split cards into two tracks: first half → row 1, second half → row 2
+  const midpoint = Math.ceil(cardRows.length / 2);
+  const track1Cards = cardRows.slice(0, midpoint);
+  const track2Cards = cardRows.slice(midpoint);
 
   function buildCard(row) {
     const cells = [...row.children];
@@ -18,17 +22,28 @@ export default async function decorate(block) {
       card.style.backgroundImage = `url(${img.src})`;
     }
 
-    // Cell 1: text content (h5 + p)
-    const textCell = cells[1];
-    if (textCell) {
+    // Cell 1: title text
+    // Cell 2: description text
+    const titleCell = cells[1];
+    const descCell = cells[2];
+    if (titleCell || descCell) {
       const textDiv = document.createElement('div');
       textDiv.className = 'marquee-card-text';
-      textDiv.innerHTML = textCell.innerHTML;
+      if (titleCell) {
+        const h5 = document.createElement('h5');
+        h5.textContent = titleCell.textContent.trim();
+        textDiv.appendChild(h5);
+      }
+      if (descCell && descCell.textContent.trim()) {
+        const p = document.createElement('p');
+        p.textContent = descCell.textContent.trim();
+        textDiv.appendChild(p);
+      }
       card.appendChild(textDiv);
     }
 
-    // Cell 2: link (convert to arrow button)
-    const linkCell = cells[2];
+    // Cell 3: link (convert to arrow button)
+    const linkCell = cells[3];
     const link = linkCell?.querySelector('a');
     if (link) {
       const arrow = document.createElement('a');
