@@ -1,140 +1,219 @@
-/* Knee Stories Block */
-.knee-stories-wrapper {
+/* ============================================================
+   Knee Stories Block
+   Matches production: www.thepersonalizedknee.com/en
+   ============================================================ */
+
+/* Full-width override */
+main > .section:has(.knee-stories-wrapper) {
+  padding: 0 !important;
+}
+main > .section:has(.knee-stories-wrapper) > div {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+.knee-stories-container .knee-stories-wrapper {
   max-width: 100% !important;
   padding: 0 !important;
 }
 
+/* Block root */
 .knee-stories {
-  --block-bg: #f1faff;
-  --block-text: #2b2a80;
-  --block-padding: 144px 0;
-  --card-radius: 24px;
-  --card-width: 317px;
-  --card-height: 443px;
+  --ks-dark: #2b2a80;
+  --ks-card-w: 317px;
+  --ks-card-h: 443px;
+  --ks-card-radius: 24px;
+  --ks-gap: 22px;
 
   background: url('/drafts/images/knee-stories-background.png') center / cover no-repeat;
-  color: var(--block-text);
-  padding: var(--block-padding);
-  text-align: center;
+  color: var(--ks-dark);
+  padding: 144px 0;
   overflow: hidden;
 }
 
-/* Header row */
-.knee-stories > div:first-child {
-  max-width: 900px;
-  margin: 0 auto 40px;
-  padding: 0 24px;
+/* ── Header ── */
+.knee-stories .ks-header {
+  max-width: 1008px;
+  margin: 0 auto 56px;
+  padding: 0 24px 24px;
+  text-align: center;
 }
 
-.knee-stories > div:first-child h5 {
-  font-size: var(--heading-font-size-s, 24px);
+.knee-stories .ks-header h5 {
+  font-size: 24px;
   font-weight: 400;
-  margin-bottom: 12px;
-  color: var(--block-text);
+  color: var(--ks-dark);
+  margin: 0 0 32px;
+  line-height: 1.2;
+  font-family: var(--body-font-family, sans-serif);
 }
 
-.knee-stories > div:first-child h1 {
-  font-size: var(--heading-font-size-xxl, 64px);
+.knee-stories .ks-header h1 {
+  font-size: 64px;
   font-weight: 500;
-  margin-bottom: 24px;
-  color: var(--block-text);
+  color: var(--ks-dark);
+  margin: 0 0 40px;
   line-height: 1.1;
+  font-family: var(--heading-font-family, sans-serif);
 }
 
-/* CTA button override */
-main .knee-stories .button-container {
+/* CTA button */
+main .knee-stories .ks-header .button-container {
   display: inline-block;
+  margin: 0;
 }
 
-main .knee-stories a.button:any-link {
-  background-color: var(--block-text);
+main .knee-stories .ks-header a.button:any-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ks-dark);
   color: #fff;
-  border: 2px solid var(--block-text);
+  border: 2px solid var(--ks-dark);
   border-radius: 10000px;
   padding: 16px 24px;
   font-size: 18px;
   font-weight: 400;
   text-decoration: none;
-  text-align: center;
-  display: inline-block;
   white-space: nowrap;
-  margin: 0;
+  cursor: pointer;
+  line-height: 1.25;
+  font-family: var(--body-font-family, sans-serif);
+  transition: background-color 0.2s, border-color 0.2s;
 }
 
-main .knee-stories a.button:hover {
-  background-color: #1a1960;
+main .knee-stories .ks-header a.button:hover:any-link {
+  background: #1a1960;
   border-color: #1a1960;
 }
 
-/* Card track (marquee container) */
-.knee-stories .cards-track {
-  display: flex;
-  gap: 20px;
-  animation: knee-stories-scroll 40s linear infinite;
-  width: max-content;
-  padding: 0 10px;
-}
-
-.knee-stories .cards-track:hover {
-  animation-play-state: paused;
-}
-
-/* Individual cards */
-.knee-stories .card {
-  flex: 0 0 var(--card-width);
-  width: var(--card-width);
-  height: var(--card-height);
-  border-radius: var(--card-radius);
+/* ── Track wrapper (clips overflow) ── */
+.knee-stories .ks-track-wrapper {
   overflow: hidden;
-  position: relative;
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
+  width: 100%;
+  cursor: default;
 }
 
-.knee-stories .card-text {
+/* ── Scrolling track ── */
+.knee-stories .ks-track {
+  display: flex;
+  gap: var(--ks-gap);
+  width: max-content;
+  will-change: transform;
+}
+
+/* ── Individual card ── */
+.knee-stories .ks-card {
+  position: relative;
+  flex: 0 0 var(--ks-card-w);
+  width: var(--ks-card-w);
+  height: var(--ks-card-h);
+  border-radius: var(--ks-card-radius);
+  overflow: hidden;
+  background: #f0faff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* Card background picture */
+.knee-stories .ks-card picture {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  inset: 0;
+  z-index: 0;
+}
+
+.knee-stories .ks-card picture img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Gradient overlay over photo */
+.knee-stories .ks-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to top,
+    rgb(0 0 50 / 80%) 0%,
+    rgb(0 0 50 / 35%) 45%,
+    transparent 75%
+  );
+  border-radius: var(--ks-card-radius);
+  pointer-events: none;
+}
+
+/* Card text overlay */
+.knee-stories .ks-card-text {
+  position: relative;
+  z-index: 2;
   padding: 24px;
   text-align: left;
-  background: linear-gradient(to top, rgba(0, 0, 50, 0.75) 0%, rgba(0, 0, 50, 0.35) 45%, transparent 100%);
 }
 
-.knee-stories .card-text h5 {
-  color: #fff;
+.knee-stories .ks-card-text h5 {
   font-size: 24px;
   font-weight: 400;
-  margin: 0 0 4px;
-  line-height: 1.2;
-}
-
-.knee-stories .card-text p {
-  color: #b2d9ef;
-  font-size: 18px;
+  color: #fff;
   margin: 0;
+  line-height: 1.2;
+  font-family: var(--body-font-family, sans-serif);
 }
 
-@keyframes knee-stories-scroll {
-  0% {
-    transform: translateX(0);
-  }
+.knee-stories .ks-card-text p {
+  font-size: 18px;
+  font-weight: 400;
+  color: #b2d9ef;
+  margin: 16px 0 0;
+  line-height: 1.2;
+  font-family: var(--body-font-family, sans-serif);
+}
 
-  100% {
-    transform: translateX(-50%);
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .knee-stories .ks-track {
+    will-change: auto;
   }
 }
 
-/* Mobile adjustments */
+/* ── Mobile (< 900px) ── */
 @media (max-width: 899px) {
   .knee-stories {
-    --block-padding: 64px 0;
-    --card-width: 240px;
-    --card-height: 336px;
+    --ks-card-w: 240px;
+    --ks-card-h: 336px;
+    padding: 64px 0;
   }
 
-  .knee-stories > div:first-child h1 {
-    font-size: var(--heading-font-size-xl, 40px);
+  .knee-stories .ks-header {
+    margin-bottom: 32px;
+  }
+
+  .knee-stories .ks-header h1 {
+    font-size: 40px;
+  }
+
+  .knee-stories .ks-header h5 {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .knee-stories .ks-card-text h5 {
+    font-size: 18px;
+  }
+
+  .knee-stories .ks-card-text p {
+    font-size: 14px;
+    margin-top: 8px;
+  }
+}
+
+/* ── Desktop (>= 900px) ── */
+@media (min-width: 900px) {
+  .knee-stories {
+    --ks-card-w: 318px;
+    --ks-card-h: 444px;
   }
 }
