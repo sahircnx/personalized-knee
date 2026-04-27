@@ -1,197 +1,237 @@
-/* Ecosystem Block */
-.ecosystem {
-  --eco-dark: #2b2a80;
-  --eco-card-bg: #f0faff;
-  --eco-card-radius: 24px;
-  --eco-card-padding: 40px 56px;
-  --eco-card-height: 600px;
-  --eco-gap: 22px;
+/* ============================================================
+   Ecosystem Block
+   Matches production: www.thepersonalizedknee.com/en
+   ============================================================ */
 
-  color: var(--eco-dark);
-  text-align: center;
-  position: relative;
+/* Full-width, no section padding */
+main > .section:has(.ecosystem-wrapper) {
+  padding: 0 !important;
 }
-
-/* Full-width override */
-.ecosystem-wrapper {
+main > .section:has(.ecosystem-wrapper) > div {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+.ecosystem-container .ecosystem-wrapper {
   max-width: 100% !important;
   padding: 0 !important;
 }
 
-/* Row 1: Hero image (sticky behind content) */
-.ecosystem > div:first-child {
+/* Block root */
+.ecosystem {
+  --eco-dark: #2b2a80;
+  --eco-card-bg: #f0faff;
+  --eco-card-radius: 24px;
+  --eco-card-w: 588px;
+  --eco-card-h: 600px;
+  --eco-card-gap: 32px;
+  --eco-col-gap: 22px;
+  --eco-side-pad: 48px;
+
+  position: relative;
+  width: 100%;
+  color: var(--eco-dark);
+}
+
+/* ── Background image (sticky parallax) ── */
+.eco-bg {
   position: sticky;
   top: 88px;
   z-index: 0;
-  padding: 0 48px;
+  margin: 0 var(--eco-side-pad);
+  border-radius: 24px;
+  overflow: hidden;
+  line-height: 0;
 }
 
-.ecosystem > div:first-child img {
+.eco-bg picture {
+  display: block;
+  width: 100%;
+}
+
+.eco-bg img {
+  display: block;
   width: 100%;
   height: auto;
-  display: block;
-  border-radius: 24px;
+  will-change: transform;
 }
 
-/* Row 2: Hero heading overlay */
-.ecosystem > div:nth-child(2) {
+/* ── Large heading overlay ── */
+.eco-heading {
   position: relative;
   z-index: 1;
-  padding: 0 48px;
-  margin-top: -200px;
-  text-align: left;
+  /* Pull up over the bg image so heading text sits ~52% down the image.
+     Value derived from production: margin ≈ -(bg_height + 88_sticky_offset - 474_target_top)
+     At 1440px viewport: -(724 + 88 - 474) = -338px. Tuned to match. */
+  margin-top: -340px;
+  padding: 0 var(--eco-side-pad);
+  pointer-events: none;
 }
 
-.ecosystem > div:nth-child(2) p {
+.eco-heading p,
+.eco-heading div {
   font-size: 80px;
   font-weight: 400;
   line-height: 1;
   color: #fff;
   margin: 0;
+  font-family: var(--heading-font-family, sans-serif);
 }
 
-/* Cards grid (child 3 after JS restructure) */
-.ecosystem > .ecosystem-cards-grid {
+/* ── Cards grid ── */
+.eco-cards-grid {
   position: relative;
   z-index: 1;
-}
-
-/* Cards container layout — 2-column grid */
-.ecosystem .ecosystem-cards-grid {
   display: flex;
   flex-direction: row;
-  gap: var(--eco-gap);
-  justify-content: center;
+  gap: var(--eco-col-gap);
   align-items: flex-start;
-  padding: 48px 48px 0;
+  padding: 48px var(--eco-side-pad) 0;
 }
 
-/* Left column: 2 stacked cards */
-.ecosystem .ecosystem-cards-left {
+/* Left column: two stacked cards */
+.eco-cards-left {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: var(--eco-card-gap);
+  flex-shrink: 0;
 }
 
-/* Right column: 1 card — centered vertically */
-.ecosystem .ecosystem-cards-right {
-  display: flex;
-  flex-direction: column;
-  align-self: center;
+/* Right column: one card, vertically centred alongside the two left cards */
+.eco-cards-right {
+  flex-shrink: 0;
+  /* Offset = (left_col_total_height - card_height) / 2 = (2×600 + 32 - 600) / 2 = 316px */
+  margin-top: calc((var(--eco-card-h) + var(--eco-card-gap)) / 2);
 }
 
-/* Each card */
-.ecosystem .eco-card {
+/* Individual card */
+.eco-card {
+  position: relative;
+  width: var(--eco-card-w);
+  height: var(--eco-card-h);
   background: var(--eco-card-bg);
   border-radius: var(--eco-card-radius);
-  overflow: hidden;
-  position: relative;
-  width: 588px;
-  height: var(--eco-card-height);
+  overflow: visible;
   display: flex;
   flex-direction: column;
-  padding: var(--eco-card-padding);
+  justify-content: space-between;
+  padding: 40px 56px;
   box-sizing: border-box;
-  text-align: left;
 }
 
 /* Card image — absolute fill behind text */
-.ecosystem .eco-card-image {
+.eco-card-image {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   z-index: 0;
+  border-radius: var(--eco-card-radius);
+  overflow: hidden;
 }
 
-.ecosystem .eco-card-image img {
+.eco-card-image picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.eco-card-image img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center bottom;
 }
 
-/* Card header text */
-.ecosystem .eco-card-header {
+/* Card header — top-left */
+.eco-card-header {
   position: relative;
   z-index: 1;
 }
 
-.ecosystem .eco-card-header p {
+.eco-card-label {
   font-size: 16px;
+  font-weight: 400;
   color: var(--eco-dark);
-  margin: 0 0 4px;
+  margin: 0 0 8px;
+  font-family: var(--body-font-family, sans-serif);
 }
 
-.ecosystem .eco-card-header h4 {
+.eco-card-header h4 {
   font-size: 32px;
+  font-weight: 400;
   color: var(--eco-dark);
   margin: 0;
   line-height: 1.1;
+  font-family: var(--heading-font-family, sans-serif);
 }
 
-/* Card footer text */
-.ecosystem .eco-card-footer {
+/* Card footer — bottom-left */
+.eco-card-footer {
   position: relative;
   z-index: 1;
-  margin-top: auto;
 }
 
-.ecosystem .eco-card-footer p {
-  font-size: 16px;
+.eco-card-footer p {
+  font-size: 18px;
+  font-weight: 400;
   color: var(--eco-dark);
-  margin: 0 0 8px;
   line-height: 1.4;
+  margin: 0 0 16px;
+  font-family: var(--body-font-family, sans-serif);
 }
 
-.ecosystem .eco-card-footer p:last-child {
+.eco-card-footer p:last-child {
   margin-bottom: 0;
 }
 
-/* Bottom area wrapper - dark bg simulating the sticky hero image */
-.ecosystem .ecosystem-bottom {
-  background: #2b2a80;
-  padding: 80px 48px 48px;
+/* ── Bottom text + CTA section ── */
+.eco-bottom {
+  position: relative;
+  z-index: 1;
+  /* Large top padding to keep content over the sticky bg image and create
+     the parallax "reveal" effect. Matches production: 285px + 88px header. */
+  padding: 285px var(--eco-side-pad) 72px;
+}
+
+.eco-bottom-text {
+  max-width: 880px;
+  margin: 0 auto 30px;
   text-align: center;
 }
 
-/* Bottom heading */
-.ecosystem .ecosystem-bottom > div:first-child {
-  max-width: 880px;
-  margin: 0 auto;
-  padding: 0;
-}
-
-.ecosystem .ecosystem-bottom h5 {
+.eco-bottom h5 {
   font-size: 24px;
+  font-weight: 400;
   color: #fff;
-  margin: 0 0 16px;
+  margin: 0 0 12px;
+  font-family: var(--body-font-family, sans-serif);
 }
 
-.ecosystem .ecosystem-bottom h2 {
+.eco-bottom h2 {
   font-size: 48px;
+  font-weight: 400;
   color: #fff;
   margin: 0;
   line-height: 1.1;
+  font-family: var(--heading-font-family, sans-serif);
 }
 
 /* CTA buttons row */
-.ecosystem .ecosystem-bottom > div:nth-child(2) {
+.eco-bottom-btns {
   display: flex;
   flex-direction: row;
   gap: 16px;
   justify-content: center;
   align-items: center;
-  padding: 32px 0 0;
+  flex-wrap: wrap;
 }
 
-/* Primary button (Find a Doctor) */
-main .ecosystem .ecosystem-bottom > div:nth-child(2) > div:first-child a.button:any-link {
+/* Primary CTA */
+main .ecosystem .eco-btn-primary:any-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   background: #fff;
-  color: #000;
+  color: #2b2a80;
   border: 2px solid #fff;
   border-radius: 10000px;
   padding: 16px 24px;
@@ -199,11 +239,18 @@ main .ecosystem .ecosystem-bottom > div:nth-child(2) > div:first-child a.button:
   font-weight: 400;
   text-decoration: none;
   white-space: nowrap;
-  margin: 0;
+  cursor: pointer;
+  line-height: 1.25;
+  font-family: var(--body-font-family, sans-serif);
+  transition: background-color 0.2s, color 0.2s;
 }
 
-/* Secondary button (Take quiz) */
-main .ecosystem .ecosystem-bottom > div:nth-child(2) > div:nth-child(2) a.button:any-link {
+main .ecosystem .eco-btn-primary:hover:any-link {
+  background: rgb(255 255 255 / 90%);
+}
+
+/* Secondary CTA */
+main .ecosystem .eco-btn-secondary:any-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -216,49 +263,89 @@ main .ecosystem .ecosystem-bottom > div:nth-child(2) > div:nth-child(2) a.button
   font-weight: 400;
   text-decoration: none;
   white-space: nowrap;
-  margin: 0;
+  cursor: pointer;
+  line-height: 1.25;
+  font-family: var(--body-font-family, sans-serif);
+  transition: background-color 0.2s, color 0.2s;
 }
 
-main .ecosystem .ecosystem-bottom .button-container {
-  display: inline;
+main .ecosystem .eco-btn-secondary:hover:any-link {
+  background: rgb(255 255 255 / 15%);
 }
 
-/* Mobile */
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .eco-bg img {
+    will-change: auto;
+  }
+}
+
+/* ── Mobile (< 900px) ── */
 @media (max-width: 899px) {
-  .ecosystem > div:first-child {
-    padding: 0 16px;
+  .ecosystem {
+    --eco-side-pad: 16px;
+    --eco-card-w: 100%;
+    --eco-card-h: auto;
   }
 
-  .ecosystem > div:nth-child(2) {
-    padding: 0 16px;
+  .eco-bg {
+    position: relative;
+    top: 0;
+    margin: 0;
+    border-radius: 0;
   }
 
-  .ecosystem > div:nth-child(2) p {
+  .eco-bg img {
+    border-radius: 0;
+  }
+
+  .eco-heading {
+    margin-top: -80px;
+    padding: 0 var(--eco-side-pad) 32px;
+  }
+
+  .eco-heading p,
+  .eco-heading div {
     font-size: 40px;
   }
 
-  .ecosystem .ecosystem-cards-grid {
+  .eco-cards-grid {
     flex-direction: column;
-    align-items: center;
-    padding: 24px 16px 0;
+    align-items: stretch;
+    padding: 24px var(--eco-side-pad) 0;
   }
 
-  .ecosystem .eco-card {
-    width: 100%;
-    height: auto;
+  .eco-cards-right {
+    margin-top: 0;
+  }
+
+  .eco-card {
     min-height: 400px;
-    padding: 24px;
   }
 
-  .ecosystem .ecosystem-bottom {
-    padding: 48px 16px;
+  .eco-bottom {
+    padding: 48px var(--eco-side-pad) 48px;
   }
 
-  .ecosystem .ecosystem-bottom h2 {
+  .eco-bottom h2 {
     font-size: 32px;
   }
 
-  .ecosystem .ecosystem-bottom > div:nth-child(2) {
+  .eco-bottom-btns {
     flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* ── Desktop tuning ── */
+@media (min-width: 900px) and (max-width: 1199px) {
+  .eco-heading {
+    margin-top: -280px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .eco-heading {
+    margin-top: -360px;
   }
 }
