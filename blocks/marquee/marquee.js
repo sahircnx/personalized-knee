@@ -1,9 +1,30 @@
 export default async function decorate(block) {
   const rows = [...block.children];
 
-  // Skip header rows (rows that have no image and only 1 col of text)
-  // Card rows have an image in cell 0; header rows are plain text rows.
+  // Separate header rows (no image) from card rows (have an image).
+  const headerRows = rows.filter((row) => !row.querySelector('img'));
   const cardRows = rows.filter((row) => row.querySelector('img'));
+
+  // Build heading/description section from header rows (appended after clear below)
+  let intro = null;
+  if (headerRows.length) {
+    intro = document.createElement('div');
+    intro.className = 'marquee-intro';
+    headerRows.forEach((row) => {
+      const text = row.textContent.trim();
+      if (!text) return;
+      // First header row → h2, subsequent → p
+      if (!intro.children.length) {
+        const h2 = document.createElement('h2');
+        h2.textContent = text;
+        intro.appendChild(h2);
+      } else {
+        const p = document.createElement('p');
+        p.textContent = text;
+        intro.appendChild(p);
+      }
+    });
+  }
 
   // Split cards into two tracks: first half → row 1, second half → row 2
   const midpoint = Math.ceil(cardRows.length / 2);
@@ -72,6 +93,8 @@ export default async function decorate(block) {
 
   // Clear block and rebuild
   block.textContent = '';
+
+  if (intro) block.appendChild(intro);
 
   const track1 = buildTrack(track1Cards, false);
   const track2 = buildTrack(track2Cards, true);

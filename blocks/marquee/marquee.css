@@ -30,6 +30,30 @@ main > .section:has(.marquee-wrapper) .default-content-wrapper h5 {
   margin-top: 8px;
 }
 
+/* Heading + description rendered inside the block */
+.marquee .marquee-intro {
+  padding: 80px 24px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.marquee .marquee-intro h2 {
+  font-size: var(--heading-font-size-l, 36px);
+  font-weight: 500;
+  color: #2b2a80;
+  margin: 0 0 12px;
+  line-height: 1.15;
+}
+
+.marquee .marquee-intro p {
+  font-size: var(--body-font-size-m, 18px);
+  font-weight: 400;
+  color: #2b2a80;
+  margin: 0;
+  line-height: 1.5;
+}
+
 .marquee {
   --marquee-card-bg: #f0faff;
   --marquee-card-radius: 32px;
