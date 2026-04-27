@@ -1,9 +1,14 @@
-/* Hero Carousel Block */
-main>.section:has(.hero-wrapper) {
+/* ============================================================
+   Hero Banner Carousel Block
+   Matches production: www.thepersonalizedknee.com/en
+   ============================================================ */
+
+/* Remove section padding so carousel is edge-to-edge */
+main > .section:has(.hero-wrapper) {
   padding: 0 !important;
 }
 
-main>.section:has(.hero-wrapper)>div {
+main > .section:has(.hero-wrapper) > div {
   max-width: 100% !important;
   padding: 0 !important;
 }
@@ -13,162 +18,259 @@ main>.section:has(.hero-wrapper)>div {
   padding: 0 !important;
 }
 
+/* ---- Block root ---- */
 .hero {
   position: relative;
+  width: 100%;
   overflow: hidden;
 }
 
-/* Slide (row) */
-.hero>div {
+/* ---- Slides wrapper ---- */
+.hero-slides {
   position: relative;
-  display: none;
+  width: 100%;
   min-height: 600px;
-  padding: 200px 48px 120px;
-  box-sizing: border-box;
-  color: #fff;
-  text-align: left;
 }
 
-.hero>div.active {
-  display: block;
+/* ---- Individual slide ---- */
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  pointer-events: none;
+  min-height: 600px;
 }
 
-/* Background image cell */
-.hero>div>div:first-child {
+.hero-slide.active {
+  position: relative;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ---- Background image ---- */
+.hero-bg {
   position: absolute;
   inset: 0;
   z-index: 0;
 }
 
-.hero>div>div:first-child picture,
-.hero>div>div:first-child img {
+.hero-bg picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-bg img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
-/* Text content cell */
-.hero>div>div:last-child {
+/* ---- Content overlay ---- */
+.hero-content {
   position: relative;
-  z-index: 1;
-  max-width: 1200px;
-  margin: 0 auto;
+  z-index: 2;
+  padding: 180px 24px 58px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 600px;
+  box-sizing: border-box;
 }
 
-/* Heading (h4) */
-.hero h4 {
+/* ---- Text group ---- */
+.hero-text {
+  max-width: 1200px;
+}
+
+/* Small eyebrow (h4) */
+.hero-text h4 {
   font-size: 24px;
   font-weight: 500;
   color: #fff;
-  margin-bottom: 8px;
+  line-height: 1.1;
+  margin: 0 0 8px;
+  font-family: var(--body-font-family, sans-serif);
 }
 
 /* Large tagline (p) */
-.hero>div>div:last-child>p:first-of-type {
-  font-size: 80px;
+.hero-text p {
+  font-size: 72px;
   font-weight: 400;
   line-height: 1;
-  letter-spacing: -1.5px;
   color: #fff;
   margin: 0 0 8px;
+  font-family: var(--heading-font-family, sans-serif);
 }
 
 /* Subtitle (h5) */
-.hero h5 {
+.hero-text h5 {
   font-size: 18px;
   font-weight: 400;
   color: #fff;
+  line-height: 1.4;
+  margin: 0 0 24px;
+  font-family: var(--body-font-family, sans-serif);
+}
+
+/* ---- CTA group ---- */
+.hero-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   margin-bottom: 24px;
 }
 
-/* Button containers */
-main .hero .button-container {
-  display: inline-block !important;
-  margin-right: 12px;
-  margin-bottom: 12px;
-}
-
-/* Both buttons - shared base (primary) */
-main .hero a.button:any-link {
-  background: #fff;
-  color: #2b2a80;
-  border: 2px solid #fff;
-  border-radius: 10000px;
-  padding: 16px 24px;
-  font-size: 18px;
-  font-weight: 400;
-  text-decoration: none;
-  display: inline-block;
-  white-space: nowrap;
+.hero-cta p {
   margin: 0;
 }
 
-/* Secondary button (second .button-container) */
-main .hero .button-container+.button-container a.button:any-link {
+/* Primary button */
+main .hero .hero-cta a.button:any-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  border-radius: 10000px;
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+  background: #fff;
+  color: #2b2a80;
+  border: 2px solid #fff;
+  white-space: nowrap;
+  cursor: pointer;
+  line-height: 1.25;
+  margin: 0;
+  font-family: var(--body-font-family, sans-serif);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+main .hero .hero-cta a.button:hover:any-link {
+  background: rgb(255 255 255 / 90%);
+  text-decoration: none;
+}
+
+/* Secondary button */
+main .hero .hero-cta a.button.secondary:any-link {
   background: rgba(255, 247, 240, 0.3);
   color: #fff;
   border: 2px solid #fff;
 }
 
-/* Footnote (em paragraph at bottom) */
-.hero>div>div:last-child>p:last-child {
-  position: absolute;
-  bottom: -80px;
-  right: 0;
-  font-size: 14px;
-  font-style: italic;
+main .hero .hero-cta a.button.secondary:hover:any-link {
+  background: rgba(255, 247, 240, 0.45);
+}
+
+/* ---- Attribution / footnote ---- */
+.hero-attribution {
+  margin-top: 4px;
+}
+
+.hero-attribution p {
   color: #fff;
+  font-size: 14px;
+  font-style: normal;
+  line-height: 1.4;
+  margin: 0;
   opacity: 0.9;
 }
 
-/* Carousel indicators */
-.hero .hero-indicators {
-  display: flex;
-  gap: 8px;
+/* ---- Indicators (vertical, right-side) ---- */
+.hero-indicators {
   position: absolute;
-  bottom: 24px;
-  right: 1rem;
-  z-index: 2;
-  padding: 0;
-  top: 50%;
+  right: 40px;
+  top: 0;
+  bottom: 0;
+  display: flex;
   flex-direction: column;
+  justify-content: center;
+  gap: 9px;
+  z-index: 3;
 }
 
-.hero .hero-indicators button {
-  width: 12px;
-  height: 12px;
+.hero-indicator {
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.5);
+  background: #fff;
   border: none;
   padding: 0;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: height 0.3s ease, border-radius 0.3s ease;
+  outline: none;
   margin: 0;
+  min-width: unset;
+  min-height: unset;
+  flex-shrink: 0;
 }
 
-.hero .hero-indicators button.active {
-  background: #fff;
+.hero-indicator.active {
+  height: 48px;
+  border-radius: 8px;
 }
 
-/* Desktop */
-@media (width >=900px) {
-  .hero>div {
+.hero-indicator:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide {
+    transition: none;
+  }
+  .hero-indicator {
+    transition: none;
+  }
+}
+
+/* ---- Desktop (>= 900px) ---- */
+@media (width >= 900px) {
+  .hero-slides {
     min-height: 900px;
+  }
+
+  .hero-slide {
+    min-height: 900px;
+  }
+
+  .hero-content {
     padding: 325px 108px 240px;
+    min-height: 900px;
   }
 
-  .hero h4 {
+  .hero-text h4 {
     font-size: 32px;
+    margin-bottom: 4px;
   }
 
-  .hero>div>div:last-child>p:first-of-type {
+  .hero-text p {
     font-size: 152px;
     line-height: 1;
-    letter-spacing: -3px;
+    margin-bottom: 4px;
   }
 
-  .hero h5 {
+  .hero-text h5 {
     font-size: 24px;
+    margin-bottom: 32px;
+  }
+
+  .hero-cta {
+    flex-direction: row;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  main .hero .hero-cta a.button:any-link {
+    padding: 16px 24px;
+    font-size: 18px;
+  }
+
+  .hero-indicators {
+    right: 55px;
   }
 }

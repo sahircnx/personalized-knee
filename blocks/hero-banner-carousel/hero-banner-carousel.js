@@ -1,6 +1,21 @@
-const SLIDE_INTERVAL = 6000;
+/**
+ * Hero Banner Carousel block.
+ *
+ * Supported document structures:
+ *
+ * A) Two-column rows — each row is a complete slide:
+ *      | background picture | text content (h4, p, h5, buttons, footnote) |
+ *
+ * B) Single-column row pairs — paired rows form one slide:
+ *      Row A: | background picture |
+ *      Row B: | text content       |
+ *
+ * The block auto-detects the structure by checking if the first row has two columns.
+ */
 
-function buildSlide(row, index) {
+const SLIDE_INTERVAL = 4500;
+
+function buildSlide(imageCell, contentCell, index) {
   const slide = document.createElement('div');
   slide.classList.add('hero-banner-carousel-slide');
   slide.setAttribute('role', 'tabpanel');
@@ -8,10 +23,8 @@ function buildSlide(row, index) {
   slide.id = `hero-banner-carousel-slide-${index}`;
   if (index !== 0) slide.setAttribute('aria-hidden', 'true');
 
-  const [imageCol, contentCol] = [...row.children];
-
   // Background image
-  const picture = imageCol?.querySelector('picture');
+  const picture = imageCell?.querySelector('picture');
   if (picture) {
     const bgWrapper = document.createElement('div');
     bgWrapper.classList.add('hero-banner-carousel-bg');
@@ -23,20 +36,18 @@ function buildSlide(row, index) {
   const content = document.createElement('div');
   content.classList.add('hero-banner-carousel-content');
 
-  if (contentCol) {
-    // Text group (headings + paragraphs before links)
+  const sourceEl = contentCell?.querySelector('div') ?? contentCell;
+  if (sourceEl) {
     const textGroup = document.createElement('div');
     textGroup.classList.add('hero-banner-carousel-text');
 
-    // CTA group
     const ctaGroup = document.createElement('div');
     ctaGroup.classList.add('hero-banner-carousel-cta');
 
-    // Attribution
     const attribution = document.createElement('div');
     attribution.classList.add('hero-banner-carousel-attribution');
 
-    const children = [...contentCol.children];
+    const children = [...sourceEl.children];
     let ctaStarted = false;
 
     children.forEach((child) => {
@@ -49,9 +60,7 @@ function buildSlide(row, index) {
         ctaStarted = true;
         const link = links[0];
         link.classList.add('button');
-        if (ctaGroup.children.length > 0) {
-          link.classList.add('secondary');
-        }
+        if (ctaGroup.children.length > 0) link.classList.add('secondary');
         ctaGroup.append(child);
       } else if (ctaStarted || isEm) {
         attribution.append(child);
@@ -111,6 +120,7 @@ function buildDots(count, block) {
     dot.setAttribute('aria-label', `Slide ${i + 1}`);
     dot.setAttribute('aria-controls', `hero-banner-carousel-slide-${i}`);
     dot.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+    dot.setAttribute('tabindex', i === 0 ? '0' : '-1');
     if (i === 0) dot.classList.add('active');
 
     dot.addEventListener('click', () => {
@@ -122,21 +132,21 @@ function buildDots(count, block) {
 
   // Keyboard navigation on tablist
   nav.addEventListener('keydown', (e) => {
-    const dots = [...nav.querySelectorAll('.hero-banner-carousel-dot')];
-    const current = dots.findIndex((d) => d.classList.contains('active'));
+    const allDots = [...nav.querySelectorAll('.hero-banner-carousel-dot')];
+    const current = allDots.findIndex((d) => d.classList.contains('active'));
     let next = current;
 
     if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-      next = (current + 1) % dots.length;
+      next = (current + 1) % allDots.length;
       e.preventDefault();
     } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-      next = (current - 1 + dots.length) % dots.length;
+      next = (current - 1 + allDots.length) % allDots.length;
       e.preventDefault();
     }
 
     if (next !== current) {
       goToSlide(block, next);
-      dots[next].focus();
+      allDots[next].focus();
     }
   });
 
@@ -156,20 +166,45 @@ function startAutoplay(block) {
 
 export default function decorate(block) {
   const rows = [...block.children];
+  if (rows.length === 0) return;
+
   const slidesWrapper = document.createElement('div');
   slidesWrapper.classList.add('hero-banner-carousel-slides');
 
-  rows.forEach((row, i) => {
-    const slide = buildSlide(row, i);
-    if (i === 0) slide.classList.add('active');
-    slidesWrapper.append(slide);
-  });
+  // Detect structure: 2-column rows vs single-column row pairs
+  const firstRowCols = rows[0].children.length;
+  const isTwoColumn = firstRowCols >= 2;
 
-  const dots = buildDots(rows.length, block);
+  let slideCount = 0;
+
+  if (isTwoColumn) {
+    // Each row = one slide [imageCol | contentCol]
+    rows.forEach((row, i) => {
+      const [imageCol, contentCol] = [...row.children];
+      const slide = buildSlide(imageCol, contentCol, i);
+      if (i === 0) slide.classList.add('active');
+      slidesWrapper.append(slide);
+      slideCount += 1;
+    });
+  } else {
+    // Paired rows: row[0]+row[1] = slide 1, row[2]+row[3] = slide 2, etc.
+    for (let i = 0; i < rows.length; i += 2) {
+      const imageRow = rows[i];
+      const contentRow = rows[i + 1];
+      const imageCell = imageRow?.querySelector('div');
+      const contentCell = contentRow?.querySelector('div');
+      const slide = buildSlide(imageCell, contentCell, slideCount);
+      if (slideCount === 0) slide.classList.add('active');
+      slidesWrapper.append(slide);
+      slideCount += 1;
+    }
+  }
+
+  const dots = buildDots(slideCount, block);
 
   block.textContent = '';
   block.append(slidesWrapper);
-  block.append(dots);
+  if (slideCount > 1) block.append(dots);
   block.dataset.activeSlide = '0';
 
   // Autoplay with pause on hover/focus
