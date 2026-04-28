@@ -1,4 +1,9 @@
 /* personalized-knee block */
+.section.personalized-knee-container {
+  background: white;
+  position: relative;
+}
+
 .personalized-knee {
   --block-text: #2b2a80;
   --block-cards-bg: #f1faff;
@@ -49,7 +54,7 @@
   margin-bottom: 40px;
 }
 
-.personalized-knee .gif-row > div {
+.personalized-knee .gif-row>div {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -90,7 +95,7 @@
   gap: 24px;
 }
 
-@media (width >= 900px) {
+@media (width >=900px) {
   .personalized-knee .cards-grid {
     grid-template-columns: 1fr 1fr;
     gap: 32px 48px;

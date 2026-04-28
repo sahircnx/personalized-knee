@@ -5,27 +5,32 @@
   overflow: hidden;
 }
 
-main > .section:has(.marquee-wrapper) {
+/* Marquee section slides over the sticky hero - needs solid bg + stacking above hero (z-index:0) */
+main>.section:has(.marquee-wrapper) {
+  position: relative;
+  z-index: 1;
+  background: #fff;
   padding: 0 0 128px;
+  border-radius: 3pc 3pc 0 0;
 }
 
-main > .section:has(.marquee-wrapper) > div {
+main>.section:has(.marquee-wrapper)>div {
   max-width: 100%;
   padding: 0;
 }
 
-main > .section:has(.marquee-wrapper) .default-content-wrapper {
+main>.section:has(.marquee-wrapper) .default-content-wrapper {
   padding: 80px 24px 40px;
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
 }
 
-main > .section:has(.marquee-wrapper) .default-content-wrapper h2 {
+main>.section:has(.marquee-wrapper) .default-content-wrapper h2 {
   font-weight: 500;
 }
 
-main > .section:has(.marquee-wrapper) .default-content-wrapper h5 {
+main>.section:has(.marquee-wrapper) .default-content-wrapper h5 {
   font-weight: 500;
   margin-top: 8px;
 }
@@ -78,18 +83,28 @@ main > .section:has(.marquee-wrapper) .default-content-wrapper h5 {
   animation: marquee-scroll-right 30s linear infinite;
 }
 
-.marquee .marquee-track + .marquee-track {
+.marquee .marquee-track+.marquee-track {
   margin-top: 24px;
 }
 
 @keyframes marquee-scroll-left {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes marquee-scroll-right {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
 
 .marquee .marquee-card {
@@ -172,7 +187,7 @@ main .marquee .button-container {
   display: inline;
 }
 
-@media (width >= 960px) {
+@media (width >=960px) {
   .marquee {
     --marquee-card-width: 461px;
     --marquee-card-height: 243px;

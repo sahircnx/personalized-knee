@@ -4,13 +4,17 @@
    ============================================================ */
 
 /* Full-width override */
-main > .section:has(.knee-stories-wrapper) {
+main>.section:has(.knee-stories-wrapper) {
   padding: 0 !important;
+  background-color: white;
+  position: relative;
 }
-main > .section:has(.knee-stories-wrapper) > div {
+
+main>.section:has(.knee-stories-wrapper)>div {
   max-width: 100% !important;
   padding: 0 !important;
 }
+
 .knee-stories-container .knee-stories-wrapper {
   max-width: 100% !important;
   padding: 0 !important;
@@ -136,12 +140,10 @@ main .knee-stories .ks-header a.button:hover:any-link {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(
-    to top,
-    rgb(0 0 50 / 80%) 0%,
-    rgb(0 0 50 / 35%) 45%,
-    transparent 75%
-  );
+  background: linear-gradient(to top,
+      rgb(0 0 50 / 80%) 0%,
+      rgb(0 0 50 / 35%) 45%,
+      transparent 75%);
   border-radius: var(--ks-card-radius);
   pointer-events: none;
 }

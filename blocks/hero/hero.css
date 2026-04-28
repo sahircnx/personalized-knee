@@ -6,6 +6,8 @@
 /* Remove section padding so carousel is edge-to-edge */
 main>.section:has(.hero-wrapper) {
   padding: 0 !important;
+  position: sticky;
+  top: 0;
 }
 
 main>.section:has(.hero-wrapper)>div {
