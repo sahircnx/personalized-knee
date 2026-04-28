@@ -21,87 +21,171 @@ function getSocialKey(text) {
   return null;
 }
 
-function buildHeaderSection(section) {
-  section.classList.add('footer-header-section');
+/**
+ * Footer content model (4 sections in footer.plain.html):
+ *   [0] h4 + p ("This, you can do.") + h5      → header + marquee
+ *   [1] ul(s) + p (social links)                → legal links + social icons (left col)
+ *   [2] long disclaimers (may end with ©2025)   → disclaimer text (right col)
+ *   [3] picture×2 + "© 2025 … All Rights"      → logos + copyright
+ *
+ * Detection: use index-based assignment — the content model is fixed.
+ */
+function buildFromSections(sections) {
+  const wrapper = document.createElement('div');
+  wrapper.className = 'footer-inner';
 
-  // Create marquee from the <p> that contains "This, you can do."
-  const paragraphs = section.querySelectorAll('p');
-  paragraphs.forEach((p) => {
-    const text = p.textContent.trim();
-    if (text.startsWith('This,') || text.includes('you can do')) {
-      const marquee = document.createElement('div');
-      marquee.classList.add('footer-marquee');
+  // ── Section 0: header ──────────────────────────────────
+  const s0 = sections[0];
+  if (s0) {
+    const header = document.createElement('div');
+    header.className = 'footer-header';
 
+    const h4 = s0.querySelector('h4');
+    if (h4) header.append(h4.cloneNode(true));
+
+    const marqueePara = [...s0.querySelectorAll('p')].find(
+      (p) => p.textContent.trim().toLowerCase().startsWith('this,'),
+    );
+    if (marqueePara) {
+      const text = marqueePara.textContent.trim();
+      const marqueeWrap = document.createElement('div');
+      marqueeWrap.className = 'footer-marquee';
       const track = document.createElement('div');
-      track.classList.add('footer-marquee-track');
-
-      for (let i = 0; i < 6; i += 1) {
+      track.className = 'footer-marquee-track';
+      for (let r = 0; r < 8; r += 1) {
         const span = document.createElement('span');
-        span.classList.add('footer-marquee-item');
-        span.textContent = text;
+        span.className = 'footer-marquee-item';
+        span.textContent = `\u00a0${text}\u00a0`;
         track.append(span);
       }
-
-      marquee.append(track);
-      p.replaceWith(marquee);
+      marqueeWrap.append(track);
+      header.append(marqueeWrap);
     }
-  });
-}
 
-function buildLinksSection(section) {
-  section.classList.add('footer-legal-section');
-  const wrapper = section.querySelector('.default-content-wrapper');
-  if (!wrapper) return;
+    const h5 = s0.querySelector('h5');
+    if (h5) header.append(h5.cloneNode(true));
 
-  // Process links list
-  wrapper.querySelectorAll('a').forEach((a) => {
-    a.setAttribute('target', '_blank');
-    a.setAttribute('rel', 'noopener noreferrer');
-  });
+    wrapper.append(header);
+  }
 
-  // Find the paragraph with social links (multiple <a> in one <p>)
-  const socialP = [...wrapper.querySelectorAll('p')].find(
-    (p) => p.querySelectorAll('a').length >= 3,
-  );
+  // ── Sections 1+2: two-column copy row ─────────────────
+  const copyRow = document.createElement('div');
+  copyRow.className = 'footer-copy-row';
 
-  if (socialP) {
-    const socialNav = document.createElement('div');
-    socialNav.classList.add('footer-social');
+  // Left col: legal links + social icons (section 1)
+  const s1 = sections[1];
+  if (s1) {
+    const legalCol = document.createElement('div');
+    legalCol.className = 'footer-legal-col';
 
-    socialP.querySelectorAll('a').forEach((a) => {
-      const key = getSocialKey(a.textContent);
-      if (!key) return;
-
-      const link = document.createElement('a');
-      link.href = a.href;
-      link.classList.add('footer-social-link');
-      link.setAttribute('target', '_blank');
-      link.setAttribute('rel', 'noopener noreferrer');
-      link.setAttribute('aria-label', a.textContent.trim());
-
-      const icon = document.createElement('span');
-      icon.classList.add('footer-social-icon');
-      icon.innerHTML = SOCIAL_ICONS[key] || '';
-      link.append(icon);
-      socialNav.append(link);
+    s1.querySelectorAll('ul').forEach((ul) => {
+      const clone = ul.cloneNode(true);
+      clone.querySelectorAll('a').forEach((a) => {
+        a.setAttribute('target', '_blank');
+        a.setAttribute('rel', 'noopener noreferrer');
+      });
+      legalCol.append(clone);
     });
 
-    socialP.replaceWith(socialNav);
+    const socialP = [...s1.querySelectorAll('p')].find(
+      (p) => p.querySelectorAll('a').length >= 3,
+    );
+    if (socialP) {
+      const socialRow = document.createElement('div');
+      socialRow.className = 'footer-social';
+      socialP.querySelectorAll('a').forEach((a) => {
+        const key = getSocialKey(a.textContent);
+        if (!key) return;
+        const link = document.createElement('a');
+        link.href = a.href;
+        link.className = 'footer-social-link';
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener noreferrer');
+        link.setAttribute('aria-label', a.textContent.trim());
+        link.innerHTML = `<span class="footer-social-icon">${SOCIAL_ICONS[key]}</span>`;
+        socialRow.append(link);
+      });
+      legalCol.append(socialRow);
+    }
+
+    copyRow.append(legalCol);
   }
+
+  // Right col: disclaimer (section 2) — has long text; may end with "©2025 Zimmer Biomet"
+  const s2 = sections[2];
+  if (s2) {
+    const disclaimerCol = document.createElement('div');
+    disclaimerCol.className = 'footer-disclaimer-col';
+    s2.querySelectorAll('p').forEach((p) => {
+      const clone = p.cloneNode(true);
+      clone.querySelectorAll('a').forEach((a) => {
+        a.setAttribute('target', '_blank');
+        a.setAttribute('rel', 'noopener noreferrer');
+      });
+      disclaimerCol.append(clone);
+    });
+    copyRow.append(disclaimerCol);
+  }
+
+  if (copyRow.children.length) wrapper.append(copyRow);
+
+  // ── Section 3: logos + copyright ──────────────────────
+  const s3 = sections[3];
+  if (s3) {
+    const bottom = document.createElement('div');
+    bottom.className = 'footer-bottom';
+
+    const pictures = [...s3.querySelectorAll('picture')];
+    const allImgSrcs = pictures.map((pic) => pic.querySelector('img')?.src ?? '');
+    const allSame = allImgSrcs.length > 1 && allImgSrcs.every((s) => s === allImgSrcs[0]);
+
+    // PKN logo — full width row
+    const pknRow = document.createElement('div');
+    pknRow.className = 'footer-logo-pkn';
+    if (pictures[0] && !allSame) {
+      pknRow.append(pictures[0].cloneNode(true));
+    } else {
+      const img = document.createElement('img');
+      img.src = '/drafts/images/footer-logo.png';
+      img.alt = 'The Personalized Knee\u00ae';
+      img.loading = 'lazy';
+      pknRow.append(img);
+    }
+    bottom.append(pknRow);
+
+    // ZB logo + copyright row
+    const bottomRow = document.createElement('div');
+    bottomRow.className = 'footer-bottom-row';
+
+    const zbWrap = document.createElement('div');
+    zbWrap.className = 'footer-logo-zb';
+    if (pictures[1] && !allSame) {
+      zbWrap.append(pictures[1].cloneNode(true));
+    } else {
+      const img = document.createElement('img');
+      img.src = '/drafts/images/zimmer-biomet-logo.svg';
+      img.alt = 'Zimmer Biomet';
+      img.loading = 'lazy';
+      zbWrap.append(img);
+    }
+    bottomRow.append(zbWrap);
+
+    const copyrightP = [...s3.querySelectorAll('p')].find(
+      (p) => p.textContent.includes('\u00a9') || p.textContent.includes('Rights Reserved'),
+    );
+    if (copyrightP) {
+      const cp = copyrightP.cloneNode(true);
+      cp.className = 'footer-copyright';
+      bottomRow.append(cp);
+    }
+
+    bottom.append(bottomRow);
+    wrapper.append(bottom);
+  }
+
+  return wrapper;
 }
 
-function buildDisclaimerSection(section) {
-  section.classList.add('footer-disclaimer-section');
-}
-
-function buildBottomSection(section) {
-  section.classList.add('footer-bottom-section');
-}
-
-/**
- * loads and decorates the footer
- * @param {Element} block The footer block element
- */
 export default async function decorate(block) {
   const footerMeta = getMetadata('footer');
   const footerPath = footerMeta
@@ -110,30 +194,6 @@ export default async function decorate(block) {
   const fragment = await loadFragment(footerPath);
 
   block.textContent = '';
-  const footer = document.createElement('div');
-  while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
-
-  // Identify and decorate each section by content
-  const sections = footer.querySelectorAll('.section');
-  sections.forEach((section) => {
-    const hasH4 = section.querySelector('h4');
-    const hasUl = section.querySelector('ul');
-    const hasPictures = section.querySelectorAll('picture').length > 0;
-    const hasCopyright = section.textContent.includes('�');
-    const hasLongText = [...section.querySelectorAll('p')].some(
-      (p) => p.textContent.length > 200,
-    );
-
-    if (hasH4) {
-      buildHeaderSection(section);
-    } else if (hasUl) {
-      buildLinksSection(section);
-    } else if (hasLongText && !hasPictures) {
-      buildDisclaimerSection(section);
-    } else if (hasPictures && hasCopyright) {
-      buildBottomSection(section);
-    }
-  });
-
-  block.append(footer);
+  const sections = [...fragment.querySelectorAll('.section')];
+  block.append(buildFromSections(sections));
 }

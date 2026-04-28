@@ -1,105 +1,67 @@
-/* Footer Block - The Personalized Knee */
+/* ============================================================
+   Footer Block — The Personalized Knee
+   Matches production: www.thepersonalizedknee.com/en
+   ============================================================ */
+
 footer {
   background-color: #2b2a80;
   color: #fff;
+  font-family: var(--body-font-family, sans-serif);
   font-size: 16px;
   padding: 0;
 }
 
-footer .footer>div {
-  max-width: none;
-  padding: 0;
-  margin: 0;
-}
-
-footer .footer .section {
-  padding: 0;
-  margin: 0;
-}
-
-footer .footer .default-content-wrapper {
-  max-width: none;
-  padding: 0;
-}
-
-footer .footer p {
-  margin: 0;
-}
-
 footer a {
   color: #fff;
-}
-
-footer a:hover {
-  color: rgb(255 255 255 / 80%);
   text-decoration: none;
 }
 
-footer .footer-disclaimer-section a {
-  font-weight: 500;
-  text-decoration: underline;
+footer a:hover {
+  color: rgb(255 255 255 / 75%);
+  text-decoration: none;
 }
 
-/* =========================
-   Footer Header Section
-   (A new knee? + marquee + subtitle)
-   ========================= */
-footer .footer-header-section {
-  padding: 48px 24px 40px;
-  text-align: center;
+.footer-inner {
+  width: 100%;
+}
+
+/* ── Header section ─────────────────────────────────────── */
+.footer-header {
+  padding: 48px 35px 0;
   overflow: hidden;
 }
 
-footer .footer-header-section h4 {
-  color: #fff;
-  font-size: 24px;
+.footer-header h4 {
+  font-size: 32px;
   font-weight: 400;
-  margin: 0 0 8px;
+  color: #fff;
+  margin: 0 0 0;
   line-height: 1.1;
 }
 
-@media (width >=900px) {
-  footer .footer-header-section h4 {
-    font-size: 32px;
-  }
-
-  footer .footer-header-section {
-    padding: 64px 24px 48px;
-  }
-}
-
-/* Marquee text "This, you can do." */
-footer .footer-marquee {
+/* Marquee */
+.footer-marquee {
   overflow: hidden;
   white-space: nowrap;
-  margin: 0 -24px 16px;
+  margin: 0 -35px;
+  padding: 16px 0 65px;
 }
 
-footer .footer-marquee-track {
+.footer-marquee-track {
   display: inline-flex;
-  animation: footer-marquee-scroll 110s linear infinite;
+  animation: footer-marquee-scroll 120s linear infinite;
+  white-space: nowrap;
 }
 
-footer .footer-marquee-item {
+.footer-marquee-item {
+  display: inline-block;
   color: #fff;
-  font-size: 80px;
-  font-weight: 400;
+  font-size: 120px;
+  font-weight: 500;
   line-height: 1.1;
-  padding: 0 32px;
+  white-space: nowrap;
   flex-shrink: 0;
-}
-
-@media (width >=900px) {
-  footer .footer-marquee-item {
-    font-size: 120px;
-    padding: 0 48px;
-  }
-}
-
-@media (width >=1200px) {
-  footer .footer-marquee-item {
-    font-size: 152px;
-  }
+  font-family: var(--heading-font-family, sans-serif);
 }
 
 @keyframes footer-marquee-scroll {
@@ -112,177 +74,197 @@ footer .footer-marquee-item {
   }
 }
 
-footer .footer-header-section h5 {
-  color: #fff;
-  font-size: 16px;
+.footer-header h5 {
+  font-size: 24px;
   font-weight: 400;
+  color: #fff;
   margin: 0;
-  opacity: 0.9;
+  padding-bottom: 48px;
+  line-height: 1.2;
 }
 
-@media (width >=900px) {
-  footer .footer-header-section h5 {
-    font-size: 20px;
+/* ── Two-column copy row ─────────────────────────────────── */
+.footer-copy-row {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 48px 35px;
+  max-width: 100%;
+  box-sizing: border-box;
+  max-width: 90pc;
+  position: relative;
+  margin: 0px auto;
+}
+
+@media (min-width: 900px) {
+  .footer-copy-row {
+    flex-direction: row;
+    gap: 16px;
+    padding: 80px 35px;
+  }
+
+  .footer-legal-col,
+  .footer-disclaimer-col {
+    flex: 1 1 0;
+    min-width: 0;
   }
 }
 
-/* =========================
-   Footer Legal Section
-   (Links + Social icons)
-   ========================= */
-footer .footer-legal-section {
-  padding: 0 24px 24px;
-  text-align: left;
-}
-
-footer .footer-legal-section .default-content-wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Footer links */
-footer .footer-legal-section ul {
+/* ── Legal links ─────────────────────────────────────────── */
+.footer-legal-col ul {
   list-style: none;
   padding: 0;
   margin: 0 0 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-footer .footer-legal-section ul li {
-  margin: 0;
-  padding: 8px 0;
-}
-
-footer .footer-legal-section ul a {
-  color: #fff;
+.footer-legal-col ul li a {
   font-size: 16px;
   font-weight: 500;
+  color: #fff;
   text-decoration: none;
 }
 
-footer .footer-legal-section ul a:hover {
+.footer-legal-col ul li a:hover {
   text-decoration: underline;
 }
 
-@media (width >=900px) {
-  footer .footer-legal-section ul {
-    display: flex;
+@media (min-width: 900px) {
+  .footer-legal-col ul {
+    flex-direction: row;
     flex-wrap: wrap;
-    gap: 8px 24px;
-    margin: 0 0 8px;
-  }
-
-  footer .footer-legal-section ul li {
-    padding: 4px 0;
+    gap: 3rem 2rem;
+    margin-bottom: 12px;
+    display: flex;
   }
 }
 
-/* Social icons */
-footer .footer-social {
+/* ── Social icons ────────────────────────────────────────── */
+.footer-social {
   display: flex;
   gap: 24px;
   align-items: center;
-  padding: 16px 0 8px;
+  padding-top: 16px;
 }
 
-footer .footer-social-link {
+.footer-social-link {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 24px;
   height: 24px;
   color: #fff;
-  text-decoration: none;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.2s;
 }
 
-footer .footer-social-link:hover {
+.footer-social-link:hover {
   opacity: 0.7;
 }
 
-footer .footer-social-icon {
+.footer-social-icon {
   display: flex;
   width: 24px;
   height: 24px;
 }
 
-footer .footer-social-icon svg {
+.footer-social-icon svg {
   width: 24px;
   height: 24px;
   fill: #fff;
 }
 
-/* =========================
-   Footer Disclaimer Section
-   (Legal/disclaimer text)
-   ========================= */
-footer .footer-disclaimer-section {
-  padding: 24px;
-  text-align: left;
-}
-
-footer .footer-disclaimer-section .default-content-wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-footer .footer-disclaimer-section p {
+/* ── Disclaimer text ─────────────────────────────────────── */
+.footer-disclaimer-col p {
+  font-size: 16px;
+  font-weight: 600;
   color: #fff;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.3;
+  line-height: 1.4;
   margin: 0 0 16px;
-}
-
-footer .footer-disclaimer-section p:last-child {
-  margin-bottom: 0;
-}
-
-/* =========================
-   Footer Bottom Section
-   (Logos + Copyright)
-   ========================= */
-footer .footer-bottom-section {
-  padding: 32px 24px 24px;
   text-align: left;
 }
 
-footer .footer-bottom-section .default-content-wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
+.footer-disclaimer-col p:last-child {
+  margin-bottom: 0;
+  font-weight: 400;
 }
 
-/* Logos */
-footer .footer-bottom-section picture {
+.footer-disclaimer-col a {
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+/* ── Bottom section: logos + copyright ──────────────────── */
+.footer-bottom {
+  padding: 80px 35px 30px;
+  max-width: 90pc;
+  position: relative;
+  margin: 0px auto;
+}
+
+/* PKN logo — full width */
+.footer-logo-pkn {
+  margin-bottom: 24px;
+}
+
+.footer-logo-pkn img,
+.footer-logo-pkn picture img {
   display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
 }
 
-footer .footer-bottom-section picture img {
-  max-width: 100%;
+/* ZB logo + copyright row */
+.footer-bottom-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-logo-zb img,
+.footer-logo-zb picture img {
+  display: block;
+  width: 170px;
   height: auto;
 }
 
-/* First picture (The Personalized Knee logo - large) */
-footer .footer-bottom-section picture:first-child {
-  margin-bottom: 24px;
+@media (min-width: 900px) {
+
+  .footer-logo-zb img,
+  .footer-logo-zb picture img {
+    width: 303px;
+  }
 }
 
-footer .footer-bottom-section picture:first-child img {
-  max-width: 100%;
-  width: 100%;
-}
-
-/* Second picture (Zimmer Biomet logo - smaller) */
-footer .footer-bottom-section picture:nth-child(2) img {
-  max-width: 170px;
-}
-
-footer .footer-bottom-section picture:nth-child(2) {
-  margin-bottom: 24px;
-}
-
-/* Copyright text */
-footer .footer-bottom-section p:last-child {
-  color: rgb(255 255 255 / 60%);
+.footer-copyright {
   font-size: 14px;
-  font-weight: 400;
+  color: rgb(255 255 255 / 60%);
+  margin: 0;
+  text-align: right;
+}
+
+/* ── Desktop marquee font size ───────────────────────────── */
+@media (min-width: 900px) {
+  .footer-header {
+    padding: 64px 35px 0;
+  }
+
+  .footer-marquee-item {
+    font-size: 152px;
+  }
+
+  .footer-header h4 {
+    font-size: 32px;
+  }
+}
+
+/* ── Reduced motion ──────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .footer-marquee-track {
+    animation: none;
+  }
 }
