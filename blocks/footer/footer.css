@@ -197,7 +197,7 @@ footer a:hover {
 
 /* ── Bottom section: logos + copyright ──────────────────── */
 .footer-bottom {
-  padding: 80px 35px 30px;
+  padding: 0px 35px 30px;
   max-width: 90pc;
   position: relative;
   margin: 0px auto;
