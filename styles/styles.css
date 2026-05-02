@@ -379,18 +379,58 @@ main>.section:first-of-type {
 }
 
 /* section metadata */
-main .section.light,
-main .section.highlight {
+main .section.light {
   background-color: var(--light-color);
   margin: 0;
   padding: 24px 0;
 }
 
 @media (width >=900px) {
+  main .section.light {
+    padding: 72px 0;
+  }
+}
 
-  main .section.light,
+/* Highlight section — dark blue background, white text */
+main .section.highlight {
+  background-color: #2b2a80;
+  color: #fff;
+  margin: 0;
+  padding: 24px 0;
+}
+
+@media (width >= 900px) {
   main .section.highlight {
     padding: 72px 0;
+  }
+}
+
+main .section.highlight h1,
+main .section.highlight h2,
+main .section.highlight h3,
+main .section.highlight h4,
+main .section.highlight h5,
+main .section.highlight h6,
+main .section.highlight p,
+main .section.highlight strong,
+main .section.highlight li {
+  color: #fff;
+}
+
+/* Highlight section — two-column layout on desktop (text left/right, image center) */
+@media (width >= 900px) {
+  main .section.highlight > div {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 40px;
+    align-items: start;
+    text-align: left;
+  }
+
+  main .section.highlight > div > p:has(picture) {
+    grid-column: 2;
+    grid-row: 1 / -1;
+    align-self: center;
   }
 }
 
@@ -404,6 +444,87 @@ main .section.highlight {
 
 .background-color-light-blue {
   background-color: #e3f2fd;
+}
+
+/* Arthritis section — image LEFT, text RIGHT on desktop */
+@media (width >= 900px) {
+  /* Arthritis section — image LEFT, text RIGHT */
+  main .section.background-color-white > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+    text-align: left;
+  }
+
+  /* Image (in div or p) spans full left column */
+  main .section.background-color-white > div > p:has(picture),
+  main .section.background-color-white > div > div:has(picture) {
+    grid-column: 1;
+    grid-row: 1 / -1;
+    align-self: center;
+  }
+
+  /* All non-image content flows into the right column */
+  main .section.background-color-white > div > *:not(p:has(picture)):not(div:has(picture)) {
+    grid-column: 2;
+  }
+
+  /* Lifestyle tips — text LEFT, image RIGHT */
+  main .section.background-color-sky-blue > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+    text-align: left;
+  }
+
+  main .section.background-color-sky-blue > div > p:has(picture),
+  main .section.background-color-sky-blue > div > div:has(picture) {
+    grid-column: 2;
+    grid-row: 1 / -1;
+    align-self: center;
+  }
+
+  main .section.background-color-sky-blue > div > *:not(p:has(picture)):not(div:has(picture)) {
+    grid-column: 1;
+  }
+}
+
+/* CTA section — styled pill buttons */
+main .section.background-color-light-blue {
+  text-align: center;
+}
+
+main .section.background-color-light-blue a.button:any-link {
+  display: inline-block;
+  background-color: #2b2a80;
+  color: #fff !important;
+  border: 2px solid #2b2a80;
+  border-radius: 2.4em;
+  padding: 0.6em 1.6em;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  margin: 8px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+main .section.background-color-light-blue a.button:hover:any-link {
+  background-color: #1f1e6b;
+  text-decoration: none;
+}
+
+main .section.background-color-light-blue a.button.secondary:any-link {
+  background-color: transparent;
+  color: #2b2a80 !important;
+  border-color: #2b2a80;
+}
+
+main .section.background-color-light-blue a.button.secondary:hover:any-link {
+  background-color: rgb(43 42 128 / 8%);
 }
 
 /* Migration Utilities */
