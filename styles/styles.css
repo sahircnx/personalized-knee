@@ -424,7 +424,7 @@ main .section.highlight li {
 
   main .section.highlight > div {
     display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns: 1fr 240px 1fr;
     grid-template-rows: auto auto auto;
     gap: 32px 48px;
     align-items: center;
