@@ -1,0 +1,231 @@
+/* Varus and Valgus Block */
+.varus-and-valgus-wrapper {
+  background-color: #2B2A80;
+  background-image: url('/icons/bg-one-varus-and-valgus.svg'), url('/icons/bg-two-varus-and-valgus.svg');
+  background-position: center bottom, 100% 100%;
+  background-repeat: no-repeat, no-repeat;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 48px auto;
+  max-width: 1360px;
+  min-height: 1021px;
+  padding: 0;
+}
+
+/* Heading */
+.varus-and-valgus-heading {
+  color: #fff;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 105%;
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 77px;
+  width: 100%;
+}
+
+/* Center Area - contains left text, image, right text */
+.varus-and-valgus-center {
+  position: relative;
+  width: 548px;
+  height: 548px;
+  margin: 0 auto;
+}
+
+/* Left text (Varus) */
+.varus-and-valgus-left-text {
+  color: #fff;
+  position: absolute;
+  transform: translateX(-320px);
+  width: 293px;
+  top: 0;
+}
+
+/* Right text (Valgus) */
+.varus-and-valgus-right-text {
+  color: #fff;
+  position: absolute;
+  bottom: 27px;
+  transform: translateX(586px);
+  width: 298px;
+}
+
+/* Label titles */
+.varus-and-valgus-label-title {
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 8px;
+}
+
+/* Label descriptions */
+.varus-and-valgus-label-desc {
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.varus-and-valgus-label-desc p {
+  margin: 0;
+}
+
+/* Image container - circular with brackets */
+.varus-and-valgus-image-container {
+  border: 1px solid #36B5FC;
+  border-radius: 50%;
+  height: 548px;
+  width: 548px;
+  position: relative;
+}
+
+/* Bracket decorations */
+.varus-and-valgus-image-container::before {
+  background: url('/icons/bracket-closed.svg') 50% center / auto no-repeat #DCF1FF;
+  border-radius: 50%;
+  content: '';
+  height: 133px;
+  left: 24px;
+  position: absolute;
+  top: 20px;
+  width: 133px;
+  z-index: 1;
+}
+
+.varus-and-valgus-image-container::after {
+  background: url('/icons/bracket-open.svg') 50% center / auto no-repeat #DCF1FF;
+  border-radius: 50%;
+  content: '';
+  height: 133px;
+  position: absolute;
+  inset: auto -8px 24px auto;
+  width: 133px;
+  z-index: 1;
+}
+
+/* Image inside circular container */
+.varus-and-valgus-image-container picture,
+.varus-and-valgus-image-container img {
+  display: block;
+}
+
+.varus-and-valgus-image-container img {
+  border-radius: 24px;
+  height: 372px;
+  width: 580px;
+  object-fit: cover;
+  transform: translate(-16px, 85px);
+}
+
+/* Caption */
+.varus-and-valgus-caption {
+  color: #fff;
+  font-size: 14px;
+  position: absolute;
+  right: 0;
+  top: 100px;
+  margin: 0;
+}
+
+/* Summary text */
+.varus-and-valgus-summary {
+  color: #BFBFD9;
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  line-height: 130%;
+  text-align: center;
+  width: 660px;
+  margin: 44px auto 80px;
+}
+
+.varus-and-valgus-summary p {
+  margin: 0;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 959px) {
+  .varus-and-valgus-wrapper {
+    background-image: url('/icons/bg-one-varus-and-valgus-mobile.svg'), url('/icons/bg-two-varus-and-valgus-mobile.svg');
+    background-position: center bottom;
+    padding-bottom: 80px;
+    margin: 48px auto;
+    min-height: auto;
+  }
+
+  .varus-and-valgus-heading {
+    font-size: 40px;
+    padding: 0 20px;
+    margin-top: 60px;
+    margin-bottom: 40px;
+  }
+
+  .varus-and-valgus-center {
+    height: 564px;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  .varus-and-valgus-left-text {
+    font-size: 16px;
+    transform: translate(16px, 75px);
+    width: 335px;
+  }
+
+  .varus-and-valgus-left-text p {
+    margin-top: 8px;
+  }
+
+  .varus-and-valgus-right-text {
+    font-size: 16px;
+    transform: translate(16px, -30px);
+    width: 337px;
+  }
+
+  .varus-and-valgus-right-text p {
+    margin-top: 8px;
+  }
+
+  .varus-and-valgus-image-container {
+    height: 564px;
+    transform: translate(-101px);
+    width: 564px;
+  }
+
+  .varus-and-valgus-image-container::before {
+    background-image: url('/icons/bracket-closed-mob.svg');
+    height: 64px;
+    left: 102px;
+    top: 0;
+    width: 64px;
+  }
+
+  .varus-and-valgus-image-container::after {
+    background-image: url('/icons/bracket-open-mob.svg');
+    bottom: 0;
+    right: 108px;
+    height: 64px;
+    width: 64px;
+  }
+
+  .varus-and-valgus-image-container img {
+    height: 215px;
+    transform: translate(117px, 178px);
+    width: 335px;
+  }
+
+  .varus-and-valgus-caption {
+    left: 70px;
+    top: 195px;
+    right: auto;
+  }
+
+  .varus-and-valgus-summary {
+    width: 343px;
+    font-size: 20px;
+  }
+}

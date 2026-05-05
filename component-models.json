@@ -580,6 +580,68 @@
     ]
   },
   {
+    "id": "varus-and-valgus",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "heading",
+        "label": "Heading",
+        "description": "Main heading displayed at the top (e.g. Varus and Valgus knees)"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "varusTitle",
+        "label": "Varus Title",
+        "description": "Title for the Varus (bowlegs) section"
+      },
+      {
+        "component": "richtext",
+        "name": "varusDescription",
+        "label": "Varus Description",
+        "valueType": "string",
+        "description": "Description text for the Varus (bowlegs) section"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Center Image",
+        "multi": false,
+        "description": "The main image shown in the circular container"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageCaption",
+        "label": "Image Caption",
+        "description": "Caption text displayed near the image (e.g. A real Personalized Knee® experience)"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "valgusTitle",
+        "label": "Valgus Title",
+        "description": "Title for the Valgus (knock knees) section"
+      },
+      {
+        "component": "richtext",
+        "name": "valgusDescription",
+        "label": "Valgus Description",
+        "valueType": "string",
+        "description": "Description text for the Valgus (knock knees) section"
+      },
+      {
+        "component": "richtext",
+        "name": "summary",
+        "label": "Summary Text",
+        "valueType": "string",
+        "description": "Summary text shown at the bottom of the component"
+      }
+    ]
+  },
+  {
     "id": "understanding-knee-pain",
     "fields": [
       {
