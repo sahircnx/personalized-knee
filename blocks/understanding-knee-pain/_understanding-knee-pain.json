@@ -1,0 +1,122 @@
+{
+  "definitions": [
+    {
+      "title": "Understanding Knee Pain",
+      "id": "understanding-knee-pain",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Understanding Knee Pain",
+              "model": "understanding-knee-pain",
+              "filter": "understanding-knee-pain"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Knee Pain Card",
+      "id": "knee-pain-card",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Knee Pain Card",
+              "model": "knee-pain-card"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "understanding-knee-pain",
+      "fields": [
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "image",
+          "label": "Main Image",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "imageOverlay",
+          "label": "Image Overlay Text"
+        },
+        {
+          "component": "select",
+          "name": "imagePosition",
+          "label": "Image Position",
+          "valueType": "string",
+          "options": [
+            { "name": "Left", "value": "left" },
+            { "name": "Right", "value": "right" }
+          ]
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "eyebrow",
+          "label": "Eyebrow"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "heading",
+          "label": "Heading"
+        },
+        {
+          "component": "richtext",
+          "name": "description",
+          "label": "Description"
+        },
+        {
+          "component": "aem-content",
+          "name": "link",
+          "label": "Link"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "linkText",
+          "label": "Link Text"
+        }
+      ]
+    },
+    {
+      "id": "knee-pain-card",
+      "fields": [
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "icon",
+          "label": "Icon",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "title",
+          "label": "Card Title"
+        },
+        {
+          "component": "richtext",
+          "name": "description",
+          "label": "Card Description"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "understanding-knee-pain",
+      "components": ["knee-pain-card"]
+    }
+  ]
+}

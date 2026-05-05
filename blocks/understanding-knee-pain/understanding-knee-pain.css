@@ -1,0 +1,166 @@
+.understanding-knee-pain-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 3rem 1rem;
+}
+
+@media (min-width: 900px) {
+  .understanding-knee-pain-container {
+    flex-direction: row;
+    align-items: center;
+    gap: 4rem;
+    padding: 5rem 2rem;
+  }
+}
+
+/* Image on Right or Left */
+.understanding-knee-pain-container.image-right {
+  flex-direction: column-reverse;
+}
+
+@media (min-width: 900px) {
+  .understanding-knee-pain-container.image-right {
+    flex-direction: row;
+  }
+}
+
+/* Text Column */
+.understanding-knee-pain-text-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.understanding-knee-pain-eyebrow {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-color, #6b7280);
+  margin: 0;
+}
+
+.understanding-knee-pain-heading {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  color: var(--primary-color, #23226a);
+  margin: 0;
+}
+
+@media (min-width: 900px) {
+  .understanding-knee-pain-heading {
+    font-size: 3.5rem;
+  }
+}
+
+.understanding-knee-pain-description-main {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: var(--primary-color, #23226a);
+  font-weight: 500;
+}
+
+.understanding-knee-pain-description-main p {
+  margin: 0 0 1rem;
+}
+
+.understanding-knee-pain-description-main p:last-child {
+  margin: 0;
+}
+
+/* Cards */
+.understanding-knee-pain-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.understanding-knee-pain-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  background-color: var(--background-color-light-blue, #f2f9ff);
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.understanding-knee-pain-card-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+}
+
+.understanding-knee-pain-card-icon img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.understanding-knee-pain-card-text {
+  flex: 1;
+}
+
+.understanding-knee-pain-card-title {
+  font-size: 1.25rem;
+  color: var(--primary-color, #23226a);
+  margin: 0 0 0.5rem;
+  font-weight: 600;
+}
+
+.understanding-knee-pain-card-desc {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--primary-color, #23226a);
+}
+
+.understanding-knee-pain-card-desc p {
+  margin: 0;
+}
+
+/* Button */
+.understanding-knee-pain-button {
+  margin-top: 1rem;
+  align-self: flex-start;
+}
+
+/* Image Column */
+.understanding-knee-pain-image-col {
+  flex: 1;
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+}
+
+.understanding-knee-pain-main-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.understanding-knee-pain-main-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Image Overlay */
+.understanding-knee-pain-overlay {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  color: white;
+  text-align: right;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.understanding-knee-pain-overlay p {
+  margin: 0;
+}
