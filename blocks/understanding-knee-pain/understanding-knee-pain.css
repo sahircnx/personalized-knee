@@ -15,13 +15,9 @@
 }
 
 /* Image on Right or Left */
-.understanding-knee-pain-container.image-right {
-  flex-direction: column-reverse;
-}
-
 @media (min-width: 900px) {
   .understanding-knee-pain-container.image-right {
-    flex-direction: row;
+    flex-direction: row-reverse;
   }
 }
 

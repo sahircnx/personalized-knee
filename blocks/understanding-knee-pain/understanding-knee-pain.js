@@ -2,46 +2,82 @@ export default function decorate(block) {
   const rows = [...block.children];
   if (rows.length === 0) return;
 
-  // If there's only one row and it has 1 column, it might be the old format,
-  // but let's assume the new xwalk format where the first row contains main properties
-  // and subsequent rows contain cards.
-
-  let mainRow;
+  // Parse the layout structure based on how Universal Editor or manual authoring structures it.
+  let imageCell, overlayCell, positionCell, eyebrowCell, headingCell, descCell, linkCell, linkTextCell;
   let cardRows = [];
 
-  // Check if first row is the new model format (multiple cells)
-  if (rows[0].children.length > 1) {
-    mainRow = rows[0];
-    cardRows = rows.slice(1);
-  } else if (rows.length === 7 && rows.every(r => r.children.length === 1)) {
-    // Legacy mapping (just in case)
-    mainRow = document.createElement('div');
-    // Row 0: Eyebrow, 1: Heading, 2: DescIcon, 3: Desc, 4: Link, 5: Image, 6: Overlay
-    mainRow.append(
-      rows[5].cloneNode(true), // Image
-      rows[6].cloneNode(true), // Overlay
-      document.createElement('div'), // Position
-      rows[0].cloneNode(true), // Eyebrow
-      rows[1].cloneNode(true), // Heading
-      rows[3].cloneNode(true), // Desc
-      rows[4].cloneNode(true), // Link
-      document.createElement('div')  // LinkText
-    );
+  if (rows.length === 1 && rows[0].children.length === 2) {
+    // Legacy `columns` format (1 row, 2 columns)
+    const left = rows[0].children[0];
+    const right = rows[0].children[1];
+    imageCell = left;
+    
+    overlayCell = document.createElement('div');
+    const em = left.querySelector('em');
+    if (em) overlayCell.textContent = em.textContent;
+    
+    eyebrowCell = document.createElement('div');
+    const strong = right.querySelector('p > strong');
+    if (strong) eyebrowCell.textContent = strong.textContent;
+    
+    headingCell = right.querySelector('h1, h2, h3, h4, h5, h6');
+    
+    descCell = document.createElement('div');
+    let el = headingCell ? headingCell.nextElementSibling : right.firstElementChild;
+    while (el && el.tagName !== 'H5' && el.tagName !== 'A' && !el.querySelector('a')) {
+      descCell.appendChild(el.cloneNode(true));
+      el = el.nextElementSibling;
+    }
+    
+    while (el && el.tagName === 'H5') {
+      const cardTitle = el.cloneNode(true);
+      const cardDesc = el.nextElementSibling && el.nextElementSibling.tagName === 'P' ? el.nextElementSibling.cloneNode(true) : document.createElement('p');
+      const row = document.createElement('div');
+      row.append(document.createElement('div'), cardTitle, cardDesc);
+      cardRows.push(row);
+      el = el.nextElementSibling;
+      if (el && el.tagName === 'P') el = el.nextElementSibling;
+    }
+    
+    linkCell = right.querySelector('a') ? right.querySelector('a').parentElement : null;
+    linkTextCell = document.createElement('div');
+    if (linkCell && linkCell.querySelector('a')) linkTextCell.textContent = linkCell.textContent;
+    
+  } else if (rows.length === 7) {
+    // Legacy understanding-knee-pain format (7 rows)
+    const getCell = (idx) => rows[idx];
+    eyebrowCell = getCell(0);
+    headingCell = getCell(1);
+    descCell = getCell(3);
+    linkCell = getCell(4);
+    imageCell = getCell(5);
+    overlayCell = getCell(6);
+    cardRows = [];
+  } else if (rows.length >= 8) {
+    // Universal Editor format: 8 main fields as the first 8 rows.
+    // In UE, if a row is a rich text field without a column wrapper, the row itself is the cell.
+    const getCell = (idx) => {
+      if (rows[idx].children.length === 1 && rows[idx].firstElementChild.tagName === 'DIV') {
+        return rows[idx].children[0];
+      }
+      return rows[idx];
+    };
+    
+    imageCell = getCell(0);
+    overlayCell = getCell(1);
+    positionCell = getCell(2);
+    eyebrowCell = getCell(3);
+    headingCell = getCell(4);
+    descCell = getCell(5);
+    linkCell = getCell(6);
+    linkTextCell = getCell(7);
+    
+    // Any rows after the first 8 are cards
+    cardRows = rows.slice(8);
   } else {
-    // Default to first row being main, rest cards
-    mainRow = rows[0];
-    cardRows = rows.slice(1);
+    // Fallback if rows.length < 7
+    imageCell = rows[0];
   }
-
-  const cells = mainRow.children;
-  const imageCell = cells[0];
-  const overlayCell = cells[1];
-  const positionCell = cells[2];
-  const eyebrowCell = cells[3];
-  const headingCell = cells[4];
-  const descCell = cells[5];
-  const linkCell = cells[6];
-  const linkTextCell = cells[7];
 
   // Clear block
   block.textContent = '';
@@ -93,6 +129,21 @@ export default function decorate(block) {
     const cardsContainer = document.createElement('div');
     cardsContainer.className = 'understanding-knee-pain-cards';
     
+    // If cardRows are all single-column, they might be flattened item fields (Icon, Title, Desc)
+    if (cardRows.every(r => r.children.length <= 1)) {
+      const grouped = [];
+      for (let i = 0; i < cardRows.length; i += 3) {
+        const row = document.createElement('div');
+        row.append(
+          cardRows[i] || document.createElement('div'),
+          cardRows[i+1] || document.createElement('div'),
+          cardRows[i+2] || document.createElement('div')
+        );
+        grouped.push(row);
+      }
+      cardRows = grouped;
+    }
+    
     cardRows.forEach(row => {
       const iconCell = row.children[0];
       const titleCell = row.children[1];
@@ -101,10 +152,13 @@ export default function decorate(block) {
       const card = document.createElement('div');
       card.className = 'understanding-knee-pain-card';
       
-      if (iconCell && iconCell.querySelector('picture')) {
-        const icon = iconCell.querySelector('picture');
-        icon.classList.add('understanding-knee-pain-card-icon');
-        card.append(icon);
+      if (iconCell) {
+        const icon = iconCell.tagName === 'PICTURE' ? iconCell : iconCell.querySelector('picture');
+        if (icon) {
+          const pic = icon.cloneNode(true);
+          pic.classList.add('understanding-knee-pain-card-icon');
+          card.append(pic);
+        }
       }
       
       const textContainer = document.createElement('div');
@@ -120,7 +174,7 @@ export default function decorate(block) {
       if (cardDescCell && cardDescCell.textContent.trim()) {
         const desc = document.createElement('div');
         desc.className = 'understanding-knee-pain-card-desc';
-        desc.innerHTML = cardDescCell.innerHTML;
+        desc.innerHTML = cardDescCell.tagName === 'DIV' ? cardDescCell.innerHTML : cardDescCell.outerHTML;
         textContainer.append(desc);
       }
       
@@ -128,10 +182,14 @@ export default function decorate(block) {
         card.append(textContainer);
       }
       
-      cardsContainer.append(card);
+      if (card.children.length > 0) {
+        cardsContainer.append(card);
+      }
     });
     
-    textCol.append(cardsContainer);
+    if (cardsContainer.children.length > 0) {
+      textCol.append(cardsContainer);
+    }
   }
 
   // Link / Button
@@ -159,14 +217,9 @@ export default function decorate(block) {
     imageCol.append(overlay);
   }
 
-  // Append columns based on position
-  if (position === 'right') {
-    container.append(textCol);
-    container.append(imageCol);
-  } else {
-    container.append(imageCol);
-    container.append(textCol);
-  }
+  // Append columns (always image first so it's on top in mobile)
+  container.append(imageCol);
+  container.append(textCol);
 
   block.append(container);
 }
