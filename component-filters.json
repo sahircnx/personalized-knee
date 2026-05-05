@@ -78,5 +78,9 @@
     "components": [
       "knee-pain-card"
     ]
+  },
+  {
+    "id": "cta",
+    "components": []
   }
 ]
