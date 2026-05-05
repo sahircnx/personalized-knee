@@ -616,7 +616,7 @@
         "valueType": "string",
         "name": "imageCaption",
         "label": "Image Caption",
-        "description": "Caption text displayed near the image (e.g. A real Personalized Knee® experience)"
+        "description": "Caption text displayed near the image (e.g. A real Personalized KneeÂ® experience)"
       },
       {
         "component": "text",
@@ -723,6 +723,58 @@
         "component": "richtext",
         "name": "description",
         "label": "Card Description"
+      }
+    ]
+  },
+  {
+    "id": "cta",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "backgroundImage",
+        "label": "Background Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "heading",
+        "label": "Heading"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "Description"
+      },
+      {
+        "component": "richtext",
+        "name": "disclaimer",
+        "label": "Disclaimer Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "primaryButtonText",
+        "label": "Primary Button Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "primaryButtonLink",
+        "label": "Primary Button Link"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "secondaryLinkText",
+        "label": "Secondary Link Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "secondaryLink",
+        "label": "Secondary Link URL"
       }
     ]
   }
