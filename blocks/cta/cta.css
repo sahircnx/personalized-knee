@@ -1,0 +1,129 @@
+/* Call to Action Block */
+.cta-wrapper {
+  position: relative;
+  overflow: hidden;
+  /* If section background is set via section metadata, we use that. Otherwise, default padding */
+  padding: 80px 24px;
+}
+
+.cta {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  color: #2B2A80; /* Assuming brand dark blue based on varus block */
+}
+
+/* Background Image styling if authored via the block */
+.cta-background {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 0;
+  display: block;
+}
+
+.cta-background img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: bottom;
+  display: block;
+}
+
+.cta-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Typography */
+.cta-heading {
+  font-size: 48px;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.2;
+  color: #2B2A80;
+}
+
+.cta-description {
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 0;
+  max-width: 650px;
+}
+
+.cta-description p {
+  margin: 0;
+}
+
+.cta-disclaimer {
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 0;
+  max-width: 600px;
+  opacity: 0.8;
+}
+
+.cta-disclaimer p {
+  margin: 0;
+}
+
+/* Actions */
+.cta-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.cta-primary-btn.button.primary {
+  background-color: #2B2A80;
+  color: #ffffff;
+  padding: 16px 32px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.cta-primary-btn.button.primary:hover {
+  background-color: #1a195c;
+}
+
+.cta-secondary-link {
+  color: #2B2A80;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  border-bottom: 1px solid #2B2A80;
+  padding-bottom: 2px;
+  transition: opacity 0.3s ease;
+}
+
+.cta-secondary-link:hover {
+  opacity: 0.7;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .cta-heading {
+    font-size: 32px;
+  }
+  
+  .cta-description {
+    font-size: 16px;
+  }
+  
+  .cta-wrapper {
+    padding: 60px 16px;
+  }
+}
