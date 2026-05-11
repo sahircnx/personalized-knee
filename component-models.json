@@ -725,5 +725,81 @@
         "description": "Summary text shown at the bottom of the component"
       }
     ]
+  },
+  {
+    "id": "teaser",
+    "fields": [
+      {
+        "component": "select",
+        "name": "style",
+        "label": "Block Style (Custom Classes)",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default (Light Blue)",
+            "value": "default"
+          },
+          {
+            "name": "Highlight (Pill Shape)",
+            "value": "highlight"
+          },
+          {
+            "name": "Dark Mode",
+            "value": "dark"
+          },
+          {
+            "name": "No Background",
+            "value": "no-bg"
+          }
+        ]
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "backgroundImage",
+        "label": "Background Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "heading",
+        "label": "Heading"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "Description"
+      },
+      {
+        "component": "richtext",
+        "name": "disclaimer",
+        "label": "Disclaimer Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "primaryButtonText",
+        "label": "Primary Button Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "primaryButtonLink",
+        "label": "Primary Button Link"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "secondaryLinkText",
+        "label": "Secondary Link Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "secondaryLink",
+        "label": "Secondary Link URL"
+      }
+    ]
   }
 ]
