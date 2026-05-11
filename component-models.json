@@ -748,6 +748,10 @@
             "value": "dark"
           },
           {
+            "name": "Call To Action Banner",
+            "value": "call-to-action-banner"
+          },
+          {
             "name": "No Background",
             "value": "no-bg"
           }
