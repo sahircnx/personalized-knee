@@ -731,7 +731,7 @@
     "fields": [
       {
         "component": "select",
-        "name": "style",
+        "name": "classes",
         "label": "Block Style (Custom Classes)",
         "valueType": "string",
         "options": [
