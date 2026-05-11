@@ -1,4 +1,165 @@
-/* Placeholder CSS for arthritis-info */
-.arthritis-info {
+/* arthritis-info.css */
+
+.arthritis-info-wrapper {
+  background-color: var(--background-color);
+  padding: 40px 0;
+}
+
+.arthritis-info.block {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.ai-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+@media (width >= 900px) {
+  .ai-inner {
+    flex-direction: row;
+    gap: 80px;
+    align-items: start;
+    text-align: left;
+  }
+}
+
+/* ── Image Column ─────────────────────────────────────────────────────────── */
+.ai-image-col {
+  position: relative;
+  flex: 1;
+  width: 100%;
+}
+
+.ai-image-col picture img {
+  width: 100%;
+  height: auto;
   display: block;
+  border-radius: 24px;
+  object-fit: cover;
+}
+
+.ai-image-caption {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Content Column ───────────────────────────────────────────────────────── */
+.ai-content-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ai-eyebrow {
+  color: #8c8bbd; /* Soft purple/blue */
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.ai-title {
+  color: var(--dark-color);
+  font-size: 36px;
+  line-height: 1.1;
+  margin: 0;
+}
+
+@media (width >= 900px) {
+  .ai-title {
+    font-size: 48px;
+  }
+}
+
+.ai-description {
+  color: var(--text-color);
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.ai-description strong {
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* ── Cards ────────────────────────────────────────────────────────────────── */
+.ai-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 24px 0;
+}
+
+.ai-card {
+  background-color: #f1faff; /* Sky blue background */
+  border-radius: 20px;
+  padding: 32px;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.ai-card-icon {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+}
+
+.ai-card-icon picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.ai-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ai-card-title {
+  color: var(--dark-color);
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.ai-card-description {
+  color: var(--text-color);
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+/* ── CTA ──────────────────────────────────────────────────────────────────── */
+.ai-cta-container {
+  margin-top: 24px;
+}
+
+.ai-cta-container .button.secondary {
+  border: 2px solid var(--dark-color);
+  color: var(--dark-color) !important;
+  background-color: transparent;
+  padding: 14px 40px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 30px;
+  transition: all 0.2s ease;
+}
+
+.ai-cta-container .button.secondary:hover {
+  background-color: var(--dark-color);
+  color: #fff !important;
+  text-decoration: none;
 }
