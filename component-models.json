@@ -848,5 +848,72 @@
         "valueType": "string"
       }
     ]
+  },
+  {
+    "id": "lifestyle-tips",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "mainHeading",
+        "label": "Main Heading"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Title"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "Description",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "disclaimer",
+        "label": "Disclaimer Text"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Right Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageCaption",
+        "label": "Image Caption"
+      }
+    ]
+  },
+  {
+    "id": "lifestyle-tip-item",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "groupName",
+        "label": "Group Name",
+        "description": "e.g. Keep it moving, Mind the pain, Listen to your body"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "icon",
+        "label": "Icon",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "text",
+        "label": "Tip Text"
+      }
+    ]
   }
 ]

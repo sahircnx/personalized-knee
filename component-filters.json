@@ -20,7 +20,8 @@
       "understanding-knee-pain",
       "varus-and-valgus",
       "cta",
-      "arthritis-info"
+      "arthritis-info",
+      "lifestyle-tips"
     ]
   },
   {
@@ -88,6 +89,12 @@
     "id": "arthritis-info",
     "components": [
       "arthritis-info-card"
+    ]
+  },
+  {
+    "id": "lifestyle-tips",
+    "components": [
+      "lifestyle-tip-item"
     ]
   }
 ]
