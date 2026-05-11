@@ -1,0 +1,530 @@
+<div data-sprinkle-title="Migrate Page" data-sprinkle-autoopen data-sprinkle-icon='<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-briefcase-conveyor-belt-icon lucide-briefcase-conveyor-belt"><path d="M10 20v2"/><path d="M14 20v2"/><path d="M18 20v2"/><path d="M21 20H3"/><path d="M6 20v2"/><path d="M8 16V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v12"/><rect x="4" y="6" width="16" height="10" rx="2"/></svg>' class="sprinkle-stack" style="padding: 20px; max-width: 520px; margin: 0 auto;">
+
+  <div id="mp-ready" class="mp-view">
+    <div class="sprinkle-heading mp-view-heading" tabindex="-1">Migrate Page</div>
+    <dl class="sprinkle-kv-list">
+      <dt>Target repo</dt>
+      <dd id="mp-repo">Loading...</dd>
+    </dl>
+    <div class="sprinkle-body">
+      Migrates the active browser tab into an Edge Delivery Services page using the configured repository.
+    </div>
+    <div class="sprinkle-btn-group">
+      <button class="sprinkle-btn sprinkle-btn--primary" onclick="startMigration()">Migrate This Page</button>
+    </div>
+    <div class="sprinkle-detail" id="mp-config-hint" style="display:none; margin-top: 8px;">
+      Configure a target repository to get started.
+    </div>
+  </div>
+
+  <div id="mp-migrating" class="mp-view" style="display:none;">
+    <div class="sprinkle-heading mp-view-heading" tabindex="-1">Migrating</div>
+    <div class="sprinkle-detail" id="mp-source-url"></div>
+    <div class="sprinkle-stack" id="mp-phases" aria-live="polite" aria-relevant="text">
+      <div class="sprinkle-row" data-phase="extraction">
+        <span class="mp-icon mp-icon--pending"></span>
+        <span class="sprinkle-body">Extraction</span>
+        <span class="sprinkle-detail mp-detail"></span>
+      </div>
+      <div class="sprinkle-row" data-phase="decomposition">
+        <span class="mp-icon mp-icon--pending"></span>
+        <span class="sprinkle-body">Decomposition</span>
+        <span class="sprinkle-detail mp-detail"></span>
+      </div>
+      <div class="sprinkle-row" data-phase="blocks">
+        <span class="mp-icon mp-icon--pending"></span>
+        <span class="sprinkle-body">Generating Blocks</span>
+        <span class="sprinkle-detail mp-detail"></span>
+      </div>
+      <div class="sprinkle-row" data-phase="assembly">
+        <span class="mp-icon mp-icon--pending"></span>
+        <span class="sprinkle-body">Assembly</span>
+        <span class="sprinkle-detail mp-detail"></span>
+      </div>
+    </div>
+    <div class="sprinkle-progress-bar" id="mp-progress"
+         role="progressbar"
+         aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"
+         aria-label="Migration progress"
+         style="--progress: 0%; margin-top: 12px;"></div>
+    <div class="sprinkle-detail" id="mp-progress-label"
+         style="text-align: center; margin-top: 6px;"></div>
+    <div class="sprinkle-btn-group" style="margin-top: 16px; text-align: center;">
+      <button class="sprinkle-btn sprinkle-btn--secondary" onclick="cancelMigration()">Cancel</button>
+    </div>
+  </div>
+
+  <div id="mp-done" class="mp-view" style="display:none;">
+    <div class="sprinkle-heading mp-view-heading" tabindex="-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" role="img" aria-label="Complete" style="vertical-align: middle; margin-right: 6px; color: #079355;"><path d="M10 18.75c-4.825 0-8.75-3.925-8.75-8.75S5.175 1.25 10 1.25s8.75 3.925 8.75 8.75-3.925 8.75-8.75 8.75m0-16c-3.998 0-7.25 3.252-7.25 7.25s3.252 7.25 7.25 7.25 7.25-3.252 7.25-7.25S13.998 2.75 10 2.75"/><path d="M9.223 13.5c-.212 0-.415-.09-.558-.248l-2.51-2.792c-.278-.309-.253-.782.055-1.06s.781-.252 1.06.056l1.893 2.107 3.487-4.756c.244-.334.711-.41 1.048-.161.334.244.406.713.161 1.047l-4.032 5.5c-.133.183-.342.295-.567.306z"/></svg>
+      Migration Complete
+    </div>
+    <dl class="sprinkle-kv-list">
+      <dt>Source</dt>
+      <dd id="mp-done-url"></dd>
+      <dt id="mp-done-blocks-label" style="display:none;">Blocks</dt>
+      <dd id="mp-done-blocks" style="display:none;"></dd>
+    </dl>
+    <div style="height: 16px;"></div>
+    <div class="sprinkle-btn-group">
+      <button class="sprinkle-btn sprinkle-btn--primary" onclick="previewResult()">Preview</button>
+      <button class="sprinkle-btn sprinkle-btn--secondary" onclick="newMigration()">New Migration</button>
+    </div>
+  </div>
+
+  <div id="mp-cancelling" class="mp-view" style="display:none;">
+    <div class="sprinkle-heading mp-view-heading" tabindex="-1">Cancelling</div>
+    <div class="sprinkle-body" style="text-align: center; padding: 24px 0;">
+      <div class="mp-spinner"></div>
+      <div class="sprinkle-detail" style="margin-top: 12px;">Stopping migration...</div>
+    </div>
+  </div>
+
+  <div id="mp-error" class="mp-view" style="display:none;" role="alert">
+    <div class="sprinkle-heading mp-view-heading" tabindex="-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" role="img" aria-label="Failed" style="vertical-align: middle; margin-right: 6px; color: #d73220;"><path d="m11.06 10 2.22-2.22c.293-.293.293-.767 0-1.06s-.767-.293-1.06 0L10 8.94 7.78 6.72c-.293-.293-.767-.293-1.06 0s-.293.767 0 1.06L8.94 10l-2.22 2.22c-.293.293-.293.767 0 1.06.146.147.338.22.53.22s.384-.073.53-.22L10 11.06l2.22 2.22c.146.147.338.22.53.22s.384-.073.53-.22c.293-.293.293-.767 0-1.06z"/><path d="M10 18.75c-4.825 0-8.75-3.925-8.75-8.75S5.175 1.25 10 1.25s8.75 3.925 8.75 8.75-3.925 8.75-8.75 8.75m0-16c-3.998 0-7.25 3.252-7.25 7.25s3.252 7.25 7.25 7.25 7.25-3.252 7.25-7.25S13.998 2.75 10 2.75"/></svg>
+      Migration Failed
+    </div>
+    <div class="mp-error-card">
+      <div class="sprinkle-body" id="mp-error-msg"></div>
+    </div>
+    <div class="sprinkle-btn-group">
+      <button class="sprinkle-btn sprinkle-btn--primary" onclick="newMigration()">Try Again</button>
+    </div>
+  </div>
+
+</div>
+
+<style>
+.mp-view {
+  opacity: 0;
+  transition: opacity 150ms ease-in;
+}
+.mp-view.mp-visible {
+  opacity: 1;
+}
+.mp-view-heading:focus {
+  outline: none;
+}
+
+.mp-icon {
+  display: inline-flex;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+}
+.mp-icon--pending { color: #dadada; }
+.mp-icon--active { color: #4b75ff; }
+.mp-icon--done { color: #079355; }
+.mp-icon--error { color: #d73220; }
+
+@keyframes mp-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.mp-icon--active svg {
+  animation: mp-pulse 1.5s ease-in-out infinite;
+}
+
+.mp-error-card {
+  margin: 8px 0;
+  padding: 10px 12px;
+  border-left: 3px solid #d73220;
+  border-radius: 4px;
+  background: #ffebe8;
+}
+
+@keyframes mp-spin {
+  to { transform: rotate(360deg); }
+}
+.mp-spinner {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border: 3px solid var(--s2-gray-200, #e1e1e1);
+  border-top-color: var(--s2-gray-600, #717171);
+  border-radius: 50%;
+  animation: mp-spin 0.8s linear infinite;
+}
+
+#mp-phases .sprinkle-row {
+  gap: 8px;
+  justify-content: flex-start;
+}
+#mp-phases .sprinkle-body { flex: 1; }
+
+#mp-ready .sprinkle-kv-list,
+#mp-done .sprinkle-kv-list { margin-top: 12px; }
+
+#mp-ready .sprinkle-body { margin-bottom: 16px; }
+
+#mp-ready .sprinkle-btn-group,
+#mp-done .sprinkle-btn-group,
+#mp-error .sprinkle-btn-group { margin-top: 16px; }
+
+#mp-migrating .sprinkle-btn-group { margin-top: 16px; }
+
+/* ── Text readability (light-theme) ──────── */
+.sprinkle-heading {
+  color: var(--s2-gray-900, #131313);
+}
+.sprinkle-body {
+  color: var(--s2-content-default, #131313);
+}
+.sprinkle-detail {
+  color: var(--s2-gray-600, #717171);
+}
+dl.sprinkle-kv-list dt {
+  color: var(--s2-gray-600, #717171);
+}
+dl.sprinkle-kv-list dd {
+  color: var(--s2-content-default, #131313);
+}
+
+/* ── Buttons ─────────────────────────────── */
+.sprinkle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 32px;
+  padding: 0 16px;
+  border: 1px solid var(--s2-gray-200, #e1e1e1);
+  border-radius: 10px;
+  line-height: 1;
+  background: var(--s2-gray-25, #fff);
+  color: var(--s2-gray-800, #292929);
+  font-size: var(--s2-font-size-100, 14px);
+  font-weight: 700;
+  font-family: var(--s2-font-family,
+    'Adobe Clean', -apple-system, system-ui, sans-serif);
+  cursor: pointer;
+  box-shadow: var(--s2-shadow-container,
+    0 2px 8px rgba(0,0,0,.08), 0 1px 4px rgba(0,0,0,.04));
+  transition: background 130ms ease,
+    border-color 130ms ease, transform 130ms ease;
+}
+.sprinkle-btn:hover {
+  background: #fff;
+  border-color: var(--s2-gray-300, #dadada);
+}
+.sprinkle-btn:active {
+  transform: scale(0.98);
+}
+.sprinkle-btn:focus-visible {
+  outline: 2px solid var(--s2-border-focus, #3b63fb);
+  outline-offset: 2px;
+}
+.sprinkle-btn:disabled,
+.sprinkle-btn[disabled] {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.sprinkle-btn--primary {
+  background: var(--s2-accent, #3b63fb);
+  color: var(--s2-gray-25, #fff);
+  border-color: transparent;
+  box-shadow: none;
+}
+.sprinkle-btn--primary:hover {
+  background: var(--s2-accent-hover, #2b54db);
+}
+.sprinkle-btn--primary:active {
+  background: var(--s2-accent-down, #1e44c4);
+  transform: scale(0.98);
+}
+
+.sprinkle-btn--secondary {
+  background: var(--s2-gray-25, #fff);
+  border-color: var(--s2-gray-200, #e1e1e1);
+  color: var(--s2-gray-800, #292929);
+}
+.sprinkle-btn--secondary:hover {
+  background: var(--s2-gray-50, #f8f8f8);
+  border-color: var(--s2-gray-300, #dadada);
+}
+</style>
+
+<script>
+var PHASES = ['extraction', 'decomposition', 'blocks', 'assembly'];
+var PHASE_PROGRESS = { extraction: 25, decomposition: 50, blocks: 75, assembly: 90 };
+var currentPreviewUrl = null;
+var cancelTimeoutId = null;
+
+var ICON_PENDING = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" role="img" aria-label="Pending"><path d="M10 18.75c-4.825 0-8.75-3.925-8.75-8.75S5.175 1.25 10 1.25s8.75 3.925 8.75 8.75-3.925 8.75-8.75 8.75m0-16c-3.998 0-7.25 3.252-7.25 7.25s3.252 7.25 7.25 7.25 7.25-3.252 7.25-7.25S13.998 2.75 10 2.75"/></svg>';
+var ICON_ACTIVE = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" role="img" aria-label="In progress"><circle cx="10" cy="10" r="5"/></svg>';
+var ICON_DONE = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" role="img" aria-label="Complete"><path d="M10 18.75c-4.825 0-8.75-3.925-8.75-8.75S5.175 1.25 10 1.25s8.75 3.925 8.75 8.75-3.925 8.75-8.75 8.75m0-16c-3.998 0-7.25 3.252-7.25 7.25s3.252 7.25 7.25 7.25 7.25-3.252 7.25-7.25S13.998 2.75 10 2.75"/><path d="M9.223 13.5c-.212 0-.415-.09-.558-.248l-2.51-2.792c-.278-.309-.253-.782.055-1.06s.781-.252 1.06.056l1.893 2.107 3.487-4.756c.244-.334.711-.41 1.048-.161.334.244.406.713.161 1.047l-4.032 5.5c-.133.183-.342.295-.567.306z"/></svg>';
+
+function showView(id) {
+  var views = ['mp-ready', 'mp-migrating', 'mp-done', 'mp-error', 'mp-cancelling'];
+  for (var i = 0; i < views.length; i++) {
+    var el = document.getElementById(views[i]);
+    if (!el) continue;
+    el.style.display = 'none';
+    el.classList.remove('mp-visible');
+  }
+  var target = document.getElementById(id);
+  if (!target) return;
+  target.style.display = '';
+  requestAnimationFrame(function() {
+    target.classList.add('mp-visible');
+    var heading = target.querySelector('.mp-view-heading');
+    if (heading) heading.focus();
+  });
+}
+
+function updatePhases(activePhase, detail) {
+  var activeIdx = PHASES.indexOf(activePhase);
+  if (activeIdx === -1) return;
+
+  for (var i = 0; i < PHASES.length; i++) {
+    var row = document.querySelector('[data-phase="' + PHASES[i] + '"]');
+    if (!row) continue;
+    var icon = row.querySelector('.mp-icon');
+    var detailEl = row.querySelector('.mp-detail');
+
+    if (i < activeIdx) {
+      icon.innerHTML = ICON_DONE;
+      icon.className = 'mp-icon mp-icon--done';
+      detailEl.textContent = '';
+    } else if (i === activeIdx) {
+      icon.innerHTML = ICON_ACTIVE;
+      icon.className = 'mp-icon mp-icon--active';
+      detailEl.textContent = detail || '';
+    } else {
+      icon.innerHTML = ICON_PENDING;
+      icon.className = 'mp-icon mp-icon--pending';
+      detailEl.textContent = '';
+    }
+  }
+
+  var pct = PHASE_PROGRESS[activePhase] || 0;
+  var bar = document.getElementById('mp-progress');
+  if (bar) {
+    bar.style.setProperty('--progress', pct + '%');
+    bar.setAttribute('aria-valuenow', pct);
+  }
+
+  var label = document.getElementById('mp-progress-label');
+  if (label) {
+    label.textContent = 'Phase ' + (activeIdx + 1) + ' of ' + PHASES.length;
+  }
+}
+
+function markAllDone() {
+  for (var i = 0; i < PHASES.length; i++) {
+    var row = document.querySelector('[data-phase="' + PHASES[i] + '"]');
+    if (!row) continue;
+    var icon = row.querySelector('.mp-icon');
+    icon.innerHTML = ICON_DONE;
+    icon.className = 'mp-icon mp-icon--done';
+    row.querySelector('.mp-detail').textContent = '';
+  }
+  var bar = document.getElementById('mp-progress');
+  if (bar) {
+    bar.style.setProperty('--progress', '100%');
+    bar.setAttribute('aria-valuenow', 100);
+  }
+  var label = document.getElementById('mp-progress-label');
+  if (label) label.textContent = 'Complete';
+}
+
+function populateDone(data) {
+  var doneUrl = document.getElementById('mp-done-url');
+  if (doneUrl) doneUrl.textContent = data.url || '';
+
+  var blocksLabel = document.getElementById('mp-done-blocks-label');
+  var blocksVal = document.getElementById('mp-done-blocks');
+  if (data.blockCount && blocksLabel && blocksVal) {
+    blocksLabel.style.display = '';
+    blocksVal.style.display = '';
+    blocksVal.textContent = data.blockCount + ' blocks migrated';
+  } else if (blocksLabel && blocksVal) {
+    blocksLabel.style.display = 'none';
+    blocksVal.style.display = 'none';
+  }
+}
+
+function populateError(data) {
+  var errMsg = document.getElementById('mp-error-msg');
+  if (errMsg) errMsg.textContent = data.message || 'Unknown error';
+}
+
+function populateMigrating(data) {
+  if (data.url) {
+    var srcEl = document.getElementById('mp-source-url');
+    if (srcEl) srcEl.textContent = data.url;
+  }
+}
+
+function startMigration() {
+  showView('mp-migrating');
+  updatePhases('extraction', '');
+  slicc.setState({ phase: 'extraction', status: 'running' });
+  slicc.lick({ action: 'migrate-page' });
+}
+
+function previewResult() {
+  if (currentPreviewUrl) {
+    slicc.open(currentPreviewUrl);
+  }
+}
+
+function newMigration() {
+  currentPreviewUrl = null;
+  slicc.setState(null);
+  showView('mp-ready');
+  loadConfig();
+}
+
+function cancelMigration() {
+  showView('mp-cancelling');
+  slicc.stopCone();
+  setTimeout(function() {
+    slicc.lick({
+      action: 'cancel-migration',
+      data: {
+        instruction: 'List all scoops with list_scoops. '
+          + 'For each non-cone scoop, call drop_scoop to remove it. '
+          + 'Then send confirmation: '
+          + 'sprinkle send migrate-page \'{"phase":"cancelled"}\''
+      }
+    });
+  }, 500);
+  cancelTimeoutId = setTimeout(function() {
+    cancelTimeoutId = null;
+    resetAfterCancel();
+  }, 10000);
+}
+
+function resetAfterCancel() {
+  if (cancelTimeoutId) {
+    clearTimeout(cancelTimeoutId);
+    cancelTimeoutId = null;
+  }
+  currentPreviewUrl = null;
+  slicc.setState(null);
+  slicc.readFile('/workspace/skills/migrate-page/migrate-config.json')
+    .then(function(raw) {
+      var config;
+      try { config = JSON.parse(raw); } catch (e) { return; }
+      config.currentMigration = null;
+      return slicc.writeFile(
+        '/workspace/skills/migrate-page/migrate-config.json',
+        JSON.stringify(config, null, 2)
+      );
+    })
+    .catch(function() {})
+    .then(function() {
+      showView('mp-ready');
+      loadConfig();
+    });
+}
+
+function handleUpdate(data) {
+  if (!data || !data.phase) return;
+  slicc.setState(data);
+
+  if (data.phase === 'done') {
+    currentPreviewUrl = data.previewUrl || null;
+    populateDone(data);
+    markAllDone();
+    showView('mp-done');
+    return;
+  }
+
+  if (data.phase === 'error') {
+    populateError(data);
+    showView('mp-error');
+    return;
+  }
+
+  if (data.phase === 'cancelled') {
+    resetAfterCancel();
+    return;
+  }
+
+  populateMigrating(data);
+  showView('mp-migrating');
+
+  if (data.status === 'done') {
+    var phaseIdx = PHASES.indexOf(data.phase);
+    if (phaseIdx === PHASES.length - 1) {
+      markAllDone();
+    } else {
+      updatePhases(PHASES[phaseIdx + 1], '');
+    }
+  } else {
+    updatePhases(data.phase, data.detail || '');
+  }
+}
+
+function setConfigState(configured) {
+  var btn = document.querySelector('#mp-ready .sprinkle-btn--primary');
+  var hint = document.getElementById('mp-config-hint');
+  var repoEl = document.getElementById('mp-repo');
+  if (!configured) {
+    if (repoEl) repoEl.textContent = 'Not configured';
+    if (btn) btn.disabled = true;
+    if (hint) hint.style.display = '';
+  } else {
+    if (btn) btn.disabled = false;
+    if (hint) hint.style.display = 'none';
+  }
+}
+
+function loadConfig() {
+  slicc.readFile('/workspace/skills/migrate-page/migrate-config.json').then(function(raw) {
+    var config;
+    try { config = JSON.parse(raw); } catch (e) {
+      setConfigState(false);
+      return;
+    }
+
+    var repoEl = document.getElementById('mp-repo');
+    if (repoEl) repoEl.textContent = config.repo || 'Not configured';
+    setConfigState(!!config.repo);
+
+    if (config.currentMigration && !slicc.getState()) {
+      restoreState(config.currentMigration);
+    }
+  }).catch(function() {
+    setConfigState(false);
+  });
+}
+
+function restoreState(state) {
+  slicc.setState(state);
+  if (state.phase === 'done') {
+    currentPreviewUrl = state.previewUrl || null;
+    populateDone(state);
+    markAllDone();
+    showView('mp-done');
+  } else if (state.phase === 'error') {
+    populateError(state);
+    showView('mp-error');
+  } else if (state.phase === 'cancelled') {
+    showView('mp-ready');
+  } else {
+    populateMigrating(state);
+    showView('mp-migrating');
+    updatePhases(state.phase, state.detail || '');
+  }
+}
+
+function init() {
+  slicc.on('update', handleUpdate);
+  var saved = slicc.getState();
+  if (saved && saved.phase) {
+    restoreState(saved);
+  } else {
+    showView('mp-ready');
+  }
+  loadConfig();
+}
+
+init();
+</script>
