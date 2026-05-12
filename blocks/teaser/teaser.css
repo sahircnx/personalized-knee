@@ -1,4 +1,124 @@
-/* Placeholder CSS for teaser */
-.teaser {
+/* teaser.css */
+
+.teaser.block {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Call To Action Banner Variant ────────────────────────────────────────── */
+
+.teaser.call-to-action-banner {
+  background-color: #f1faff; /* Sky blue background */
+  padding: 80px 24px;
+  border-radius: 40px;
+  margin: 40px 24px;
+  text-align: center;
+}
+
+@media (width >= 900px) {
+  .teaser.call-to-action-banner {
+    margin: 60px auto;
+    max-width: 1200px;
+    padding: 100px 48px;
+  }
+}
+
+.teaser.call-to-action-banner .teaser-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.teaser.call-to-action-banner .teaser-bg picture,
+.teaser.call-to-action-banner .teaser-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.4;
   display: block;
+}
+
+.teaser.call-to-action-banner .teaser-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.teaser.call-to-action-banner .teaser-heading {
+  color: #2b2a80; /* Dark brand blue */
+  font-size: 32px;
+  line-height: 1.1;
+  margin: 0;
+}
+
+@media (width >= 900px) {
+  .teaser.call-to-action-banner .teaser-heading {
+    font-size: 48px;
+  }
+}
+
+.teaser.call-to-action-banner .teaser-description {
+  color: #4b4b4b;
+  font-size: 18px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.teaser.call-to-action-banner .teaser-description p {
+  margin: 0;
+}
+
+.teaser.call-to-action-banner .teaser-disclaimer {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+.teaser.call-to-action-banner .teaser-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.teaser.call-to-action-banner .teaser-primary-btn.button.primary {
+  background-color: #2b2a80;
+  color: #fff !important;
+  padding: 16px 48px;
+  border-radius: 40px;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-block;
+  border: none;
+}
+
+.teaser.call-to-action-banner .teaser-primary-btn.button.primary:hover {
+  background-color: #1a195c;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.teaser.call-to-action-banner .teaser-secondary-link {
+  color: #2b2a80;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: opacity 0.2s ease;
+}
+
+.teaser.call-to-action-banner .teaser-secondary-link:hover {
+  opacity: 0.7;
 }
