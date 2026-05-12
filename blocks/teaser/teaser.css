@@ -68,6 +68,10 @@
 @media (width >=900px) {
   .teaser.call-to-action-banner .teaser-heading {
     font-size: 48px;
+    -webkit-text-size-adjust: 100%;
+    color: #2b2a80;
+    font-size: 4pc;
+    font-weight: 500;
   }
 }
 
