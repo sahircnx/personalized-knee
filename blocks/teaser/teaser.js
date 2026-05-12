@@ -5,8 +5,6 @@ export default function decorate(block) {
   const cell = (idx) => rows[idx]?.firstElementChild || null;
 
   // Determine if row 0 is the 'classes' dropdown or the background image
-  // If row 0 has a picture, it's the background image (index 0)
-  // If not, row 0 is classes, and background image starts at index 1
   let contentStart = 0;
   if (cell(0) && !cell(0).querySelector('picture')) {
     const variant = cell(0).textContent.trim();
@@ -20,10 +18,6 @@ export default function decorate(block) {
   const headingCell = cell(contentStart + 1);
   const descCell = cell(contentStart + 2);
   const disclaimerCell = cell(contentStart + 3);
-  const primaryBtnTextCell = cell(contentStart + 4);
-  const primaryBtnLinkCell = cell(contentStart + 5);
-  const secondaryLinkTextCell = cell(contentStart + 6);
-  const secondaryLinkUrlCell = cell(contentStart + 7);
 
   // ── Build DOM ──────────────────────────────────────────────────────────────
   const container = document.createElement('div');
@@ -53,31 +47,47 @@ export default function decorate(block) {
     container.append(disclaimer);
   }
 
-  // Actions
+  // Actions (Default Button Block pattern + Legacy Support)
   const actions = document.createElement('div');
   actions.className = 'teaser-actions';
+  
+  const actionRows = rows.slice(contentStart + 4);
+  for (let i = 0; i < actionRows.length; i += 1) {
+    const row = actionRows[i];
+    const rowCell = row.firstElementChild;
+    if (!rowCell) continue;
 
-  // Primary Button
-  const pLink = primaryBtnLinkCell?.querySelector('a') || primaryBtnLinkCell;
-  const pText = primaryBtnTextCell?.textContent?.trim() || pLink?.textContent?.trim();
-  if (pLink && pText) {
-    const btn = document.createElement('a');
-    btn.href = pLink.href || pLink.textContent.trim();
-    btn.className = 'button primary teaser-primary-btn';
-    btn.textContent = pText;
-    actions.append(btn);
+    const links = [...rowCell.querySelectorAll('a')];
+    if (links.length > 0) {
+      // If the row has links, add them all
+      links.forEach((link) => {
+        actions.append(link.cloneNode(true));
+      });
+    } else {
+      // If the row has NO links but has text, and the NEXT row has a link, 
+      // treat this text as the label for the next row's first link.
+      const label = rowCell.textContent.trim();
+      const nextRow = actionRows[i + 1];
+      const nextCell = nextRow?.firstElementChild;
+      const nextLink = nextCell?.querySelector('a');
+      
+      if (label && nextLink) {
+        const newLink = nextLink.cloneNode(true);
+        newLink.textContent = label;
+        actions.append(newLink);
+        i += 1; // Skip the next row as we've consumed its link
+      }
+    }
   }
 
-  // Secondary Link
-  const sLink = secondaryLinkUrlCell?.querySelector('a') || secondaryLinkUrlCell;
-  const sText = secondaryLinkTextCell?.textContent?.trim() || sLink?.textContent?.trim();
-  if (sLink && sText) {
-    const link = document.createElement('a');
-    link.href = sLink.href || sLink.textContent.trim();
-    link.className = 'teaser-secondary-link';
-    link.textContent = sText;
-    actions.append(link);
-  }
+  // Decorate collected links
+  [...actions.children].forEach((link, index) => {
+    if (index === 0) {
+      link.className = 'button primary teaser-primary-btn';
+    } else {
+      link.className = 'teaser-secondary-link';
+    }
+  });
 
   if (actions.children.length > 0) {
     container.append(actions);
@@ -86,8 +96,10 @@ export default function decorate(block) {
   // Background Image
   const picture = backgroundImageCell?.querySelector('picture');
   if (picture) {
-    picture.className = 'teaser-bg';
-    block.prepend(picture);
+    const bg = document.createElement('div');
+    bg.className = 'teaser-bg';
+    bg.append(picture);
+    block.prepend(bg);
   }
 
   block.append(container);
