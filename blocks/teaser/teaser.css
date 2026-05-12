@@ -15,7 +15,7 @@
 .teaser.call-to-action-banner {
   background-color: #f1faff;
   /* Sky blue background */
-  padding: 80px 24px;
+  padding: 30px 24px;
   border-radius: 40px;
   margin: 40px 24px;
   text-align: center;
@@ -24,7 +24,7 @@
 @media (width >=900px) {
   .teaser.call-to-action-banner {
     margin: 60px auto;
-    padding: 100px 48px;
+    padding: 30px 48px;
   }
 }
 
