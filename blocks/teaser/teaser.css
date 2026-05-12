@@ -5,20 +5,24 @@
   overflow: hidden;
 }
 
+.teaser-wrapper {
+  max-width: unset !important;
+}
+
 /* ── Call To Action Banner Variant ────────────────────────────────────────── */
 
 .teaser.call-to-action-banner {
-  background-color: #f1faff; /* Sky blue background */
+  background-color: #f1faff;
+  /* Sky blue background */
   padding: 80px 24px;
   border-radius: 40px;
   margin: 40px 24px;
   text-align: center;
 }
 
-@media (width >= 900px) {
+@media (width >=900px) {
   .teaser.call-to-action-banner {
     margin: 60px auto;
-    max-width: 1200px;
     padding: 100px 48px;
   }
 }
@@ -53,13 +57,14 @@
 }
 
 .teaser.call-to-action-banner .teaser-heading {
-  color: #2b2a80; /* Dark brand blue */
+  color: #2b2a80;
+  /* Dark brand blue */
   font-size: 32px;
   line-height: 1.1;
   margin: 0;
 }
 
-@media (width >= 900px) {
+@media (width >=900px) {
   .teaser.call-to-action-banner .teaser-heading {
     font-size: 48px;
   }
