@@ -7,6 +7,7 @@
 
 .teaser-wrapper {
   max-width: unset !important;
+  padding: 0 !important;
 }
 
 /* ── Call To Action Banner Variant ────────────────────────────────────────── */
