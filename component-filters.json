@@ -92,5 +92,11 @@
     "components": [
       "lifestyle-tip-item"
     ]
+  },
+  {
+    "id": "teaser",
+    "components": [
+      "button"
+    ]
   }
 ]
