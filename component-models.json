@@ -984,6 +984,11 @@
         "component": "richtext",
         "name": "actions",
         "label": "Actions (Buttons/Links)"
+      },
+      {
+        "component": "button",
+        "name": "button",
+        "label": "Button"
       }
     ]
   }
