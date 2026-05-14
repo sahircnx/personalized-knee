@@ -20,6 +20,12 @@
         "name": "keywords",
         "multi": true,
         "label": "Keywords"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "footer",
+        "label": "footer"
       }
     ]
   },
@@ -996,11 +1002,26 @@
         "label": "Size",
         "valueType": "string",
         "options": [
-          { "name": "Small (20px)", "value": "small" },
-          { "name": "Medium (40px)", "value": "medium" },
-          { "name": "Large (80px)", "value": "large" },
-          { "name": "Extra Large (120px)", "value": "xlarge" },
-          { "name": "Custom", "value": "custom" }
+          {
+            "name": "Small (20px)",
+            "value": "small"
+          },
+          {
+            "name": "Medium (40px)",
+            "value": "medium"
+          },
+          {
+            "name": "Large (80px)",
+            "value": "large"
+          },
+          {
+            "name": "Extra Large (120px)",
+            "value": "xlarge"
+          },
+          {
+            "name": "Custom",
+            "value": "custom"
+          }
         ]
       },
       {
