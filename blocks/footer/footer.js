@@ -193,7 +193,7 @@ export default async function decorate(block) {
     : '/footer';
   const fragment = await loadFragment(footerPath);
 
-  // block.textContent = '';
+  block.textContent = 'testing footer';
   // const sections = [...fragment.querySelectorAll('.section')];
   // block.append(buildFromSections(sections));
 }
