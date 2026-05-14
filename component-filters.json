@@ -18,11 +18,7 @@
       "fragment",
       "knee-stories",
       "understanding-knee-pain",
-      "varus-and-valgus",
-      "arthritis-info",
-      "lifestyle-tips",
-      "teaser",
-      "spacer"
+      "cta"
     ]
   },
   {
@@ -80,24 +76,6 @@
     "id": "understanding-knee-pain",
     "components": [
       "knee-pain-card"
-    ]
-  },
-  {
-    "id": "arthritis-info",
-    "components": [
-      "arthritis-info-card"
-    ]
-  },
-  {
-    "id": "lifestyle-tips",
-    "components": [
-      "lifestyle-tip-item"
-    ]
-  },
-  {
-    "id": "teaser",
-    "components": [
-      "button"
     ]
   }
 ]
