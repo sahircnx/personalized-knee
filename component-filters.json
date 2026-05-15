@@ -18,8 +18,7 @@
       "fragment",
       "knee-stories",
       "understanding-knee-pain",
-      "cta",
-      "knee-pain-signs"
+      "cta"
     ]
   },
   {
@@ -77,14 +76,6 @@
     "id": "understanding-knee-pain",
     "components": [
       "knee-pain-card"
-    ]
-  },
-  {
-    "id": "knee-pain-signs",
-    "components": [
-      "knee-pain-sign-item",
-      "knee-pain-sign-cta",
-      "button"
     ]
   }
 ]
