@@ -7,111 +7,115 @@
 
 .knee-pain-signs {
   position: relative;
-  overflow: hidden;
-  color: #2b2a80;
   font-family: var(--body-font-family);
-  min-height: 100vh;
+  color: #2b2a80;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
-/* Full-bleed Background Image */
-.ukps-bg {
-  position: absolute;
+/* ── Sticky Left Panel ───────────────────────────────────────────────────── */
+
+.ukps-sticky {
+  position: sticky;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  padding: 64px 24px;
   z-index: 1;
+}
+
+.ukps-image-wrap {
+  position: relative;
 }
 
 .ukps-bg picture,
 .ukps-bg img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
   display: block;
+  border-radius: 24px;
+  object-fit: cover;
 }
 
-/* Layout Wrapper */
-.ukps-inner {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 80px 24px;
-  gap: 40px;
-}
-
-/* Sticky Left Section */
-.ukps-left {
-  flex: 1;
-}
-
+/* Eyebrow overlaid on image */
 .ukps-eyebrow {
-  font-size: 13px;
+  position: absolute;
+  top: 23px;
+  left: 33px;
   color: #2b2a80;
-  margin-bottom: 60px;
-  font-weight: 500;
-  opacity: 0.9;
-}
-
-.ukps-heading {
-  font-size: 44px;
-  line-height: 1.05;
-  font-weight: 600;
-  max-width: 400px;
+  font-size: 14px;
+  font-weight: 400;
   margin: 0;
+  line-height: 1.4;
+  z-index: 2;
+}
+
+/* Heading overlaid on image */
+.ukps-heading {
+  position: absolute;
+  top: 128px;
+  left: 94px;
   color: #2b2a80;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.05;
+  text-align: left;
+  width: 382px;
+  margin: 0;
+  z-index: 2;
 }
 
-/* Right Cards Section */
-.ukps-right {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+/* ── Cards Column ────────────────────────────────────────────────────────── */
+
+.ukps-cards {
+  position: relative;
+  left: calc(100% - 570px);
+  margin-top: -560px;
+  /* negative margin to overlap sticky: approx -35pc */
+  max-width: fit-content;
+  padding-bottom: 283px;
+  counter-reset: section 0;
+  z-index: 2;
 }
 
-/* Card Visuals */
+/* ── Individual Sign Card ────────────────────────────────────────────────── */
+
 .ukps-card {
   position: relative;
-  padding: 40px;
-  border-radius: 32px;
-  display: flex;
-  flex-direction: row; /* Horizontal layout for icon/content */
-  align-items: flex-start;
-  gap: 32px;
+  width: 447px;
+  height: 391px;
+  border-radius: 24px;
+  margin-bottom: 42px;
+  padding: 112px 48px 48px;
+  box-sizing: border-box;
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+  counter-increment: section 1;
   overflow: hidden;
-  transition: transform 0.3s ease;
 }
 
-/* Sign Item (Light Card) */
 .ukps-card.sign-item {
-  background: rgba(235, 248, 253, 0.92);
-  backdrop-filter: blur(8px);
+  background: rgb(240, 250, 255) url('/icons/knee-pain-box-bg.svg') no-repeat 100% 0 / auto;
+  border: 0.5px solid rgb(241, 250, 255);
 }
 
-/* The "Diagonal Slash" Accent */
-.ukps-card.sign-item::after {
-  content: '';
+/* Number via CSS counter */
+.ukps-card.sign-item::before {
+  content: counter(section);
+  font-size: 54px;
+  font-weight: 400;
+  color: #2b2a80;
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 200px;
-  height: 150px;
-  background: linear-gradient(225deg, rgba(255, 255, 255, 0.6) 0%, transparent 70%);
-  clip-path: polygon(100% 0, 100% 100%, 0 0);
-  pointer-events: none;
-  z-index: 0;
+  top: 48px;
+  right: 48px;
+  line-height: 1;
 }
 
+/* Icon — authored picture element placed in DOM */
 .ukps-card-icon {
+  position: absolute;
+  top: 48px;
+  left: 48px;
   width: 64px;
   height: 64px;
-  flex-shrink: 0;
-  position: relative;
-  z-index: 1;
 }
 
 .ukps-card-icon picture,
@@ -119,120 +123,137 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-}
-
-.ukps-card-number {
-  position: absolute;
-  top: 30px;
-  right: 40px;
-  font-size: 64px;
-  font-weight: 500;
-  color: #2b2a80;
-  line-height: 1;
-  z-index: 1;
-}
-
-.ukps-card-content {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  position: relative;
-  z-index: 1;
-  padding-top: 10px;
-  padding-right: 40px;
+  display: block;
 }
 
 .ukps-card-title {
-  font-size: 26px;
-  margin: 0;
-  font-weight: 600;
+  font-size: 24px;
+  font-weight: 400;
   color: #2b2a80;
   line-height: 1.2;
+  margin: 0 0 0 0;
+  margin-top: 15px;
+  text-align: left;
 }
 
 .ukps-card-desc {
-  font-size: 17px;
-  line-height: 1.45;
+  font-size: 18px;
+  line-height: 1.4;
   color: #2b2a80;
+  margin: 0;
 }
 
-/* CTA Card (Dark) */
+.ukps-card-desc p {
+  margin-top: 1rem;
+  font-size: 18px;
+  line-height: 1.2;
+  color: #2b2a80;
+  text-align: left;
+}
+
+/* ── CTA Card ────────────────────────────────────────────────────────────── */
+
 .ukps-card.sign-cta {
   background: #2b2a80;
-  color: #fff;
+  border-radius: 24px;
+  width: 447px;
+  height: auto;
+  min-height: 219px;
+  padding: 56px 48px;
+  display: flex;
   flex-direction: column;
-  text-align: left;
-  padding: 50px 40px;
   align-items: flex-start;
+  gap: 0;
+  margin-bottom: 0;
+  counter-increment: none;
+}
+
+.ukps-card.sign-cta::before,
+.ukps-card.sign-cta::after {
+  display: none;
 }
 
 .ukps-cta-title {
-  font-size: 32px;
-  margin: 0;
-  font-weight: 600;
+  font-size: 24px;
+  font-weight: 400;
   color: #fff;
-  margin-bottom: 24px;
+  margin: 0 0 24px 0;
 }
+
+
 
 .ukps-cta-btn {
+  display: inline-block;
   background: #fff;
   color: #2b2a80;
-  border: none;
-  padding: 18px 40px;
-  border-radius: 50px;
-  font-weight: 600;
+  border-radius: 10000px;
+  padding: 16px 24px;
+  font-size: 18px;
+  font-weight: 400;
   text-decoration: none;
-  font-size: 17px;
-  display: inline-block;
+  border: none;
+  cursor: pointer;
 }
 
-/* Desktop Polish */
-@media (min-width: 900px) {
-  .ukps-inner {
-    flex-direction: row;
-    padding: 120px 48px;
-    gap: 80px;
-  }
-
-  .ukps-left {
-    position: sticky;
-    top: 150px;
-    height: fit-content;
-  }
-
-  .ukps-heading {
-    font-size: 72px;
-    max-width: 500px;
-  }
-
-  .ukps-right {
-    padding-top: 120px; /* Offset to align first card lower than heading */
-  }
+.ukps-cta-btn:hover {
+  background-color: #36b5fc;
+  text-decoration: none;
+  transition: all .3s ease-in-out;
 }
 
-/* Mobile & Tablet Optimizations */
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+
 @media (max-width: 899px) {
-  .ukps-inner {
-    padding: 60px 24px;
-  }
-
-  .ukps-card {
-    flex-direction: column;
-    padding: 32px;
-    gap: 20px;
+  .ukps-sticky {
+    position: static;
+    padding: 32px 16px;
   }
 
   .ukps-heading {
+    font-size: 28px;
+    width: 220px;
+    top: 80px;
+    left: 48px;
+  }
+
+  .ukps-eyebrow {
+    top: 16px;
+    left: 20px;
+    font-size: 12px;
+  }
+
+  .ukps-cards {
+    left: 0;
+    margin-top: 0;
+    padding: 16px;
+    padding-bottom: 32px;
+    max-width: 100%;
+  }
+
+  .ukps-card,
+  .ukps-card.sign-cta {
+    width: 100%;
+    height: auto;
+    min-height: unset;
+  }
+
+  .ukps-card.sign-item {
+    padding: 80px 24px 32px;
+  }
+
+  .ukps-card.sign-cta {
+    padding: 40px 24px;
+  }
+
+  .ukps-card.sign-item::before {
+    right: 24px;
+    top: 24px;
     font-size: 40px;
   }
 
-  .ukps-card-number {
-    font-size: 56px;
-    top: 24px;
-    right: 24px;
-  }
-
   .ukps-card-icon {
+    top: 24px;
+    left: 24px;
     width: 48px;
     height: 48px;
   }
