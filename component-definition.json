@@ -375,6 +375,53 @@
           }
         },
         {
+          "title": "Pros Cons",
+          "id": "pros-cons",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Pros Cons",
+                  "model": "pros-cons",
+                  "filter": "pros-cons"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Pros Cons Card",
+          "id": "pros-cons-card",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Pros Cons Card",
+                  "model": "pros-cons-card",
+                  "filter": "pros-cons-card"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Pros Cons Item",
+          "id": "pros-cons-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Pros Cons Item",
+                  "model": "pros-cons-item"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Spacer",
           "id": "spacer",
           "plugins": {
@@ -445,84 +492,6 @@
                 "template": {
                   "name": "Varus and Valgus",
                   "model": "varus-and-valgus"
-                }
-              }
-            }
-          }
-        },
-        {
-          "title": "Knee Pain Signs",
-          "id": "knee-pain-signs",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/block",
-                "template": {
-                  "name": "Knee Pain Signs",
-                  "model": "knee-pain-signs",
-                  "filter": "knee-pain-signs"
-                }
-              }
-            }
-          }
-        },
-        {
-          "title": "Knee Pain Sign Item",
-          "id": "knee-pain-sign-item",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/block/item",
-                "template": {
-                  "name": "Knee Pain Sign Item",
-                  "model": "knee-pain-sign-item"
-                }
-              }
-            }
-          }
-        },
-        {
-          "title": "Pros Cons",
-          "id": "pros-cons",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/block",
-                "template": {
-                  "name": "Pros Cons",
-                  "model": "pros-cons",
-                  "filter": "pros-cons"
-                }
-              }
-            }
-          }
-        },
-        {
-          "title": "Pros Cons Card",
-          "id": "pros-cons-card",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/block/item",
-                "template": {
-                  "name": "Pros Cons Card",
-                  "model": "pros-cons-card",
-                  "filter": "pros-cons-card"
-                }
-              }
-            }
-          }
-        },
-        {
-          "title": "Pros Cons Item",
-          "id": "pros-cons-item",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/block/item",
-                "template": {
-                  "name": "Pros Cons Item",
-                  "model": "pros-cons-item"
                 }
               }
             }
