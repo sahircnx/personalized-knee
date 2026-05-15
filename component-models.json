@@ -1019,5 +1019,46 @@
         "description": "Summary text shown at the bottom of the component"
       }
     ]
+  },
+  {
+    "id": "statistics",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "backgroundImage",
+        "label": "Background Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "heading",
+        "label": "Top Heading"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "statEyebrow",
+        "label": "Stat Eyebrow (e.g. An estimated)"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "statValue",
+        "label": "Stat Value (e.g. 1,000,000)"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "statCaption",
+        "label": "Stat Caption (e.g. surgeries every year!)"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "Bottom Description"
+      }
+    ]
   }
 ]
