@@ -1,5 +1,9 @@
 /* ── Knee Pain Signs Block ────────────────────────────────────────────────── */
 
+.knee-pain-signs-wrapper {
+  max-width: none !important;
+}
+
 .knee-pain-signs-container {
   padding: 0;
   max-width: unset;
