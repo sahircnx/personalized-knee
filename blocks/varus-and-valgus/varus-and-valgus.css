@@ -1,5 +1,5 @@
 /* Varus and Valgus Block */
-.varus-and-valgus-wrapper {
+.varus-and-valgus-container>.varus-and-valgus-wrapper {
   background-color: #2B2A80;
   background-image: url('/icons/bg-one-varus-and-valgus.svg'), url('/icons/bg-two-varus-and-valgus.svg');
   background-position: center bottom, 100% 100%;
