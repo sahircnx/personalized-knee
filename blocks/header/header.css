@@ -172,6 +172,7 @@ header nav .nav-sections .nav-drop ul {
 
 header nav .nav-sections .nav-drop ul li {
   padding: 6px 0;
+  text-align: left;
 }
 
 header nav .nav-sections .nav-drop ul a {

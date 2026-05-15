@@ -293,20 +293,21 @@ export default async function decorate(block) {
           }
         }
       }
-      navSection.addEventListener('click', (e) => {
-        if (navSection.classList.contains('nav-drop')) {
-          const target = e.target.closest('a');
-          // Only toggle if clicking the title area, not a sub-link
-          if (!target || target.classList.contains('nav-drop-title')) {
-            const expanded = navSection.getAttribute('aria-expanded') === 'true';
-            if (isDesktop.matches) {
-              toggleAllNavSections(navSections);
-            }
-            navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-            e.stopPropagation();
-          }
-        }
+
+      const setExpanded = (section, value) => {
+        section.setAttribute('aria-expanded', value ? 'true' : 'false');
+      };
+      navSection.addEventListener('mouseenter', () => {
+        if (!navSection.classList.contains('nav-drop') || !isDesktop.matches) return;
+        toggleAllNavSections(navSections);
+        setExpanded(navSection, true);
       });
+
+      navSection.addEventListener('mouseleave', () => {
+        if (!navSection.classList.contains('nav-drop') || !isDesktop.matches) return;
+        setExpanded(navSection, false);
+      });
+
     });
   }
 
