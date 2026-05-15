@@ -83,7 +83,8 @@
     "id": "knee-pain-signs",
     "components": [
       "knee-pain-sign-item",
-      "knee-pain-sign-cta"
+      "knee-pain-sign-cta",
+      "button"
     ]
   }
 ]
