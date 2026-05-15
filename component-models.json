@@ -970,8 +970,7 @@
         "description": "Summary text shown at the bottom of the component"
       }
     ]
-  }
-,
+  },
   {
     "id": "knee-pain-signs",
     "fields": [
@@ -1033,6 +1032,29 @@
         "component": "richtext",
         "name": "description",
         "label": "Card Description"
+      }
+    ]
+  },
+  {
+    "id": "knee-pain-sign-cta",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "CTA Title"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "buttonText",
+        "label": "Button Text"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "buttonLink",
+        "label": "Button Link"
       }
     ]
   }

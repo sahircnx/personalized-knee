@@ -480,6 +480,21 @@
               }
             }
           }
+        },
+        {
+          "title": "Knee Pain Sign CTA",
+          "id": "knee-pain-sign-cta",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Knee Pain Sign CTA",
+                  "model": "knee-pain-sign-cta"
+                }
+              }
+            }
+          }
         }
       ]
     }
