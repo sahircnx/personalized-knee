@@ -19,7 +19,8 @@
       "knee-stories",
       "understanding-knee-pain",
       "cta",
-      "knee-pain-signs"
+      "knee-pain-signs",
+      "pros-cons"
     ]
   },
   {
@@ -83,6 +84,18 @@
     "id": "knee-pain-signs",
     "components": [
       "knee-pain-sign-item"
+    ]
+  },
+  {
+    "id": "pros-cons",
+    "components": [
+      "pros-cons-card"
+    ]
+  },
+  {
+    "id": "pros-cons-card",
+    "components": [
+      "pros-cons-item"
     ]
   }
 ]

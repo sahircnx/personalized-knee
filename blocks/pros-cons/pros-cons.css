@@ -1,0 +1,11 @@
+.pros-cons {
+  /* Placeholder for pros-cons styles */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.pros-cons-card {
+  border: 1px solid #ccc;
+  padding: 1rem;
+}
