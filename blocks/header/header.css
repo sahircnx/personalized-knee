@@ -160,6 +160,7 @@ header nav .nav-sections .nav-drop>p {
   font-weight: 400;
   font-size: 14px;
   cursor: pointer;
+  text-align: left;
 }
 
 /* mobile dropdown */
