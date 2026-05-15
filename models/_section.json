@@ -59,6 +59,10 @@
               "value": "container-large"
             },
             {
+              "name": "Container-full-width",
+              "value": "container-full-width"
+            },
+            {
               "name": "Section No Padding",
               "value": "section-no-padding"
             }

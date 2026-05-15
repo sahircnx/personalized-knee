@@ -632,6 +632,12 @@ footer {
   padding: 88px 48px;
 }
 
+.container-full-width {
+  margin: 0 auto;
+  max-width: 100%;
+  padding: 0;
+}
+
 .section-no-padding {
   padding: 0 !important;
 }
