@@ -1,11 +1,173 @@
-.pros-cons {
-  /* Placeholder for pros-cons styles */
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+/* ── Pros Cons Block ─────────────────────────────────────────────────────── */
+
+.pros-cons-container {
+  padding: 0;
+  max-width: unset;
 }
 
+.pros-cons {
+  /* background: rgb(240, 250, 255); */
+}
+
+/* ── Inner wrapper ───────────────────────────────────────────────────────── */
+
+.pros-cons-inner {
+  margin: 0 auto;
+  max-width: 1440px;
+  padding: 128px 118px;
+  box-sizing: border-box;
+}
+
+/* ── Heading ─────────────────────────────────────────────────────────────── */
+
+.pros-cons-heading {
+  font-size: 48px;
+  font-weight: 400;
+  color: #2b2a80;
+  line-height: 1.05;
+  max-width: 630px;
+  min-height: 99px;
+  margin: 0;
+  padding: 0 0 0 72px;
+  background: url('/icons/hero-text-arrow.png') 0 8px no-repeat;
+  text-align: left;
+}
+
+/* ── Cards row ───────────────────────────────────────────────────────────── */
+
+.pros-cons-cards {
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+  margin-top: 80px;
+  margin-bottom: 74px;
+}
+
+/* ── Individual card ─────────────────────────────────────────────────────── */
+
 .pros-cons-card {
-  border: 1px solid #ccc;
-  padding: 1rem;
+  flex: 1 1 0%;
+  border: 1px solid rgb(76, 167, 217);
+  border-radius: 24px;
+  box-sizing: border-box;
+}
+
+.pros-cons-card.pros {
+  background: #fff;
+  padding: 20px 63px 34px;
+}
+
+.pros-cons-card.cons {
+  background: transparent;
+  padding: 20px 63px;
+  margin-top: 93px;
+}
+
+/* ── Card title ──────────────────────────────────────────────────────────── */
+
+.pros-cons-card-title {
+  font-size: 32px;
+  font-weight: 400;
+  color: #2b2a80;
+  text-align: center;
+  border-bottom: 2px solid rgb(178, 206, 215);
+  padding-top: 36px;
+  padding-bottom: 36px;
+  margin: 0;
+}
+
+/* ── List ────────────────────────────────────────────────────────────────── */
+
+.pros-cons-card ul {
+  list-style: none;
+  margin: 0;
+  padding: 36px 0 0;
+}
+
+.pros-cons-card ul li {
+  font-size: 18px;
+  line-height: 1.4;
+  color: #2b2a80;
+  padding-left: 66px;
+  margin-bottom: 36px;
+  min-height: 36px;
+  position: relative;
+}
+
+.pros-cons-card ul li:last-child {
+  margin-bottom: 0;
+}
+
+/* Icon img injected by EDS (span.icon → img) */
+.pros-cons-card ul li .icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.pros-cons-card ul li .icon img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+/* ── Disclaimer paragraph (below upside list) ────────────────────────────── */
+
+.pros-cons-card p {
+  font-size: 18px;
+  color: #2b2a80;
+  margin: 24px 0 0;
+  padding-left: 0;
+}
+
+/* ── CTA button ──────────────────────────────────────────────────────────── */
+
+.pros-cons-cta {
+  text-align: center;
+}
+
+.pros-cons-cta a {
+  display: inline-block;
+  background: #2b2a80;
+  color: #fff;
+  border-radius: 10000px;
+  padding: 16px 24px;
+  font-size: 18px;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 899px) {
+  .pros-cons-inner {
+    padding: 64px 24px;
+  }
+
+  .pros-cons-heading {
+    font-size: 32px;
+    min-height: unset;
+    padding-left: 48px;
+    background-size: 32px auto;
+  }
+
+  .pros-cons-cards {
+    flex-direction: column;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    gap: 16px;
+  }
+
+  .pros-cons-card.cons {
+    margin-top: 0;
+  }
+
+  .pros-cons-card.pros,
+  .pros-cons-card.cons {
+    padding: 20px 24px 32px;
+  }
 }
