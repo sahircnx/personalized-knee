@@ -253,7 +253,7 @@ header nav .nav-sections>.default-content-wrapper>ul>li:last-child {
     left: 50%;
     transform: translateX(-50%) translateY(10px);
     background: white;
-    min-width: 220px;
+    width: 160px;
     padding: 16px;
     border-radius: 12px;
     box-shadow: 0 10px 40px rgb(0 0 0 / 15%);
