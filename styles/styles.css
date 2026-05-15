@@ -529,10 +529,6 @@ main .section.highlight li {
 
 @media (width >=900px) {
   main .section.background-color-sky-blue>div {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0 64px;
-    align-items: start;
     text-align: left;
     max-width: 1200px;
     margin: 0 auto;

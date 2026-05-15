@@ -14,7 +14,7 @@
 .pros-cons-inner {
   margin: 0 auto;
   max-width: 1440px;
-  padding: 128px 118px;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -118,10 +118,11 @@
 /* ── Disclaimer paragraph (below upside list) ────────────────────────────── */
 
 .pros-cons-card p {
-  font-size: 18px;
+  font-size: 12px;
   color: #2b2a80;
-  margin: 24px 0 0;
+  margin: 84px 0 0;
   padding-left: 0;
+  text-align: right;
 }
 
 /* ── CTA button ──────────────────────────────────────────────────────────── */
