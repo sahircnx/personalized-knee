@@ -1,1 +1,167 @@
-.statistics-wrapper {\n  /* Statistics placeholder styles */\n}
+/* ── Statistics Block ────────────────────────────────────────────────────── */
+
+.statistics-container {
+  padding: 0;
+  max-width: unset;
+}
+
+/* ── Outer wrapper — provides side margin and border-radius ──────────────── */
+
+.statistics {
+  margin: 64px auto;
+  max-width: 1394px;
+  background-color: #2b2a80;
+  background-image: url('/blocks/statistics/icons/ask-for-help-bg.svg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 120px 0;
+  color: #fff;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* ── Heading ─────────────────────────────────────────────────────────────── */
+
+.statistics-heading-wrap {
+  position: relative;
+  max-width: 894px;
+  width: 100%;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.statistics-heading {
+  font-size: 64px;
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.1;
+  margin: 0;
+  padding-bottom: 72px;
+  position: relative;
+}
+
+/* Horizontal rule under heading */
+.statistics-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 75%;
+  height: 0;
+  border: 1px solid rgb(54, 181, 252);
+}
+
+/* ── Stat block ──────────────────────────────────────────────────────────── */
+
+.statistics-stat {
+  max-width: 894px;
+  width: 100%;
+  padding: 0 24px;
+  box-sizing: border-box;
+  margin: 72px 0;
+}
+
+.statistics-pre-label {
+  font-size: 32px;
+  font-weight: 400;
+  color: #fff;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.statistics-number {
+  font-size: 132px;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.statistics-post-label {
+  font-size: 32px;
+  font-weight: 400;
+  color: #fff;
+  margin: 0;
+  width: 507px;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.1;
+}
+
+/* ── Body text ───────────────────────────────────────────────────────────── */
+
+.statistics-body {
+  max-width: 894px;
+  width: 100%;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.statistics-body p,
+.statistics-body h5 {
+  font-size: 24px;
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.2;
+  margin: 0 auto 50px;
+  width: 798px;
+  max-width: 100%;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .statistics {
+    margin: 32px 16px;
+    background-image: url('/blocks/statistics/icons/ask-for-help-bg-mob.svg');
+    background-position: center bottom;
+    background-size: contain;
+    padding: 64px 24px;
+  }
+
+  .statistics-heading {
+    font-size: 36px;
+    padding-bottom: 28px;
+    width: 311px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .statistics-heading::after {
+    left: 0;
+    transform: none;
+    width: 100%;
+  }
+
+  .statistics-stat {
+    margin: 28px 0;
+  }
+
+  .statistics-number {
+    font-size: 88px;
+    margin: 28px 0;
+  }
+
+  .statistics-post-label {
+    width: 337px;
+  }
+
+  .statistics-body p,
+  .statistics-body h5 {
+    width: 315px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 560px) {
+  .statistics {
+    background-size: cover;
+  }
+}
