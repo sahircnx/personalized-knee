@@ -237,8 +237,7 @@ main>.section:has(.understanding-knee-pain-wrapper)>div {
   }
 }
 
-/* Wave decoration — two overlapping curved shapes at bottom-left of image */
-.ukp-image::before,
+/* .ukp-image::before,
 .ukp-image::after {
   content: '';
   position: absolute;
@@ -246,7 +245,6 @@ main>.section:has(.understanding-knee-pain-wrapper)>div {
   pointer-events: none;
 }
 
-/* Outer wave — lighter, larger */
 .ukp-image::before {
   bottom: 0;
   left: 0;
@@ -254,7 +252,7 @@ main>.section:has(.understanding-knee-pain-wrapper)>div {
   height: 44%;
   background: rgba(91, 185, 222, 0.55);
   border-radius: 0 80% 0 1.5rem;
-}
+} */
 
 /* Inner wave — more saturated, smaller */
 .ukp-image::after {
@@ -294,8 +292,9 @@ main>.section:has(.understanding-knee-pain-wrapper)>div {
     margin-top: 1.5rem;
   }
 
+  /* 
   .ukp-image::before,
   .ukp-image::after {
     display: none;
-  }
+  } */
 }
