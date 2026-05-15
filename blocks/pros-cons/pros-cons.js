@@ -88,6 +88,4 @@ export default function decorate(block) {
 
   block.append(inner);
 
-  // Decorate the icon spans EDS injected into the list items
-  decorateIcons(block);
 }
