@@ -174,40 +174,6 @@
     ]
   },
   {
-    "id": "accordion",
-    "fields": [
-      {
-        "component": "multiselect",
-        "name": "classes",
-        "label": "Style",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "Default",
-            "value": ""
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "accordion-item",
-    "fields": [
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "title",
-        "label": "Item Title"
-      },
-      {
-        "component": "richtext",
-        "name": "body",
-        "label": "Item Body",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
     "id": "arthritis-info",
     "fields": [
       {
