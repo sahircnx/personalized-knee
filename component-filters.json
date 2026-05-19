@@ -12,6 +12,7 @@
       "image",
       "button",
       "title",
+      "accordion",
       "hero",
       "cards",
       "columns",
@@ -19,6 +20,12 @@
       "knee-stories",
       "understanding-knee-pain",
       "cta"
+    ]
+  },
+  {
+    "id": "accordion",
+    "components": [
+      "accordion-item"
     ]
   },
   {
