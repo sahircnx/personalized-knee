@@ -1,0 +1,164 @@
+/* Accordion Block */
+
+.accordion-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.accordion-item {
+  background-color: #e3eff6;
+  padding: 40px 64px 48px;
+  transition: background-color 0.2s ease;
+}
+
+.accordion-item + .accordion-item {
+  margin-top: 8px;
+}
+
+.accordion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  gap: 24px;
+}
+
+.accordion-title {
+  font-family: "Popins Medium", "Poppins", sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  color: var(--text-color, #2b2a80);
+  line-height: 1.2;
+  flex: 1;
+}
+
+.accordion-title * {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+.accordion-icon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Plus / minus icon */
+.accordion-icon::before,
+.accordion-icon::after {
+  content: '';
+  position: absolute;
+  background-color: #2b2a80;
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* Horizontal bar */
+.accordion-icon::before {
+  width: 24px;
+  height: 3px;
+}
+
+/* Vertical bar (becomes invisible when expanded) */
+.accordion-icon::after {
+  width: 3px;
+  height: 24px;
+}
+
+.accordion-item--expanded .accordion-icon::after {
+  transform: rotate(90deg);
+  opacity: 0;
+}
+
+/* Panel */
+.accordion-panel {
+  margin-top: 24px;
+  font-size: 18px;
+  color: #2b2a80;
+  line-height: 1.6;
+}
+
+.accordion-panel[hidden] {
+  display: none;
+}
+
+.accordion-panel h3 {
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0 0 12px;
+  color: #2b2a80;
+}
+
+.accordion-panel h5 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 20px 0 8px;
+  color: #2b2a80;
+}
+
+.accordion-panel h5 .sub-heading {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.accordion-panel p {
+  margin: 0 0 16px;
+}
+
+.accordion-panel ul {
+  margin: 0 0 16px;
+  padding-left: 24px;
+}
+
+.accordion-panel li {
+  margin-bottom: 8px;
+}
+
+.accordion-panel a {
+  color: #2b2a80;
+}
+
+.accordion-panel .accordion-footnote {
+  font-size: 13px;
+  color: #666;
+  margin-top: 24px;
+  border-top: 1px solid #ccd9e0;
+  padding-top: 16px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .accordion-item {
+    padding: 24px 20px 32px;
+  }
+
+  .accordion-title {
+    font-size: 28px;
+  }
+
+  .accordion-panel {
+    font-size: 16px;
+  }
+
+  .accordion-panel h3 {
+    font-size: 22px;
+  }
+
+  .accordion-panel h5 {
+    font-size: 18px;
+  }
+}
