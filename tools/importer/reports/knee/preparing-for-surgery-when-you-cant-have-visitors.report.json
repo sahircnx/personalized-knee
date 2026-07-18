@@ -1,0 +1,17 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/preparing-for-surgery-when-you-cant-have-visitors.html",
+  "path": "knee/preparing-for-surgery-when-you-cant-have-visitors",
+  "timestamp": "2026-07-18T17:58:57.780Z",
+  "title": "Preparing for Surgery When You Can’t Have Visitors",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "columns-author",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

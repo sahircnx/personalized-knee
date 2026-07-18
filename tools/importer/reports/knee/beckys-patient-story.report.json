@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/beckys-patient-story.html",
+  "path": "knee/beckys-patient-story",
+  "timestamp": "2026-07-18T18:08:59.341Z",
+  "title": "Becky's Patient Story – Knee Replacement",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

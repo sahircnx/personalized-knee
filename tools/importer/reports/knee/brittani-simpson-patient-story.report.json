@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/brittani-simpson-patient-story.html",
+  "path": "knee/brittani-simpson-patient-story",
+  "timestamp": "2026-07-18T17:53:49.612Z",
+  "title": "Brittani Simpson Patient Story – Knee Replacement",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

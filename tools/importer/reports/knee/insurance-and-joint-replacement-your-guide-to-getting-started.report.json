@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/insurance-and-joint-replacement-your-guide-to-getting-started.html",
+  "path": "knee/insurance-and-joint-replacement-your-guide-to-getting-started",
+  "timestamp": "2026-07-18T18:04:57.652Z",
+  "title": "Insurance and Joint Replacement - Your Guide to Getting Started",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "columns-author",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

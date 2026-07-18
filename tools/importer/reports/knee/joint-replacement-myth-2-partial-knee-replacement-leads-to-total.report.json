@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/joint-replacement-myth-2-partial-knee-replacement-leads-to-total.html",
+  "path": "knee/joint-replacement-myth-2-partial-knee-replacement-leads-to-total",
+  "timestamp": "2026-07-18T17:48:59.605Z",
+  "title": "Joint Replacement Myth #2: Partial Knee Replacement Leads to Total",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "columns-author",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

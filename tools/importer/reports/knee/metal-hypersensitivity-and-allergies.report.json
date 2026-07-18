@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/metal-hypersensitivity-and-allergies.html",
+  "path": "knee/metal-hypersensitivity-and-allergies",
+  "timestamp": "2026-07-18T17:52:26.515Z",
+  "title": "Metal Hypersensitivity and Allergies",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "cards-article",
+    "columns-author",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

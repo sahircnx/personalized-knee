@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/building-strength-before-joint-replacement-surgery.html",
+  "path": "knee/building-strength-before-joint-replacement-surgery",
+  "timestamp": "2026-07-18T18:14:46.099Z",
+  "title": "Building Strength Before Joint Replacement Surgery",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "cards-article",
+    "cards-article",
+    "columns-author",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

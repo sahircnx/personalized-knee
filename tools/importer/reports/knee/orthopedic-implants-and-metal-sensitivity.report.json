@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/orthopedic-implants-and-metal-sensitivity.html",
+  "path": "knee/orthopedic-implants-and-metal-sensitivity",
+  "timestamp": "2026-07-18T18:13:29.346Z",
+  "title": "Orthopedic Implants and Metal Sensitivity | ReadyPatient",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "cards-figure",
+    "cards-article",
+    "columns-author",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

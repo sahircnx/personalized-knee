@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/the-return-of-elective-procedures-explained.html",
+  "path": "knee/the-return-of-elective-procedures-explained",
+  "timestamp": "2026-07-18T18:00:37.847Z",
+  "title": "The Return of Elective Procedures Explained",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "cards-article",
+    "columns-author",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

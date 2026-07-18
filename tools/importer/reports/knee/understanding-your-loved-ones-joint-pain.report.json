@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/understanding-your-loved-ones-joint-pain.html",
+  "path": "knee/understanding-your-loved-ones-joint-pain",
+  "timestamp": "2026-07-18T18:07:21.338Z",
+  "title": "Understanding Your Loved One’s Joint Pain",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "columns-author",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

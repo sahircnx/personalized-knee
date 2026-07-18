@@ -1,0 +1,19 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/financial-considerations-for-the-younger-joint-replacement-patient.html",
+  "path": "knee/financial-considerations-for-the-younger-joint-replacement-patient",
+  "timestamp": "2026-07-18T17:51:17.431Z",
+  "title": "Financial Considerations for the Younger Joint Replacement Patient",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "columns-author",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

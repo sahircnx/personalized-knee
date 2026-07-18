@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/why-is-everyone-calling-my-surgery-elective.html",
+  "path": "knee/why-is-everyone-calling-my-surgery-elective",
+  "timestamp": "2026-07-18T17:59:23.931Z",
+  "title": "Why is Everyone Calling My Surgery Elective?",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "cards-article",
+    "columns-author",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

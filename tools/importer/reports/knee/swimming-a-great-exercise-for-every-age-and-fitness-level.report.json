@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/Swimming-a-Great-Exercise-for-Every-Age-and-Fitness-Level.html",
+  "path": "knee/swimming-a-great-exercise-for-every-age-and-fitness-level",
+  "timestamp": "2026-07-18T18:02:20.229Z",
+  "title": "Swimming: A Great Exercise for Every Age and Fitness Level",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "cards-article",
+    "columns-author",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

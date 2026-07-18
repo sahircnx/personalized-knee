@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/rachaels-knee-replacement-surgery-story.html",
+  "path": "knee/rachaels-knee-replacement-surgery-story",
+  "timestamp": "2026-07-18T18:18:38.001Z",
+  "title": "Rachael’s Knee Replacement Surgery Story | ReadyPatient",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

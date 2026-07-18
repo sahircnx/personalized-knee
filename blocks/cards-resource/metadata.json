@@ -1,0 +1,36 @@
+{
+  "variantName": "cards-resource",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-07-17T16:22:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.thereadypatient.com/knee/knee-pain-explained.html",
+    "originPage": "knee article closing 'Here's more you can do' section",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "tinted",
+    "density": "spacious",
+    "purpose": "resource-cta",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "title (H4) + description + primary CTA button per card, no image",
+    "buttonCount": 1,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "closing resource/CTA card grids (Share Your Story / Get Updates / About Us / Find a Doctor)",
+      "action-oriented no-image cards with a title, blurb and button"
+    ],
+    "notSuitableFor": [
+      "image-led cards (use cards-figure or cards-article)"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/knee/knee-pain-explained"],
+    "reuseCount": 1,
+    "lastUsed": "2026-07-17T16:22:00.000Z"
+  }
+}

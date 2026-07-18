@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/revision-joint-replacement-surgery.html",
+  "path": "knee/revision-joint-replacement-surgery",
+  "timestamp": "2026-07-18T17:55:55.478Z",
+  "title": "Revision Joint Replacement Surgery",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "cards-article",
+    "cards-article",
+    "columns-author",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

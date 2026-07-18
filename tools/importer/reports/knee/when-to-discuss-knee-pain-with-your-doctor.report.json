@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/when-to-discuss-knee-pain-with-your-doctor.html",
+  "path": "knee/when-to-discuss-knee-pain-with-your-doctor",
+  "timestamp": "2026-07-18T18:02:33.571Z",
+  "title": "When to Discuss Knee Pain with Your Doctor",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "columns-author",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

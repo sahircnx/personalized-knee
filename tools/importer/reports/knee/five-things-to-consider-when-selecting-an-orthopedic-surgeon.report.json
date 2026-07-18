@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/five-things-to-consider-when-selecting-an-orthopedic-surgeon.html",
+  "path": "knee/five-things-to-consider-when-selecting-an-orthopedic-surgeon",
+  "timestamp": "2026-07-18T18:21:02.242Z",
+  "title": "5 Things to Consider When Choosing an Orthopedic Surgeon",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "columns-author",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

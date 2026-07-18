@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/8-ways-to-stay-active-this-winter-with-arthritis.html",
+  "path": "knee/8-ways-to-stay-active-this-winter-with-arthritis",
+  "timestamp": "2026-07-18T18:10:10.286Z",
+  "title": "8 Ways to Stay Active This Winter With Arthritis",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "columns-author",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

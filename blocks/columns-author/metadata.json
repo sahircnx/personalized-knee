@@ -1,0 +1,38 @@
+{
+  "variantName": "columns-author",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-07-17T16:22:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.thereadypatient.com/knee/knee-pain-explained.html",
+    "originPage": "knee article body (end)",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "author-bio",
+    "imagePattern": "icon"
+  },
+  "contentPattern": {
+    "structure": "author photo column + bio text and 'More by' link list column",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "author bio at end of articles",
+      "photo + text profile blocks",
+      "contributor attribution with related-links list"
+    ],
+    "notSuitableFor": [
+      "equal-width image comparisons (use columns-figure)",
+      "card grids"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/knee/knee-pain-explained"],
+    "reuseCount": 1,
+    "lastUsed": "2026-07-17T16:22:00.000Z"
+  }
+}

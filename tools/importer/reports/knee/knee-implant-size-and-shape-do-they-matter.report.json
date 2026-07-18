@@ -1,0 +1,23 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/knee-implant-size-and-shape-do-they-matter.html",
+  "path": "knee/knee-implant-size-and-shape-do-they-matter",
+  "timestamp": "2026-07-18T17:49:55.060Z",
+  "title": "Knee Implant Size and Shape – Do They Matter?",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "columns-figure",
+    "columns-figure",
+    "cards-figure",
+    "cards-figure",
+    "cards-figure",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "columns-author",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

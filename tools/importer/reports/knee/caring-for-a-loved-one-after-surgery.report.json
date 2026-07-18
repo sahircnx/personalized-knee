@@ -1,0 +1,21 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/caring-for-a-loved-one-after-surgery.html",
+  "path": "knee/caring-for-a-loved-one-after-surgery",
+  "timestamp": "2026-07-18T18:20:48.808Z",
+  "title": "Caring for a Loved One After Surgery",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "columns-author",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

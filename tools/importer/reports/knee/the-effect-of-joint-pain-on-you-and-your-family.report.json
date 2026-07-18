@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/the-effect-of-joint-pain-on-you-and-your-family.html",
+  "path": "knee/the-effect-of-joint-pain-on-you-and-your-family",
+  "timestamp": "2026-07-18T18:16:11.948Z",
+  "title": "The Effect of Joint Pain on You and Your Family",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "columns-author",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

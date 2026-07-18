@@ -1,0 +1,17 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/physical-therapy-options-in-the-COVID-era.html",
+  "path": "knee/physical-therapy-options-in-the-covid-era",
+  "timestamp": "2026-07-18T17:50:50.521Z",
+  "title": "Physical Therapy Options in the COVID Era",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "columns-author",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

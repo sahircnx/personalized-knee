@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/having-fun-this-summer-despite-your-joint-pain.html",
+  "path": "knee/having-fun-this-summer-despite-your-joint-pain",
+  "timestamp": "2026-07-18T18:12:26.157Z",
+  "title": "Having Fun this Summer Despite Your Joint Pain",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "columns-author",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

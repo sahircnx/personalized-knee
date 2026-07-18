@@ -1,0 +1,17 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/fatigue-after-joint-replacement-surgery.html",
+  "path": "knee/fatigue-after-joint-replacement-surgery",
+  "timestamp": "2026-07-18T18:19:29.127Z",
+  "title": "Fatigue after Joint Replacement Surgery | ReadyPatient",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "columns-author",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/preparing-for-joint-replacement-surgery.html",
+  "path": "knee/preparing-for-joint-replacement-surgery",
+  "timestamp": "2026-07-18T18:05:39.593Z",
+  "title": "Preparing for Joint Replacement Surgery",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "columns-author",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

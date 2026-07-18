@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/referred-pain.html",
+  "path": "knee/referred-pain",
+  "timestamp": "2026-07-18T18:12:38.189Z",
+  "title": "Referred Pain",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "columns-author",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

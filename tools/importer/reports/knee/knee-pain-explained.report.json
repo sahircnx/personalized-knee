@@ -1,0 +1,21 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/knee-pain-explained.html",
+  "path": "knee/knee-pain-explained",
+  "timestamp": "2026-07-17T16:42:15.863Z",
+  "title": "Knee Pain Explained",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "columns-figure",
+    "columns-figure",
+    "columns-figure",
+    "cards-figure",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "columns-author",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

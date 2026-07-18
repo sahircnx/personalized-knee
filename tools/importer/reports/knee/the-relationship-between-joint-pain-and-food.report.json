@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/the-relationship-between-joint-pain-and-food.html",
+  "path": "knee/the-relationship-between-joint-pain-and-food",
+  "timestamp": "2026-07-18T17:58:21.728Z",
+  "title": "The Relationship Between Joint Pain and Food",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "columns-author",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

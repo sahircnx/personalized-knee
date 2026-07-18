@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/returning-home-after-knee-replacement-surgery.html",
+  "path": "knee/returning-home-after-knee-replacement-surgery",
+  "timestamp": "2026-07-18T18:05:10.457Z",
+  "title": "Returning Home After Knee Replacement Surgery",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "cards-article",
+    "cards-article",
+    "columns-author",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

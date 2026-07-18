@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/common-recovery-exercises-after-hip-and-knee-replacements.html",
+  "path": "knee/common-recovery-exercises-after-hip-and-knee-replacements",
+  "timestamp": "2026-07-18T18:14:34.455Z",
+  "title": "Common recovery exercises after hip and knee replacements",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "cards-article",
+    "cards-article",
+    "columns-author",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

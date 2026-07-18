@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/do-i-really-need-physical-therapy-after-surgery.html",
+  "path": "knee/do-i-really-need-physical-therapy-after-surgery",
+  "timestamp": "2026-07-18T17:51:58.827Z",
+  "title": "Do I Really Need Physical Therapy After Surgery (Or Sometimes Even Before)?",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

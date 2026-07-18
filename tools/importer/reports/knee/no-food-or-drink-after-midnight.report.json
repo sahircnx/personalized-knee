@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/no-food-or-drink-after-midnight.html",
+  "path": "knee/no-food-or-drink-after-midnight",
+  "timestamp": "2026-07-18T17:56:33.329Z",
+  "title": "No Food or Drink After Midnight?",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "columns-author",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

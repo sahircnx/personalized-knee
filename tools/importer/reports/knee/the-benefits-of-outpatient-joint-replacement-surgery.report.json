@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/the-benefits-of-outpatient-joint-replacement-surgery.html",
+  "path": "knee/the-benefits-of-outpatient-joint-replacement-surgery",
+  "timestamp": "2026-07-18T17:58:33.471Z",
+  "title": "The Benefits of Outpatient Joint Replacement Surgery",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "columns-author",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

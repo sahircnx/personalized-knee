@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/how-long-will-it-take-to-get-back-to-normal-after-joint-surgery.html",
+  "path": "knee/how-long-will-it-take-to-get-back-to-normal-after-joint-surgery",
+  "timestamp": "2026-07-18T17:55:30.798Z",
+  "title": "How Long Will It Take To Get Back to Normal After Joint Surgery?",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

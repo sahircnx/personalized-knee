@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/managing-your-stress-while-caring-for-another.html",
+  "path": "knee/managing-your-stress-while-caring-for-another",
+  "timestamp": "2026-07-18T18:03:52.054Z",
+  "title": "Managing Your Stress While Caring for Another",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "columns-author",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

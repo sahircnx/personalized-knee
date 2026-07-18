@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/bills-bills-and-more-bills.html",
+  "path": "knee/bills-bills-and-more-bills",
+  "timestamp": "2026-07-18T18:17:28.070Z",
+  "title": "Bills, Bills… and More Bills!",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "columns-author",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

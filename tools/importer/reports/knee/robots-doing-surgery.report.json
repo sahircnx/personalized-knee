@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/robots-doing-surgery.html",
+  "path": "knee/robots-doing-surgery",
+  "timestamp": "2026-07-18T18:10:49.796Z",
+  "title": "Robots Doing Surgery?",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "columns-author",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

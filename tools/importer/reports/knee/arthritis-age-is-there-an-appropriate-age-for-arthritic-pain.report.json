@@ -1,0 +1,22 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/arthritis-age-is-there-an-appropriate-age-for-arthritic-pain.html",
+  "path": "knee/arthritis-age-is-there-an-appropriate-age-for-arthritic-pain",
+  "timestamp": "2026-07-18T17:50:08.482Z",
+  "title": "Arthritis Age - Is There an Appropriate Age for Arthritic Pain?",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "columns-author",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

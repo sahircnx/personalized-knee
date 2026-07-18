@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/what-is-a-clinical-study.html",
+  "path": "knee/what-is-a-clinical-study",
+  "timestamp": "2026-07-18T18:16:25.343Z",
+  "title": "What is a clinical study?",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "columns-author",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

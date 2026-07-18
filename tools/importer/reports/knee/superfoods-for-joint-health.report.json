@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/superfoods-for-joint-health.html",
+  "path": "knee/superfoods-for-joint-health",
+  "timestamp": "2026-07-18T18:07:08.736Z",
+  "title": "Superfoods for Joint Health",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "columns-author",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

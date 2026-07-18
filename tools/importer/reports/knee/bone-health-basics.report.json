@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/bone-health-basics.html",
+  "path": "knee/bone-health-basics",
+  "timestamp": "2026-07-18T18:03:25.734Z",
+  "title": "Bone Health Basics",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "columns-author",
+    "cards-resource",
+    "cards-resource"
+  ]
+}
