@@ -1,12 +1,23 @@
 :root {
-  --heading-font-family: "Poppins", sans-serif;
-  --body-font-family: "Poppins", sans-serif;
+  /* Brand fonts — headings: Butler (serif), body: Roboto */
+  --heading-font-family: "Butler", Georgia, "Times New Roman", serif;
+  --body-font-family: "roboto", "Roboto", -apple-system, system-ui, sans-serif;
+  --bold-font-family: var(--body-font-family);
+
+  /* Brand colors */
   --background-color: #ffffff;
-  --text-color: rgb(43, 42, 128);
-  --link-color: rgb(43, 42, 128);
-  --link-hover-color: rgb(43, 42, 128);
+  --page-background-color: rgb(232 231 226);
+  --text-color: rgb(140 140 140);
+  --heading-color: rgb(43 43 128);
+  --accent-navy: rgb(0 52 75);
+  --button-bg-color: rgb(0 41 59);
+  --eyebrow-bg-color: rgb(86 124 124);
+  --link-color: rgb(43 43 128);
+  --link-hover-color: rgb(0 52 75);
+
+  /* Article layout */
+  --article-reading-width: 732px;
+
   --section-padding: 0px;
   --nav-height: 80px;
 }
-
-/* html, body { overflow: auto !important; } */

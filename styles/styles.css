@@ -672,3 +672,106 @@ footer {
     transform: translate3d(-100%, 0, 0);
   }
 }
+/* ============================================================
+   Knee Article template — site-wide design (scoped to article pages)
+   Reference: thereadypatient.com knee articles
+   Fonts: Butler (headings) + Roboto (body). Navy headings, grey body.
+   ============================================================ */
+
+/* Beige page backdrop with a white article canvas */
+main .section.content-hero-article-container {
+  --article-heading-color: rgb(43 43 128);
+  --article-body-color: rgb(140 140 140);
+
+  background-color: rgb(232 231 226);
+  padding: 0;
+}
+
+/* White reading canvas centered on the beige backdrop */
+main .section.content-hero-article-container > div {
+  max-width: 732px;
+  margin: 0 auto;
+  padding: 0 16px 48px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+/* Default-content typography inside the article body */
+main .section.content-hero-article-container .default-content-wrapper h2,
+main .section.content-hero-article-container .default-content-wrapper h3,
+main .section.content-hero-article-container .default-content-wrapper h4,
+main .section.content-hero-article-container .default-content-wrapper h5,
+main .section.content-hero-article-container .default-content-wrapper h6 {
+  font-family: var(--heading-font-family);
+  font-weight: 400;
+  color: rgb(43 43 128);
+  letter-spacing: 0;
+}
+
+main .section.content-hero-article-container .default-content-wrapper h2 {
+  font-size: 29px;
+  line-height: 33px;
+  margin: 32px 0 12px;
+}
+
+main .section.content-hero-article-container .default-content-wrapper h3 {
+  font-size: 24px;
+  line-height: 30px;
+  margin: 28px 0 10px;
+}
+
+main .section.content-hero-article-container .default-content-wrapper h4 {
+  font-size: 20px;
+  line-height: 26px;
+  margin: 24px 0 8px;
+}
+
+main .section.content-hero-article-container .default-content-wrapper h5 {
+  font-size: 16px;
+  line-height: 22px;
+  margin: 24px 0 8px;
+}
+
+main .section.content-hero-article-container .default-content-wrapper p,
+main .section.content-hero-article-container .default-content-wrapper li {
+  font-family: var(--body-font-family);
+  font-size: 20px;
+  line-height: 32px;
+  color: rgb(140 140 140);
+}
+
+main .section.content-hero-article-container .default-content-wrapper p {
+  margin: 0 0 20px;
+}
+
+main .section.content-hero-article-container .default-content-wrapper a:any-link {
+  color: rgb(43 43 128);
+  text-decoration: underline;
+}
+
+main .section.content-hero-article-container .default-content-wrapper a:hover {
+  color: rgb(0 52 75);
+}
+
+/* Centered inline CTA links (Find a surgeon, newsletter, share) */
+main .section.content-hero-article-container .default-content-wrapper p:has(> a:only-child) {
+  text-align: center;
+  margin: 28px 0;
+}
+
+main .section.content-hero-article-container .default-content-wrapper p > a:only-child {
+  display: inline-block;
+  background-color: rgb(0 41 59);
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: var(--body-font-family);
+  font-size: 12px;
+  letter-spacing: 1px;
+  padding: 14px 24px;
+}
+
+main .section.content-hero-article-container .default-content-wrapper p > a:only-child:hover {
+  background-color: rgb(43 43 128);
+  color: #fff;
+}
