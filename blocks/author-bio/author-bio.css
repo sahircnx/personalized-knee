@@ -11,7 +11,7 @@
   text-align: left;
 }
 
-.author-bio > div {
+.author-bio>div {
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -134,9 +134,13 @@
   text-decoration: underline;
 }
 
+.author-bio li a {
+  color: rgb(23, 140, 202);
+}
+
 /* ---- Desktop: identity left, beige bio panel right ---- */
-@media (width >= 900px) {
-  .author-bio > div {
+@media (width >=900px) {
+  .author-bio>div {
     flex-direction: row;
     align-items: flex-start;
     gap: 40px;

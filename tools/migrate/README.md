@@ -109,20 +109,30 @@ Plain package (image refs still point at the source domain):
 ```bash
 node tools/migrate/package.mjs \
   --src tools/migrate/jcr-out/knee \
-  --jcr-root /content/personalized-knee/knee \
-  --name personalized-knee-articles \
-  --out personalized-knee-articles.zip
+  --jcr-root /content/zb-thereadypatient-agentic/knee \
+  --name zb-thereadypatient-agentic-articles \
+  --out zb-thereadypatient-agentic-articles.zip
 ```
 
 DAM-referenced package (rewrites image URLs to your DAM). Requires an
-`asset-mapping.json` of `{ "<sourceImageUrl>": "/content/dam/personalized-knee/knee/<file>" }`:
+`asset-mapping.json` of `{ "<sourceImageUrl>": "/content/dam/zb-thereadypatient-agentic/knee/<file>" }`:
 
+# 1. Generate the mapping + download images + build the assets package
+```bash
+node tools/migrate/assets.mjs \
+  --src tools/migrate/jcr-out/knee \
+  --dam-root /content/dam/zb-thereadypatient-agentic/knee \
+  --mapping-out tools/migrate/asset-mapping.json \
+  --out zb-thereadypatient-agentic-assets.zip
+```
+
+# 2. Now the mapping exists — package the content with rewritten refs
 ```bash
 node tools/migrate/package.mjs \
   --src tools/migrate/jcr-out/knee \
-  --jcr-root /content/personalized-knee/knee \
-  --name personalized-knee-articles-dam \
-  --out personalized-knee-articles-dam-refs.zip \
+  --jcr-root /content/zb-thereadypatient-agentic/knee \
+  --name zb-thereadypatient-agentic-articles-dam \
+  --out zb-thereadypatient-agentic-articles-dam-refs.zip \
   --asset-mapping tools/migrate/asset-mapping.json
 ```
 
@@ -143,9 +153,9 @@ FileVault package.
 ```bash
 node tools/migrate/assets.mjs \
   --src tools/migrate/jcr-out/knee \
-  --dam-root /content/dam/personalized-knee/knee \
+  --dam-root /content/dam/zb-thereadypatient-agentic/knee \
   --mapping-out tools/migrate/asset-mapping.json \
-  --out personalized-knee-assets.zip
+  --out zb-thereadypatient-agentic-assets.zip
 ```
 
 - `placehold.co` (a lazy-load placeholder on the source) is skipped by default;
@@ -159,9 +169,9 @@ the mapping this produced (the DAM-referenced package in Step 4):
 ```bash
 node tools/migrate/package.mjs \
   --src tools/migrate/jcr-out/knee \
-  --jcr-root /content/personalized-knee/knee \
-  --name personalized-knee-articles-dam \
-  --out personalized-knee-articles-dam-refs.zip \
+  --jcr-root /content/zb-thereadypatient-agentic/knee \
+  --name zb-thereadypatient-agentic-articles-dam \
+  --out zb-thereadypatient-agentic-articles-dam-refs.zip \
   --asset-mapping tools/migrate/asset-mapping.json
 ```
 
@@ -174,5 +184,5 @@ package.
 node tools/migrate/scrape.mjs --import-script tools/importer/import-knee-article.bundle.js --urls tools/importer/urls-knee-article.txt --out content \
 && npm run build:json \
 && node tools/migrate/md2jcr.mjs --src content/knee --out tools/migrate/jcr-out/knee \
-&& node tools/migrate/package.mjs --src tools/migrate/jcr-out/knee --jcr-root /content/personalized-knee/knee --name personalized-knee-articles --out personalized-knee-articles.zip
+&& node tools/migrate/package.mjs --src tools/migrate/jcr-out/knee --jcr-root /content/zb-thereadypatient-agentic/knee --name zb-thereadypatient-agentic-articles --out zb-thereadypatient-agentic-articles.zip
 ```
