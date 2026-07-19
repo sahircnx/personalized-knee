@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/managing-a-loved-ones-postsurgical-care-during-covid-19.html",
+  "path": "knee/managing-a-loved-ones-postsurgical-care-during-covid-19",
+  "timestamp": "2026-07-19T06:20:25.361Z",
+  "title": "Managing a Loved One’s Postsurgical Care During COVID-19",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "cards-article",
+    "cards-article",
+    "author-bio",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

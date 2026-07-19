@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/jims-patient-story-double-knee-replacement.html",
+  "path": "knee/jims-patient-story-double-knee-replacement",
+  "timestamp": "2026-07-19T06:36:40.627Z",
+  "title": "Jim’s Patient Story – Double Knee Replacement | ReadyPatient",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

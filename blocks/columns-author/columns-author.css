@@ -1,0 +1,156 @@
+/* Block: columns-author -- author bio (identity left, bio + "More by" links right) */
+
+/* Values extracted from source .author-bio computed styles on thereadypatient.com */
+
+.columns-author {
+  margin: 42px 0 0;
+  color: rgb(140 140 140);
+  text-align: left;
+}
+
+/* Row: mobile-first — stack columns */
+.columns-author > div {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-top: 25px;
+}
+
+/* Author identity column (photo, name, role, disclosure) */
+.columns-author > div > div:first-child {
+  padding: 0;
+}
+
+/* Author photo — circular thumbnail (source: 90px, border-radius 50%) */
+.columns-author > div > div:first-child p:first-child {
+  margin: 0 0 10px;
+}
+
+.columns-author > div > div:first-child p:first-child a {
+  display: inline-block;
+  line-height: 0;
+}
+
+.columns-author > div > div:first-child picture,
+.columns-author > div > div:first-child p:first-child img {
+  display: block;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Author name (p > strong > a) */
+.columns-author > div > div:first-child p:nth-child(2) {
+  font-size: 20px;
+  line-height: 28.4px;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+.columns-author > div > div:first-child p:nth-child(2),
+.columns-author > div > div:first-child p:nth-child(2) strong,
+.columns-author > div > div:first-child p:nth-child(2) a:any-link {
+  color: rgb(0 52 75);
+  font-family: var(--body-font-family);
+  font-weight: 400;
+  text-decoration: none;
+}
+
+/* Role (uppercase eyebrow) */
+.columns-author > div > div:first-child p:nth-child(3) {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  line-height: 20px;
+  color: rgb(0 52 75);
+  margin: 0;
+}
+
+/* Disclosure (italic grey) */
+.columns-author > div > div:first-child p:nth-child(4) {
+  font-size: 16px;
+  font-weight: 100;
+  line-height: 20px;
+  letter-spacing: 0.67px;
+  color: rgb(140 140 140);
+  margin: 4px 0 0;
+}
+
+.columns-author > div > div:first-child p:nth-child(4) em {
+  font-style: italic;
+}
+
+/* Links / bio column — beige panel */
+.columns-author > div > div:last-child {
+  background-color: rgb(248 247 241);
+  padding: 32px;
+}
+
+/* Bio paragraph */
+/* stylelint-disable-next-line no-descending-specificity */
+.columns-author > div > div:last-child p {
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 32px;
+  letter-spacing: 0.5px;
+  color: rgb(140 140 140);
+  margin: 0;
+}
+
+/* "More by" heading */
+.columns-author > div > div:last-child h4 {
+  font-family: var(--body-font-family);
+  font-size: 27px;
+  line-height: 1.1;
+  font-weight: 400;
+  color: rgb(0 52 75);
+  margin: 20px 0 10px;
+}
+
+/* Article link list */
+.columns-author > div > div:last-child ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.columns-author > div > div:last-child ul li {
+  font-size: 20px;
+  line-height: 31px;
+  color: rgb(140 140 140);
+  margin: 0 0 6px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.columns-author > div > div:last-child ul li a:any-link {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 31px;
+  color: rgb(23 140 202);
+  text-decoration: none;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.columns-author > div > div:last-child ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Desktop: 50/50 two-column layout */
+@media (width >= 900px) {
+  .columns-author > div {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .columns-author > div > div:first-child {
+    flex: 1;
+    padding-right: 20px;
+  }
+
+  .columns-author > div > div:last-child {
+    flex: 1;
+  }
+}

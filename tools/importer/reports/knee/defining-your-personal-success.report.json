@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/defining-your-personal-success.html",
+  "path": "knee/defining-your-personal-success",
+  "timestamp": "2026-07-19T06:29:19.083Z",
+  "title": "Defining Your Personal Success",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "author-bio",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/knee-pain-relief-surgical-treatment-options.html",
+  "path": "knee/knee-pain-relief-surgical-treatment-options",
+  "timestamp": "2026-07-19T06:21:23.670Z",
+  "title": "Knee Pain Relief & Surgical Treatment Options | ReadyPatient",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "author-bio",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

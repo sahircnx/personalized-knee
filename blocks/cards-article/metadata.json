@@ -1,0 +1,38 @@
+{
+  "variantName": "cards-article",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-07-17T16:22:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.thereadypatient.com/knee/knee-pain-explained.html",
+    "originPage": "knee article body (related articles)",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "related-articles",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + linked heading (H4) per card, arranged as a pair/grid",
+    "buttonCount": 0,
+    "imageCount": 2
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "related-article link cards (image + linked title)",
+      "cross-linking to other articles/patient stories",
+      "content recommendation grids"
+    ],
+    "notSuitableFor": [
+      "captioned figures (use cards-figure)",
+      "resource cards with descriptions and CTA buttons (use cards-resource)"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/knee/knee-pain-explained"],
+    "reuseCount": 1,
+    "lastUsed": "2026-07-17T16:22:00.000Z"
+  }
+}

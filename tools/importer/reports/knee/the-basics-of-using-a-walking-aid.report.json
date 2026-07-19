@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/the-basics-of-using-a-walking-aid.html",
+  "path": "knee/the-basics-of-using-a-walking-aid",
+  "timestamp": "2026-07-19T06:06:57.774Z",
+  "title": "The Basics of Using a Walking Aid",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "cards-article",
+    "author-bio",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

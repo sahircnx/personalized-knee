@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/do-i-have-bowlegs-or-knock-knees.html",
+  "path": "knee/do-i-have-bowlegs-or-knock-knees",
+  "timestamp": "2026-07-19T06:27:52.527Z",
+  "title": "Do I Have Bowlegs or Knock Knees?",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "author-bio",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/surgery-during-covid-19-what-are-hospitals-doing-to-manage-my-safety.html",
+  "path": "knee/surgery-during-covid-19-what-are-hospitals-doing-to-manage-my-safety",
+  "timestamp": "2026-07-19T06:12:36.310Z",
+  "title": "Surgery During COVID-19: What are Hospitals Doing to Manage My Safety?",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "author-bio",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

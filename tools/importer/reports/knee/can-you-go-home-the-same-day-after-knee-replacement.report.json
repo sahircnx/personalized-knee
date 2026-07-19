@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/can-you-go-home-the-same-day-after-knee-replacement.html",
+  "path": "knee/can-you-go-home-the-same-day-after-knee-replacement",
+  "timestamp": "2026-07-19T06:14:33.236Z",
+  "title": "Can you go home the same day after knee replacement?",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "author-bio",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

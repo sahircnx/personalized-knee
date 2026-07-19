@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/7-things-to-look-for-in-a-remote-care-app.html",
+  "path": "knee/7-things-to-look-for-in-a-remote-care-app",
+  "timestamp": "2026-07-19T06:13:30.722Z",
+  "title": "7 Things to Look for in a Remote Care App",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "author-bio",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

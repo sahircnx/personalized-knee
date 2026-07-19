@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/What-should-you-not-do-before-anesthesia.html",
+  "path": "knee/what-should-you-not-do-before-anesthesia",
+  "timestamp": "2026-07-19T06:16:03.523Z",
+  "title": "Preparing for Anesthesia | ReadyPatient",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "author-bio",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

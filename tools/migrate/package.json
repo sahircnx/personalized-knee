@@ -1,0 +1,17 @@
+{
+  "name": "personalized-knee-migrate",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Self-contained migration pipeline (scrape -> md2jcr -> package) for the knee-article template.",
+  "scripts": {
+    "postinstall": "playwright install chromium"
+  },
+  "dependencies": {
+    "@adobe/helix-importer": "3.4.131",
+    "@adobe/helix-md2jcr": "1.2.16",
+    "archiver": "^7.0.1",
+    "jsdom": "27.2.0",
+    "playwright": "1.58.0"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/incision-care-after-joint-replacement-surgery.html",
+  "path": "knee/incision-care-after-joint-replacement-surgery",
+  "timestamp": "2026-07-19T06:27:27.591Z",
+  "title": "Incision Care After Joint Replacement Surgery",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "author-bio",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

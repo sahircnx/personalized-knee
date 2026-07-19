@@ -1,0 +1,41 @@
+{
+  "definitions": [
+    {
+      "title": "Author Bio",
+      "id": "author-bio",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Author Bio",
+              "model": "author-bio"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "author-bio",
+      "fields": [
+        {
+          "component": "richtext",
+          "valueType": "string",
+          "name": "identity",
+          "value": "",
+          "label": "Author Identity (photo, name, role, disclosure)"
+        },
+        {
+          "component": "richtext",
+          "valueType": "string",
+          "name": "bio",
+          "value": "",
+          "label": "Bio & More-by links"
+        }
+      ]
+    }
+  ],
+  "filters": []
+}

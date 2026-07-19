@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/lost-your-job-and-insurance-because-of-covid-19-but-need-joint-surgery.html",
+  "path": "knee/lost-your-job-and-insurance-because-of-covid-19-but-need-joint-surgery",
+  "timestamp": "2026-07-19T06:13:56.959Z",
+  "title": "Lost Your Job Because of COVID-19",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "cards-article",
+    "author-bio",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

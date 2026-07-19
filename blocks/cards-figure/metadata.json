@@ -1,0 +1,38 @@
+{
+  "variantName": "cards-figure",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-07-17T16:22:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.thereadypatient.com/knee/knee-pain-explained.html",
+    "originPage": "knee article body",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "figure-group",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + short caption per card, arranged in a row",
+    "buttonCount": 0,
+    "imageCount": 3
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "captioned illustration groups (e.g. Normal / Bowleg / Knock knee)",
+      "labeled diagram sets",
+      "comparative captioned figures"
+    ],
+    "notSuitableFor": [
+      "linked article cards (use cards-article)",
+      "uncaptioned image pairs (use columns-figure)"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/knee/knee-pain-explained"],
+    "reuseCount": 1,
+    "lastUsed": "2026-07-17T16:22:00.000Z"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/social-distancing-and-joint-pain-a-few-things-to-consider.html",
+  "path": "knee/social-distancing-and-joint-pain-a-few-things-to-consider",
+  "timestamp": "2026-07-19T06:11:56.205Z",
+  "title": "Social Distancing and Joint Pain – A Few Things to Consider",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "author-bio",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

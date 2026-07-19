@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/9-fast-facts-about-arthritis.html",
+  "path": "knee/9-fast-facts-about-arthritis",
+  "timestamp": "2026-07-19T06:12:22.480Z",
+  "title": "9 Fast Facts About Arthritis",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "author-bio",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

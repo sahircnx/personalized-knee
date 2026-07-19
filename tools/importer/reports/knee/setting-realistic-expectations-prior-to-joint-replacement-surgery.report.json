@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/setting-realistic-expectations-prior-to-joint-replacement-surgery.html",
+  "path": "knee/setting-realistic-expectations-prior-to-joint-replacement-surgery",
+  "timestamp": "2026-07-19T06:23:01.423Z",
+  "title": "Setting Realistic Expectations Prior to Joint Replacement Surgery",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "cards-article",
+    "cards-article",
+    "author-bio",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

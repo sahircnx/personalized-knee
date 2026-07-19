@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/things-to-do-during-an-overnight-hospital-stay.html",
+  "path": "knee/things-to-do-during-an-overnight-hospital-stay",
+  "timestamp": "2026-07-19T06:14:57.417Z",
+  "title": "Things to Do During an Overnight Hospital Stay",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "author-bio",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

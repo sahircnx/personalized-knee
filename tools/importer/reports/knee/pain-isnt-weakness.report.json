@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/pain-isnt-weakness.html",
+  "path": "knee/pain-isnt-weakness",
+  "timestamp": "2026-07-19T06:04:48.802Z",
+  "title": "Pain Isn't \"Weakness\"",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "author-bio",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

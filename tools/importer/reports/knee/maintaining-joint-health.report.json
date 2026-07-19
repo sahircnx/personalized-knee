@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/maintaining-joint-health.html",
+  "path": "knee/maintaining-joint-health",
+  "timestamp": "2026-07-19T06:33:45.978Z",
+  "title": "Maintaining Joint Health",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "cards-article",
+    "author-bio",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

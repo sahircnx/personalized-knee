@@ -1,0 +1,63 @@
+/* cards-figure — row of captioned figures (image + short caption below)
+   Values extracted from source computed styles (thereadypatient.com knee-pain-explained). */
+
+.cards-figure > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+
+  /* Mobile: two across so narrow portrait illustrations remain legible */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px 16px;
+  align-items: start;
+}
+
+.cards-figure > ul > li {
+  text-align: center;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cards-figure .cards-figure-card-image {
+  line-height: 0;
+}
+
+.cards-figure .cards-figure-card-image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0;
+}
+
+/* Caption text under each figure */
+.cards-figure .cards-figure-card-body {
+  margin: 20px 0 0;
+  font-family: var(--body-font-family);
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 20px;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--accent-navy); /* rgb(0 52 75) */
+}
+
+.cards-figure .cards-figure-card-body p {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+/* Desktop: three equal-width columns matching the source row */
+@media (width >= 900px) {
+  .cards-figure > ul {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 24px;
+  }
+}

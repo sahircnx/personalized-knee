@@ -1,9 +1,16 @@
 {
   "type": "xwalk",
-  "contentHostUrl": "author-p92368-e968987.adobeaemcloud.com",
-  "aemSitePath": "/content/personalized-knee",
-  "aemAssetsFolderPath": "/content/dam/personalized-knee",
-  "aemSiteName": "personalized-knee",
-  "aemSiteTitle": "The Personalized Knee",
-  "baseUrl": "https://www.thepersonalizedknee.com"
+  "sites": {
+    "personalized-knee": {
+      "contentHostUrl": "author-p92368-e968987.adobeaemcloud.com",
+      "aemSitePath": "/content/personalized-knee",
+      "aemAssetsFolderPath": "/content/dam/personalized-knee",
+      "aemSiteName": "personalized-knee",
+      "aemSiteTitle": "The Personalized Knee",
+      "baseUrl": "https://www.thereadypatient.com/knee.html",
+      "previewOrg": "sahircnx",
+      "previewSite": "personalized-knee",
+      "libraryUrl": "https://main--sta-xwalk-boilerplate--aemysites.aem.page/tools/sidekick/library.json"
+    }
+  }
 }

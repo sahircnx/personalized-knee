@@ -1,0 +1,17 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/patricks-patient-story-knee-replacement.html",
+  "path": "knee/patricks-patient-story-knee-replacement",
+  "timestamp": "2026-07-19T06:08:09.725Z",
+  "title": "Patrick's Patient Story – Knee Replacement",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

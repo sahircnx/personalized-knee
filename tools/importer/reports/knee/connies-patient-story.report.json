@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/connies-patient-story.html",
+  "path": "knee/connies-patient-story",
+  "timestamp": "2026-07-19T06:09:09.286Z",
+  "title": "Connie's Patient Story - Double Knee Replacement",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "cards-article",
+    "cards-article",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

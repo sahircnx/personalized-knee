@@ -1,0 +1,17 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/what-to-expect-after-joint-replacement-surgery.html",
+  "path": "knee/what-to-expect-after-joint-replacement-surgery",
+  "timestamp": "2026-07-19T06:22:24.195Z",
+  "title": "What to Expect After Joint Replacement Surgery",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "author-bio",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/gardening-with-joint-pain.html",
+  "path": "knee/gardening-with-joint-pain",
+  "timestamp": "2026-07-19T06:29:30.244Z",
+  "title": "Gardening with Joint Pain",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "author-bio",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

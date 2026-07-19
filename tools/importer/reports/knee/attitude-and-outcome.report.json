@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/attitude-and-outcome.html",
+  "path": "knee/attitude-and-outcome",
+  "timestamp": "2026-07-19T06:28:29.902Z",
+  "title": "Attitude and Outcome",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "author-bio",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

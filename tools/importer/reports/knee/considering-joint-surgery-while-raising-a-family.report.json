@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/considering-joint-surgery-while-raising-a-family.html",
+  "path": "knee/considering-joint-surgery-while-raising-a-family",
+  "timestamp": "2026-07-19T06:34:11.561Z",
+  "title": "Considering Joint Surgery While Raising a Family",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "cards-article",
+    "cards-article",
+    "author-bio",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

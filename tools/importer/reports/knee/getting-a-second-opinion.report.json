@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/getting-a-second-opinion.html",
+  "path": "knee/getting-a-second-opinion",
+  "timestamp": "2026-07-19T06:32:03.369Z",
+  "title": "Getting a Second Opinion",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "author-bio",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

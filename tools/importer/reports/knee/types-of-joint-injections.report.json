@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/types-of-joint-injections.html",
+  "path": "knee/types-of-joint-injections",
+  "timestamp": "2026-07-19T06:09:53.413Z",
+  "title": "Types of Joint Injections",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "author-bio",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

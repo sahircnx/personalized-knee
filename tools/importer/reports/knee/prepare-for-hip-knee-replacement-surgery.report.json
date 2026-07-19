@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/prepare-for-hip-knee-replacement-surgery.html",
+  "path": "knee/prepare-for-hip-knee-replacement-surgery",
+  "timestamp": "2026-07-19T06:10:42.963Z",
+  "title": "Prepare for Ankle, Hip, Knee Replacement or Foot Surgery",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "cards-article",
+    "cards-article",
+    "author-bio",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

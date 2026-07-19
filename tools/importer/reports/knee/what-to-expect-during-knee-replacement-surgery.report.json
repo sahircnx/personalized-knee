@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/what-to-expect-during-knee-replacement-surgery.html",
+  "path": "knee/what-to-expect-during-knee-replacement-surgery",
+  "timestamp": "2026-07-19T06:34:34.681Z",
+  "title": "What to Expect During Knee Replacement Surgery",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "author-bio",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

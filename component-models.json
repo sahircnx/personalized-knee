@@ -174,40 +174,6 @@
     ]
   },
   {
-    "id": "accordion",
-    "fields": [
-      {
-        "component": "multiselect",
-        "name": "classes",
-        "label": "Style",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "Default",
-            "value": ""
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "accordion-item",
-    "fields": [
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "title",
-        "label": "Item Title"
-      },
-      {
-        "component": "richtext",
-        "name": "body",
-        "label": "Item Body",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
     "id": "arthritis-info",
     "fields": [
       {
@@ -279,6 +245,82 @@
     ]
   },
   {
+    "id": "author-bio",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "identity",
+        "value": "",
+        "label": "Author Identity (photo, name, role, disclosure)"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "bio",
+        "value": "",
+        "label": "Bio & More-by links"
+      }
+    ]
+  },
+  {
+    "id": "card",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "card",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "card",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "cards",
     "fields": [
       {
@@ -315,6 +357,44 @@
     ]
   },
   {
+    "id": "columns-author",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "columns",
+        "value": "",
+        "label": "Columns"
+      },
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "rows",
+        "value": "",
+        "label": "Rows"
+      }
+    ]
+  },
+  {
+    "id": "columns-figure",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "columns",
+        "value": "",
+        "label": "Columns"
+      },
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "rows",
+        "value": "",
+        "label": "Rows"
+      }
+    ]
+  },
+  {
     "id": "columns",
     "fields": [
       {
@@ -330,6 +410,72 @@
         "name": "rows",
         "value": "",
         "label": "Rows"
+      }
+    ]
+  },
+  {
+    "id": "content-hero-article",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "eyebrow",
+        "label": "Category / Eyebrow"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Title"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "intro",
+        "label": "Intro"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "readTime",
+        "label": "Read time"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "authorImage",
+        "label": "Author image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "authorImageAlt",
+        "label": "Author image alt text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "authorName",
+        "label": "Author name"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "authorRole",
+        "label": "Author role"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "authorDisclosure",
+        "label": "Author disclosure"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "authorLink",
+        "label": "Author link"
       }
     ]
   },

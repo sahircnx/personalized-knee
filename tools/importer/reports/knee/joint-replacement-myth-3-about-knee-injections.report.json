@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/joint-replacement-myth-3-about-knee-injections.html",
+  "path": "knee/joint-replacement-myth-3-about-knee-injections",
+  "timestamp": "2026-07-19T06:08:45.243Z",
+  "title": "Joint Replacement Myth #3: About Knee Injections",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "author-bio",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/what-is-insurance-prior-authorization.html",
+  "path": "knee/what-is-insurance-prior-authorization",
+  "timestamp": "2026-07-19T06:33:58.482Z",
+  "title": "What is Insurance Prior Authorization?",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "author-bio",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

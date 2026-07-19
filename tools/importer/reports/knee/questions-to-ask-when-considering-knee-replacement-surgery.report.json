@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/questions-to-ask-when-considering-knee-replacement-surgery.html",
+  "path": "knee/questions-to-ask-when-considering-knee-replacement-surgery",
+  "timestamp": "2026-07-19T06:24:39.446Z",
+  "title": "Questions to Ask When Considering Knee Replacement Surgery",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "author-bio",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

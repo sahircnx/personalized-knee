@@ -1,0 +1,17 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/is-arthritis-a-normal-part-of-aging.html",
+  "path": "knee/is-arthritis-a-normal-part-of-aging",
+  "timestamp": "2026-07-19T06:05:56.653Z",
+  "title": "Is Arthritis a Normal Part of Aging?",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "author-bio",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

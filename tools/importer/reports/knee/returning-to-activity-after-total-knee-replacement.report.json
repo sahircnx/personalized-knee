@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/returning-to-activity-after-total-knee-replacement.html",
+  "path": "knee/returning-to-activity-after-total-knee-replacement",
+  "timestamp": "2026-07-19T06:30:52.694Z",
+  "title": "Returning to Activity After Total Knee Replacement | ReadyPatient",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "author-bio",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

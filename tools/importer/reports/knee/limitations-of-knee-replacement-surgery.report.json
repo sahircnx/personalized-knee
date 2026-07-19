@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/limitations-of-knee-replacement-surgery.html",
+  "path": "knee/limitations-of-knee-replacement-surgery",
+  "timestamp": "2026-07-19T06:30:17.199Z",
+  "title": "Limitations of Knee Replacement Surgery | ReadyPatient",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "author-bio",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

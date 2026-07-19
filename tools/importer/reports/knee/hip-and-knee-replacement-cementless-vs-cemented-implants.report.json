@@ -1,0 +1,21 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/hip-and-knee-replacement-cementless-vs-cemented-implants.html",
+  "path": "knee/hip-and-knee-replacement-cementless-vs-cemented-implants",
+  "timestamp": "2026-07-19T06:07:35.795Z",
+  "title": "Hip and Knee Replacement: Cementless vs Cemented Implants",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "columns-figure",
+    "columns-figure",
+    "cards-figure",
+    "cards-figure",
+    "cards-article",
+    "cards-article",
+    "cards-article",
+    "author-bio",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

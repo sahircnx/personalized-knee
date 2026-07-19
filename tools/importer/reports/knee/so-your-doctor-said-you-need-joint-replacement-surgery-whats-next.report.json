@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/so-your-doctor-said-you-need-joint-replacement-surgery-whats-next.html",
+  "path": "knee/so-your-doctor-said-you-need-joint-replacement-surgery-whats-next",
+  "timestamp": "2026-07-19T06:27:15.734Z",
+  "title": "So Your Doctor Said You Need Joint Replacement Surgery… What’s Next?",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "cards-article",
+    "cards-article",
+    "author-bio",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

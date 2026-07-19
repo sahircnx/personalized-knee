@@ -1,0 +1,38 @@
+{
+  "variantName": "columns-figure",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-07-17T16:22:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.thereadypatient.com/knee/knee-pain-explained.html",
+    "originPage": "knee article body",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "figure",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "two side-by-side illustration columns (no captions)",
+    "buttonCount": 0,
+    "imageCount": 2
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "side-by-side medical/anatomical illustrations",
+      "before/after image comparisons",
+      "any uncaptioned image pair in article body"
+    ],
+    "notSuitableFor": [
+      "captioned figure groups (use cards-figure)",
+      "text-heavy side-by-side content"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/knee/knee-pain-explained"],
+    "reuseCount": 1,
+    "lastUsed": "2026-07-17T16:22:00.000Z"
+  }
+}

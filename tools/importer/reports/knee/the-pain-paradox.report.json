@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/the-pain-paradox.html",
+  "path": "knee/the-pain-paradox",
+  "timestamp": "2026-07-19T06:08:32.579Z",
+  "title": "The Pain Paradox",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "cards-article",
+    "author-bio",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

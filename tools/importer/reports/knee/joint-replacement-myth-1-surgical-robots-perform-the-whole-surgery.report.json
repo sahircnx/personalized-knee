@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/joint-replacement-myth-1-surgical-robots-perform-the-whole-surgery.html",
+  "path": "knee/joint-replacement-myth-1-surgical-robots-perform-the-whole-surgery",
+  "timestamp": "2026-07-19T06:06:21.130Z",
+  "title": "Joint Replacement Myth #1: Surgical Robots Perform the Whole Surgery",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "author-bio",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

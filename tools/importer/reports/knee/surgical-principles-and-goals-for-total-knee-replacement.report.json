@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/surgical-principles-and-goals-for-total-knee-replacement.html",
+  "path": "knee/surgical-principles-and-goals-for-total-knee-replacement",
+  "timestamp": "2026-07-19T06:31:26.596Z",
+  "title": "Surgical Principles and Goals for Total Knee Replacement | ReadyPatient",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "author-bio",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

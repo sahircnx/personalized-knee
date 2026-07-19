@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/shots-and-joint-pain.html",
+  "path": "knee/shots-and-joint-pain",
+  "timestamp": "2026-07-19T06:26:51.641Z",
+  "title": "Shots and Joint Pain",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "author-bio",
+    "cards-resource",
+    "cards-resource"
+  ]
+}

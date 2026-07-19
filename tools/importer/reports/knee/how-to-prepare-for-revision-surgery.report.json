@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "url": "https://www.thereadypatient.com/knee/how-to-prepare-for-revision-surgery.html",
+  "path": "knee/how-to-prepare-for-revision-surgery",
+  "timestamp": "2026-07-19T06:28:43.306Z",
+  "title": "How to Prepare for Revision Surgery",
+  "template": "knee-article",
+  "blocks": [
+    "content-hero-article",
+    "cards-article",
+    "cards-article",
+    "author-bio",
+    "cards-resource",
+    "cards-resource"
+  ]
+}
