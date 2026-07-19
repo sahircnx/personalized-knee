@@ -2,13 +2,13 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/consecutive-knee-or-hip-replacements.html",
   "path": "knee/consecutive-knee-or-hip-replacements",
-  "timestamp": "2026-07-18T19:10:55.304Z",
+  "timestamp": "2026-07-19T06:15:37.472Z",
   "title": "Consecutive Knee or Hip Replacements",
   "template": "knee-article",
   "blocks": [
     "content-hero-article",
     "cards-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

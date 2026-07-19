@@ -2,12 +2,12 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/how-tech-savvy-are-you.html",
   "path": "knee/how-tech-savvy-are-you",
-  "timestamp": "2026-07-18T19:27:37.442Z",
+  "timestamp": "2026-07-19T06:35:03.325Z",
   "title": "How tech-savvy are you?",
   "template": "knee-article",
   "blocks": [
     "content-hero-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

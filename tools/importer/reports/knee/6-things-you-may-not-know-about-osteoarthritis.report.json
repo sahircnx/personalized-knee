@@ -2,7 +2,7 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/6-things-you-may-not-know-about-osteoarthritis.html",
   "path": "knee/6-things-you-may-not-know-about-osteoarthritis",
-  "timestamp": "2026-07-18T19:13:40.240Z",
+  "timestamp": "2026-07-19T06:21:58.726Z",
   "title": "6 Things You May Not Know About Osteoarthritis",
   "template": "knee-article",
   "blocks": [
@@ -11,7 +11,7 @@
     "cards-article",
     "cards-article",
     "cards-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

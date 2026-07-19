@@ -2,14 +2,14 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/infection-after-joint-replacement-surgery.html",
   "path": "knee/infection-after-joint-replacement-surgery",
-  "timestamp": "2026-07-18T19:05:13.536Z",
+  "timestamp": "2026-07-19T06:09:35.311Z",
   "title": "Infection After Joint Replacement Surgery",
   "template": "knee-article",
   "blocks": [
     "content-hero-article",
     "cards-article",
     "cards-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

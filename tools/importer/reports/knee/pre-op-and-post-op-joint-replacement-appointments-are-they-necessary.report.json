@@ -2,13 +2,13 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/pre-op-and-post-op-joint-replacement-appointments-are-they-necessary.html",
   "path": "knee/pre-op-and-post-op-joint-replacement-appointments-are-they-necessary",
-  "timestamp": "2026-07-18T19:08:22.694Z",
+  "timestamp": "2026-07-19T06:12:50.677Z",
   "title": "Pre-op and Post-op Joint Replacement Appointments – Are They Necessary?",
   "template": "knee-article",
   "blocks": [
     "content-hero-article",
     "cards-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

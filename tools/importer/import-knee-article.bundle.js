@@ -189,7 +189,7 @@ var CustomImportScript = (() => {
     element.replaceWith(block);
   }
 
-  // tools/importer/parsers/columns-author.js
+  // tools/importer/parsers/author-bio.js
   function parse5(element, { document }) {
     const authorLinkEl = element.querySelector("a.author-header, .dv-author a[href], .author-bio-component a[href]");
     const nameEl = element.querySelector(".author-name");
@@ -217,36 +217,49 @@ var CustomImportScript = (() => {
         img.setAttribute("alt", nameText);
       }
     }
-    const col1 = document.createElement("div");
-    const identityLink = document.createElement("a");
-    identityLink.setAttribute("href", href);
-    if (img) identityLink.appendChild(img);
+    const identity = document.createElement("div");
+    const identityHint = document.createComment(" field:identity ");
+    identity.appendChild(identityHint);
+    if (img) {
+      const picP = document.createElement("p");
+      const a = document.createElement("a");
+      a.setAttribute("href", href);
+      a.appendChild(img);
+      picP.appendChild(a);
+      identity.appendChild(picP);
+    }
     if (nameText) {
       const nm = document.createElement("p");
-      nm.appendChild(document.createElement("strong")).textContent = nameText;
-      identityLink.appendChild(nm);
+      const strong = document.createElement("strong");
+      const a = document.createElement("a");
+      a.setAttribute("href", href);
+      a.textContent = nameText;
+      strong.appendChild(a);
+      nm.appendChild(strong);
+      identity.appendChild(nm);
     }
-    col1.appendChild(identityLink);
     if (roleText) {
       const r = document.createElement("p");
       r.textContent = roleText;
-      col1.appendChild(r);
+      identity.appendChild(r);
     }
     if (disclosureText) {
       const d = document.createElement("p");
       d.appendChild(document.createElement("em")).textContent = disclosureText;
-      col1.appendChild(d);
+      identity.appendChild(d);
     }
-    const col2 = document.createElement("div");
+    const bio = document.createElement("div");
+    const bioHint = document.createComment(" field:bio ");
+    bio.appendChild(bioHint);
     if (bioEl) {
       Array.from(bioEl.querySelectorAll("p")).forEach((p) => {
-        if (p.textContent.trim()) col2.appendChild(p.cloneNode(true));
+        if (p.textContent.trim()) bio.appendChild(p.cloneNode(true));
       });
     }
     if (moreEl && moreEl.textContent.trim()) {
       const h = document.createElement("h4");
       h.textContent = moreEl.textContent.trim();
-      col2.appendChild(h);
+      bio.appendChild(h);
     }
     if (listEl) {
       const ul = document.createElement("ul");
@@ -263,10 +276,10 @@ var CustomImportScript = (() => {
         }
         ul.appendChild(newLi);
       });
-      if (ul.children.length) col2.appendChild(ul);
+      if (ul.children.length) bio.appendChild(ul);
     }
-    const cells = [[col1, col2]];
-    const block = WebImporter.Blocks.createBlock(document, { name: "columns-author", cells });
+    const cells = [[identity], [bio]];
+    const block = WebImporter.Blocks.createBlock(document, { name: "Author Bio", cells });
     element.replaceWith(block);
   }
 
@@ -391,7 +404,7 @@ var CustomImportScript = (() => {
     "columns-figure": parse2,
     "cards-figure": parse3,
     "cards-article": parse4,
-    "columns-author": parse5,
+    "author-bio": parse5,
     "cards-resource": parse6
   };
   var PAGE_TEMPLATE = {
@@ -418,7 +431,7 @@ var CustomImportScript = (() => {
         instances: ["div.layout_container.aem-GridColumn--default--6:has(.article-card)"]
       },
       {
-        name: "columns-author",
+        name: "author-bio",
         instances: [".author-bio"]
       },
       {
@@ -441,7 +454,7 @@ var CustomImportScript = (() => {
         name: "Article Body",
         selector: "body > div.root.responsivegrid > div.aem-Grid.aem-Grid--12.aem-Grid--default--12 > div.responsivegrid.aem-GridColumn.aem-GridColumn--default--12 > div.aem-Grid.aem-Grid--12.aem-Grid--default--12 > div.responsivegrid.aem-GridColumn.aem-GridColumn--default--12 > div.wrapper:nth-of-type(2)",
         style: null,
-        blocks: ["columns-figure", "cards-figure", "cards-article", "columns-author"],
+        blocks: ["columns-figure", "cards-figure", "cards-article", "author-bio"],
         defaultContent: [".text .cmp-text", ".button > a.button--center"]
       },
       {

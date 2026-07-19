@@ -2,12 +2,12 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/what-is-a-clinical-study.html",
   "path": "knee/what-is-a-clinical-study",
-  "timestamp": "2026-07-18T19:25:48.328Z",
+  "timestamp": "2026-07-19T06:33:22.649Z",
   "title": "What is a clinical study?",
   "template": "knee-article",
   "blocks": [
     "content-hero-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

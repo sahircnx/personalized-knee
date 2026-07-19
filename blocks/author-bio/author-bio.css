@@ -1,0 +1,153 @@
+/* ============================================================
+   Author Bio — end-of-article author block
+   Reference: thereadypatient.com knee articles.
+   Left = author identity (avatar + name/role/disclosure) on white.
+   Right = beige panel with bio + "More by" heading + link list.
+   ============================================================ */
+
+.author-bio {
+  margin: 42px 0 0;
+  color: rgb(140 140 140);
+  text-align: left;
+}
+
+.author-bio > div {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ---- Identity column ---- */
+.author-bio .author-bio-identity {
+  padding: 0;
+}
+
+.author-bio .author-bio-avatar {
+  margin: 0 0 12px;
+  line-height: 0;
+}
+
+.author-bio .author-bio-avatar a {
+  display: inline-block;
+  line-height: 0;
+}
+
+.author-bio .author-bio-identity picture,
+.author-bio .author-bio-avatar img {
+  display: block;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Name */
+.author-bio .author-bio-name {
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+.author-bio .author-bio-name,
+.author-bio .author-bio-name strong,
+.author-bio .author-bio-name a:any-link {
+  color: rgb(0 52 75);
+  font-family: var(--body-font-family);
+  font-weight: 400;
+  text-decoration: none;
+}
+
+/* Role / disclosure paragraphs (name gets its own class; avatar too) */
+.author-bio .author-bio-identity .author-bio-role,
+.author-bio .author-bio-identity .author-bio-disclosure {
+  font-size: 15px;
+  line-height: 22px;
+  letter-spacing: 0.5px;
+  margin: 2px 0 0;
+}
+
+.author-bio .author-bio-identity .author-bio-role {
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgb(0 52 75);
+}
+
+.author-bio .author-bio-identity .author-bio-disclosure {
+  color: rgb(140 140 140);
+  font-style: italic;
+}
+
+.author-bio .author-bio-identity em {
+  font-style: italic;
+}
+
+/* ---- Bio / links column: beige panel ---- */
+.author-bio .author-bio-content {
+  background-color: rgb(248 247 241);
+  padding: 32px;
+}
+
+.author-bio .author-bio-content p {
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 32px;
+  letter-spacing: 0.5px;
+  color: rgb(140 140 140);
+  margin: 0;
+}
+
+.author-bio .author-bio-more-heading {
+  font-family: var(--heading-font-family);
+  font-size: 27px;
+  line-height: 1.1;
+  font-weight: 400;
+  color: rgb(0 52 75);
+  margin: 20px 0 12px;
+}
+
+.author-bio .author-bio-more-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.author-bio .author-bio-more-list li {
+  font-size: 20px;
+  line-height: 31px;
+  color: rgb(140 140 140);
+  margin: 0 0 8px;
+}
+
+.author-bio .author-bio-more-list li a:any-link {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 26px;
+  color: rgb(23 140 202);
+  text-decoration: none;
+}
+
+.author-bio .author-bio-more-list li a:hover {
+  text-decoration: underline;
+}
+
+/* ---- Desktop: identity left, beige bio panel right ---- */
+@media (width >= 900px) {
+  .author-bio > div {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 40px;
+  }
+
+  .author-bio .author-bio-identity {
+    flex: 0 0 30%;
+    max-width: 30%;
+  }
+
+  .author-bio .author-bio-content {
+    flex: 1;
+  }
+}

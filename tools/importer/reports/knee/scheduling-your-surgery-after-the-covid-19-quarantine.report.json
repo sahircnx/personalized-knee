@@ -2,14 +2,14 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/scheduling-your-surgery-after-the-covid-19-quarantine.html",
   "path": "knee/scheduling-your-surgery-after-the-covid-19-quarantine",
-  "timestamp": "2026-07-18T19:06:33.149Z",
+  "timestamp": "2026-07-19T06:10:54.428Z",
   "title": "Scheduling Your Surgery After the COVID-19 Quarantine",
   "template": "knee-article",
   "blocks": [
     "content-hero-article",
     "cards-article",
     "cards-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

@@ -2,7 +2,7 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/what-to-expect-at-your-first-orthopedic-visit.html",
   "path": "knee/what-to-expect-at-your-first-orthopedic-visit",
-  "timestamp": "2026-07-18T19:28:18.094Z",
+  "timestamp": "2026-07-19T06:35:38.658Z",
   "title": "What to Expect at Your First Orthopedic Visit | ReadyPatient",
   "template": "knee-article",
   "blocks": [
@@ -11,7 +11,7 @@
     "cards-article",
     "cards-article",
     "cards-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

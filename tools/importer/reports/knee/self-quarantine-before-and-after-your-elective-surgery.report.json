@@ -2,13 +2,13 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/self-quarantine-before-and-after-your-elective-surgery.html",
   "path": "knee/self-quarantine-before-and-after-your-elective-surgery",
-  "timestamp": "2026-07-18T19:11:07.812Z",
+  "timestamp": "2026-07-19T06:15:50.730Z",
   "title": "Self-Quarantine Before (and After) Your Elective Surgery",
   "template": "knee-article",
   "blocks": [
     "content-hero-article",
     "cards-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

@@ -2,13 +2,13 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/telehealth-and-remote-care-evolving-in-the-age-of-covid-19.html",
   "path": "knee/telehealth-and-remote-care-evolving-in-the-age-of-covid-19",
-  "timestamp": "2026-07-18T19:12:15.343Z",
+  "timestamp": "2026-07-19T06:20:36.017Z",
   "title": "Telehealth and Remote Care - Evolving in the Age of COVID-19",
   "template": "knee-article",
   "blocks": [
     "content-hero-article",
     "cards-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

@@ -245,6 +245,25 @@
     ]
   },
   {
+    "id": "author-bio",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "identity",
+        "value": "",
+        "label": "Author Identity (photo, name, role, disclosure)"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "bio",
+        "value": "",
+        "label": "Bio & More-by links"
+      }
+    ]
+  },
+  {
     "id": "card",
     "fields": [
       {

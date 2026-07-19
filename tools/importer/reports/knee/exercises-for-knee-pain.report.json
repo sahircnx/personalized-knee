@@ -2,7 +2,7 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/exercises-for-knee-pain.html",
   "path": "knee/exercises-for-knee-pain",
-  "timestamp": "2026-07-18T19:29:17.604Z",
+  "timestamp": "2026-07-19T06:36:27.715Z",
   "title": "Exercises for Knee Pain | ReadyPatient",
   "template": "knee-article",
   "blocks": [
@@ -22,7 +22,7 @@
     "cards-article",
     "cards-article",
     "cards-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

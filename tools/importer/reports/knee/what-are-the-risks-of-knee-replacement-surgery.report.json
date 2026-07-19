@@ -2,12 +2,12 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/what-are-the-risks-of-knee-replacement-surgery.html",
   "path": "knee/what-are-the-risks-of-knee-replacement-surgery",
-  "timestamp": "2026-07-18T19:30:15.588Z",
+  "timestamp": "2026-07-19T06:37:18.987Z",
   "title": "What Are the Risks of Knee Replacement Surgery?",
   "template": "knee-article",
   "blocks": [
     "content-hero-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

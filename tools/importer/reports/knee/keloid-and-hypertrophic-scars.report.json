@@ -2,7 +2,7 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/keloid-and-hypertrophic-scars.html",
   "path": "knee/keloid-and-hypertrophic-scars",
-  "timestamp": "2026-07-18T19:00:47.491Z",
+  "timestamp": "2026-07-19T06:05:22.429Z",
   "title": "Keloid and Hypertrophic Scars",
   "template": "knee-article",
   "blocks": [
@@ -10,7 +10,7 @@
     "columns-figure",
     "columns-figure",
     "cards-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

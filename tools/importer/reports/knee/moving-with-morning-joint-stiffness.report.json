@@ -2,12 +2,12 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/moving-with-morning-joint-stiffness.html",
   "path": "knee/moving-with-morning-joint-stiffness",
-  "timestamp": "2026-07-18T19:14:31.430Z",
+  "timestamp": "2026-07-19T06:22:48.734Z",
   "title": "Moving with Morning Joint Stiffness",
   "template": "knee-article",
   "blocks": [
     "content-hero-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

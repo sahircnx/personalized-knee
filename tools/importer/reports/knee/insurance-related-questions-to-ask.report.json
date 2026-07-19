@@ -2,12 +2,12 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/insurance-related-questions-to-ask.html",
   "path": "knee/insurance-related-questions-to-ask",
-  "timestamp": "2026-07-18T19:24:52.280Z",
+  "timestamp": "2026-07-19T06:32:35.149Z",
   "title": "Insurance Related Questions to Ask",
   "template": "knee-article",
   "blocks": [
     "content-hero-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

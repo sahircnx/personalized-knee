@@ -2,7 +2,7 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/recovering-from-joint-replacement-surgery.html",
   "path": "knee/recovering-from-joint-replacement-surgery",
-  "timestamp": "2026-07-18T19:17:35.540Z",
+  "timestamp": "2026-07-19T06:25:41.391Z",
   "title": "Recovering from Joint Replacement Surgery",
   "template": "knee-article",
   "blocks": [
@@ -11,7 +11,7 @@
     "cards-article",
     "cards-article",
     "cards-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

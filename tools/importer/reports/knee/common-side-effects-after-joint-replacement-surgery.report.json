@@ -2,7 +2,7 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/common-side-effects-after-joint-replacement-surgery.html",
   "path": "knee/common-side-effects-after-joint-replacement-surgery",
-  "timestamp": "2026-07-18T19:28:47.045Z",
+  "timestamp": "2026-07-19T06:36:02.659Z",
   "title": "Common Side Effects After Joint Replacement Surgery | ReadyPatient",
   "template": "knee-article",
   "blocks": [
@@ -17,7 +17,7 @@
     "cards-article",
     "cards-article",
     "cards-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

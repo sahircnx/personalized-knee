@@ -2,12 +2,12 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/do-you-stay-overnight-after-knee-replacement.html",
   "path": "knee/do-you-stay-overnight-after-knee-replacement",
-  "timestamp": "2026-07-18T19:11:50.364Z",
+  "timestamp": "2026-07-19T06:20:13.222Z",
   "title": "Does Knee Replacement Surgery Require an Overnight Stay? | ReadyPatient",
   "template": "knee-article",
   "blocks": [
     "content-hero-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

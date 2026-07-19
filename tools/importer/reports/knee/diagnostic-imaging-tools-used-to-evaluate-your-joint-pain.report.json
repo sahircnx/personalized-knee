@@ -2,7 +2,7 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/diagnostic-imaging-tools-used-to-evaluate-your-joint-pain.html",
   "path": "knee/diagnostic-imaging-tools-used-to-evaluate-your-joint-pain",
-  "timestamp": "2026-07-18T19:02:04.248Z",
+  "timestamp": "2026-07-19T06:06:32.810Z",
   "title": "Diagnostic Imaging Tools Used to Evaluate Your Joint Pain",
   "template": "knee-article",
   "blocks": [
@@ -10,7 +10,7 @@
     "columns-figure",
     "cards-article",
     "cards-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

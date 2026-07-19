@@ -2,12 +2,12 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/5-ideas-to-keep-your-marriage-strong-while-managing-pain.html",
   "path": "knee/5-ideas-to-keep-your-marriage-strong-while-managing-pain",
-  "timestamp": "2026-07-18T19:18:53.744Z",
+  "timestamp": "2026-07-19T06:27:03.358Z",
   "title": "5 Ideas to Keep Your Marriage Strong While Managing Pain",
   "template": "knee-article",
   "blocks": [
     "content-hero-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

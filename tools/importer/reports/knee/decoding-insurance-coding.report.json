@@ -2,12 +2,12 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/decoding-insurance-coding.html",
   "path": "knee/decoding-insurance-coding",
-  "timestamp": "2026-07-18T19:25:06.523Z",
+  "timestamp": "2026-07-19T06:32:47.481Z",
   "title": "Decoding Insurance Coding",
   "template": "knee-article",
   "blocks": [
     "content-hero-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

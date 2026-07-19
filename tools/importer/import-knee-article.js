@@ -6,7 +6,7 @@ import contentHeroArticleParser from './parsers/content-hero-article.js';
 import columnsFigureParser from './parsers/columns-figure.js';
 import cardsFigureParser from './parsers/cards-figure.js';
 import cardsArticleParser from './parsers/cards-article.js';
-import columnsAuthorParser from './parsers/columns-author.js';
+import authorBioParser from './parsers/author-bio.js';
 import cardsResourceParser from './parsers/cards-resource.js';
 
 // TRANSFORMER IMPORTS
@@ -19,7 +19,7 @@ const parsers = {
   'columns-figure': columnsFigureParser,
   'cards-figure': cardsFigureParser,
   'cards-article': cardsArticleParser,
-  'columns-author': columnsAuthorParser,
+  'author-bio': authorBioParser,
   'cards-resource': cardsResourceParser,
 };
 
@@ -48,7 +48,7 @@ const PAGE_TEMPLATE = {
       instances: ['div.layout_container.aem-GridColumn--default--6:has(.article-card)'],
     },
     {
-      name: 'columns-author',
+      name: 'author-bio',
       instances: ['.author-bio'],
     },
     {
@@ -71,7 +71,7 @@ const PAGE_TEMPLATE = {
       name: 'Article Body',
       selector: 'body > div.root.responsivegrid > div.aem-Grid.aem-Grid--12.aem-Grid--default--12 > div.responsivegrid.aem-GridColumn.aem-GridColumn--default--12 > div.aem-Grid.aem-Grid--12.aem-Grid--default--12 > div.responsivegrid.aem-GridColumn.aem-GridColumn--default--12 > div.wrapper:nth-of-type(2)',
       style: null,
-      blocks: ['columns-figure', 'cards-figure', 'cards-article', 'columns-author'],
+      blocks: ['columns-figure', 'cards-figure', 'cards-article', 'author-bio'],
       defaultContent: ['.text .cmp-text', '.button > a.button--center'],
     },
     {

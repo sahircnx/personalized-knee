@@ -2,13 +2,13 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/6-ways-to-survive-the-holidays-with-joint-pain.html",
   "path": "knee/6-ways-to-survive-the-holidays-with-joint-pain",
-  "timestamp": "2026-07-18T19:17:22.908Z",
+  "timestamp": "2026-07-19T06:25:29.810Z",
   "title": "6 Ways to Survive the Holidays with Joint Pain",
   "template": "knee-article",
   "blocks": [
     "content-hero-article",
     "cards-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

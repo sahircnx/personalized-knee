@@ -2,7 +2,7 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/arthritic-painful-joints-motion-is-your-friend.html",
   "path": "knee/arthritic-painful-joints-motion-is-your-friend",
-  "timestamp": "2026-07-18T19:03:19.822Z",
+  "timestamp": "2026-07-19T06:07:47.857Z",
   "title": "Arthritic, Painful Joints: Motion Is Your Friend",
   "template": "knee-article",
   "blocks": [
@@ -11,7 +11,7 @@
     "cards-figure",
     "cards-article",
     "cards-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

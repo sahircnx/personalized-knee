@@ -2,13 +2,13 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/robots-used-in-surgery.html",
   "path": "knee/robots-used-in-surgery",
-  "timestamp": "2026-07-18T18:59:17.164Z",
+  "timestamp": "2026-07-19T06:04:01.680Z",
   "title": "Robots Used in Surgery",
   "template": "knee-article",
   "blocks": [
     "content-hero-article",
     "cards-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

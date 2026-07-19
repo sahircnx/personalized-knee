@@ -2,12 +2,12 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/post-op-pain-management-strategies-for-orthopedic-patients.html",
   "path": "knee/post-op-pain-management-strategies-for-orthopedic-patients",
-  "timestamp": "2026-07-18T19:12:50.524Z",
+  "timestamp": "2026-07-19T06:21:10.838Z",
   "title": "Post-Op Pain Management Strategies for Orthopedic Patients",
   "template": "knee-article",
   "blocks": [
     "content-hero-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

@@ -2,12 +2,12 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/handling-insurance-appeals.html",
   "path": "knee/handling-insurance-appeals",
-  "timestamp": "2026-07-18T19:27:23.202Z",
+  "timestamp": "2026-07-19T06:34:48.604Z",
   "title": "Handling Insurance Appeals",
   "template": "knee-article",
   "blocks": [
     "content-hero-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

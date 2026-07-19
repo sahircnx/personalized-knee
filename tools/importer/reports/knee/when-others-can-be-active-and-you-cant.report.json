@@ -2,7 +2,7 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/when-others-can-be-active-and-you-cant.html",
   "path": "knee/when-others-can-be-active-and-you-cant",
-  "timestamp": "2026-07-18T19:05:00.781Z",
+  "timestamp": "2026-07-19T06:09:23.754Z",
   "title": "When Others Can Be Active and You Can’t",
   "template": "knee-article",
   "blocks": [
@@ -14,7 +14,7 @@
     "cards-article",
     "cards-article",
     "cards-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

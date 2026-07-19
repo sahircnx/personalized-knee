@@ -2,14 +2,14 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/youve-been-referred-again.html",
   "path": "knee/youve-been-referred-again",
-  "timestamp": "2026-07-18T19:03:34.222Z",
+  "timestamp": "2026-07-19T06:07:59.161Z",
   "title": "You’ve Been Referred… Again",
   "template": "knee-article",
   "blocks": [
     "content-hero-article",
     "cards-article",
     "cards-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

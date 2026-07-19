@@ -2,12 +2,12 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/6-different-items-to-pack-for-an-overnight-hospital-stay.html",
   "path": "knee/6-different-items-to-pack-for-an-overnight-hospital-stay",
-  "timestamp": "2026-07-18T19:19:52.680Z",
+  "timestamp": "2026-07-19T06:28:04.662Z",
   "title": "6 Different Items to Pack for an Overnight Hospital Stay",
   "template": "knee-article",
   "blocks": [
     "content-hero-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

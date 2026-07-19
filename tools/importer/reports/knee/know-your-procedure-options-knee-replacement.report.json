@@ -2,12 +2,12 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/know-your-procedure-options-knee-replacement.html",
   "path": "knee/know-your-procedure-options-knee-replacement",
-  "timestamp": "2026-07-18T19:20:42.689Z",
+  "timestamp": "2026-07-19T06:28:56.367Z",
   "title": "Know Your Procedure Options – Knee Replacement",
   "template": "knee-article",
   "blocks": [
     "content-hero-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

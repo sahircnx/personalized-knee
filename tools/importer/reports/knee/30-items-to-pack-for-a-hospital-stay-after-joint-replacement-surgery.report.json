@@ -2,12 +2,12 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/30-items-to-pack-for-a-hospital-stay-after-joint-replacement-surgery.html",
   "path": "knee/30-items-to-pack-for-a-hospital-stay-after-joint-replacement-surgery",
-  "timestamp": "2026-07-18T19:18:05.375Z",
+  "timestamp": "2026-07-19T06:26:13.206Z",
   "title": "30 Items to Pack for a Hospital Stay After Joint Replacement Surgery",
   "template": "knee-article",
   "blocks": [
     "content-hero-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

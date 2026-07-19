@@ -2,13 +2,13 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/financial-planning-for-joint-replacement-surgery.html",
   "path": "knee/financial-planning-for-joint-replacement-surgery",
-  "timestamp": "2026-07-18T19:15:46.141Z",
+  "timestamp": "2026-07-19T06:24:04.734Z",
   "title": "Financial Planning for Joint Replacement Surgery",
   "template": "knee-article",
   "blocks": [
     "content-hero-article",
     "cards-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

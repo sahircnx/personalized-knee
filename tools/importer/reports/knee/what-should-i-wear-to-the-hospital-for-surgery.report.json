@@ -2,12 +2,12 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/what-should-i-wear-to-the-hospital-for-surgery.html",
   "path": "knee/what-should-i-wear-to-the-hospital-for-surgery",
-  "timestamp": "2026-07-18T19:10:09.404Z",
+  "timestamp": "2026-07-19T06:14:45.628Z",
   "title": "What to Wear to the Hospital (and Pack) for Surgery | ReadyPatient",
   "template": "knee-article",
   "blocks": [
     "content-hero-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

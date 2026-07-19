@@ -2,12 +2,12 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/the-effect-of-excess-weight-on-your-joints.html",
   "path": "knee/the-effect-of-excess-weight-on-your-joints",
-  "timestamp": "2026-07-18T19:31:11.519Z",
+  "timestamp": "2026-07-19T06:38:08.189Z",
   "title": "The Effect of Excess Weight on Your Joints",
   "template": "knee-article",
   "blocks": [
     "content-hero-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

@@ -2,12 +2,12 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/managing-constipation-after-surgery.html",
   "path": "knee/managing-constipation-after-surgery",
-  "timestamp": "2026-07-18T19:07:20.997Z",
+  "timestamp": "2026-07-19T06:11:45.125Z",
   "title": "Managing Constipation After Surgery",
   "template": "knee-article",
   "blocks": [
     "content-hero-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

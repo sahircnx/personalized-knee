@@ -2,7 +2,7 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/medical-tourniquets.html",
   "path": "knee/medical-tourniquets",
-  "timestamp": "2026-07-18T19:28:31.490Z",
+  "timestamp": "2026-07-19T06:35:51.650Z",
   "title": "Medical Tourniquets | Tourniquets used during surgery | ReadyPatient",
   "template": "knee-article",
   "blocks": [
@@ -10,7 +10,7 @@
     "cards-article",
     "cards-article",
     "cards-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

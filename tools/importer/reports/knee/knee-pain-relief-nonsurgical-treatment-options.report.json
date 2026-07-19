@@ -2,12 +2,12 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/knee-pain-relief-nonsurgical-treatment-options.html",
   "path": "knee/knee-pain-relief-nonsurgical-treatment-options",
-  "timestamp": "2026-07-18T19:15:20.171Z",
+  "timestamp": "2026-07-19T06:23:39.562Z",
   "title": "Knee Pain Relief & Treatment - Nonsurigcal Treatment Options | ReadyPatient",
   "template": "knee-article",
   "blocks": [
     "content-hero-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

@@ -2,7 +2,7 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/outpatient-joint-replacement.html",
   "path": "knee/outpatient-joint-replacement",
-  "timestamp": "2026-07-18T19:05:57.059Z",
+  "timestamp": "2026-07-19T06:10:18.994Z",
   "title": "Outpatient Joint Replacement",
   "template": "knee-article",
   "blocks": [
@@ -12,7 +12,7 @@
     "cards-article",
     "cards-article",
     "cards-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

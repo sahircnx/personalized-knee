@@ -2,12 +2,12 @@
   "status": "success",
   "url": "https://www.thereadypatient.com/knee/whats-causing-my-knee-pain.html",
   "path": "knee/whats-causing-my-knee-pain",
-  "timestamp": "2026-07-18T19:16:10.381Z",
+  "timestamp": "2026-07-19T06:02:36.249Z",
   "title": "What’s Causing My Knee Pain?",
   "template": "knee-article",
   "blocks": [
     "content-hero-article",
-    "columns-author",
+    "author-bio",
     "cards-resource",
     "cards-resource"
   ]

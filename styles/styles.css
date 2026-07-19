@@ -63,11 +63,14 @@ main a.button:any-link {
 @media (width >=960px) {
   :root {
     --heading-font-size-xxl: 64px;
+
     /* 4pc */
     --heading-font-size-xl: 48px;
+
     /* 3pc */
     --heading-font-size-l: 40px;
     --heading-font-size-m: 32px;
+
     /* 2pc */
     --heading-font-size-s: 24px;
   }
@@ -78,10 +81,10 @@ q {
   quotes: none;
 }
 
-blockquote:after,
-blockquote:before,
-q:after,
-q:before {
+blockquote::after,
+blockquote::before,
+q::after,
+q::before {
   content: none;
 }
 
@@ -91,19 +94,17 @@ table {
 }
 
 button,
-input[type=date],
-input[type=email],
-input[type=password],
-input[type=search],
-input[type=submit],
-input[type=tel],
-input[type=text],
+input[type="date"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="submit"],
+input[type="tel"],
+input[type="text"],
 option,
 select,
 textarea {
-  -moz-appearance: none;
   appearance: none;
-  -webkit-appearance: none;
   background: none;
   border: 0;
   resize: none;
@@ -112,9 +113,9 @@ textarea {
 .pointer,
 a,
 button,
-input[type=checkbox],
-input[type=radio],
-input[type=submit],
+input[type="checkbox"],
+input[type="radio"],
+input[type="submit"],
 label {
   cursor: pointer;
 }
@@ -124,14 +125,14 @@ label {
   display: none;
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  appearance: none;
   margin: 0;
 }
 
-input[type=number] {
-  -moz-appearance: textfield;
+input[type="number"] {
+  appearance: textfield;
 }
 
 input::-webkit-contacts-auto-fill-button {
@@ -169,11 +170,11 @@ html {
   text-align: center;
 }
 
-@media screen and (max-width: 959px) {
-
+@media screen and (width <= 959px) {
   body,
   html {
     font-size: 16px;
+
     /* 1pc */
   }
 }
@@ -298,6 +299,7 @@ a:active {
 }
 
 /* buttons */
+/* stylelint-disable-next-line no-descending-specificity */
 a.button:any-link,
 button {
   box-sizing: border-box;
@@ -321,6 +323,7 @@ button {
   white-space: nowrap;
 }
 
+/* stylelint-disable no-descending-specificity */
 a.button:hover,
 a.button:focus,
 button:hover,
@@ -328,6 +331,7 @@ button:focus {
   background-color: var(--link-hover-color);
   cursor: pointer;
 }
+/* stylelint-enable no-descending-specificity */
 
 button:disabled,
 button:disabled:hover {
@@ -478,11 +482,11 @@ main .section.highlight li {
   }
 
   /* Diagram image  centre column, row 2 */
+  /* stylelint-disable-next-line no-descending-specificity */
   main .section.highlight>div>p:has(picture) {
     grid-column: 2;
     grid-row: 2;
-    align-self: center;
-    justify-self: center;
+    place-self: center center;
   }
 
   main .section.highlight>div>p:has(picture) img {
@@ -599,6 +603,7 @@ main .section.background-color-light-blue a.button.secondary:hover:any-link {
 }
 
 /* Migration Utilities */
+/* stylelint-disable selector-class-pattern -- source content uses BEM-style utility classes */
 span.font-color--darkblue {
   color: #2b2a80;
 }
@@ -610,6 +615,7 @@ span.font-color--white {
 span.font-color--alt-dark {
   color: #6b6aa6;
 }
+/* stylelint-enable selector-class-pattern */
 
 div #ot-sdk-btn-floating {
   display: none;
@@ -649,29 +655,16 @@ footer {
 }
 
 /* Animations */
-@-webkit-keyframes scroll-left {
-  0% {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-  }
-
-  to {
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
-  }
-}
-
 @keyframes scroll-left {
   0% {
-    -webkit-transform: translateZ(0);
     transform: translateZ(0);
   }
 
-  to {
-    -webkit-transform: translate3d(-100%, 0, 0);
+  100% {
     transform: translate3d(-100%, 0, 0);
   }
 }
+
 /* ============================================================
    Knee Article template — site-wide design (scoped to article pages)
    Reference: thereadypatient.com knee articles
@@ -694,6 +687,12 @@ main .section.content-hero-article-container > div {
   padding: 0 16px 48px;
   background-color: #fff;
   box-sizing: border-box;
+  text-align: left;
+}
+
+/* Article body default content is left-aligned (reference layout) */
+main .section.content-hero-article-container .default-content-wrapper {
+  text-align: left;
 }
 
 /* Default-content typography inside the article body */
