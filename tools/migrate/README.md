@@ -133,15 +133,40 @@ node tools/migrate/package.mjs \
   then the **content** package.
 - **CLI:** `npx @adobe/aem-import-helper aem upload --zip <file.zip> --target <author-url> --token <token>`
 
-## Assets (images)
+## Assets (images) — `assets.mjs`
 
 The content references source-domain image URLs until you upload the images to
-your DAM. To produce the asset package: build `asset-mapping.json` (map each
-distinct source image URL to a `/content/dam/personalized-knee/knee/<file>`
-path), download the images into that folder structure, and wrap them as
-`dam:Asset` FileVault nodes. The `--asset-mapping` flag on `package.mjs` then
-rewrites the content references to match. (See the project migration notes for
-the exact asset-package layout.)
+your DAM. `assets.mjs` does the whole thing: scans the JCR for image URLs,
+writes `asset-mapping.json`, downloads the images, and builds a `dam:Asset`
+FileVault package.
+
+```bash
+node tools/migrate/assets.mjs \
+  --src tools/migrate/jcr-out/knee \
+  --dam-root /content/dam/personalized-knee/knee \
+  --mapping-out tools/migrate/asset-mapping.json \
+  --out personalized-knee-assets.zip
+```
+
+- `placehold.co` (a lazy-load placeholder on the source) is skipped by default;
+  override with `--skip-hosts a,b`.
+- Downloads are incremental — re-runs reuse already-fetched images.
+- On install, AEM regenerates web renditions from the `original`.
+
+Then package the **content** with references rewritten to those DAM paths using
+the mapping this produced (the DAM-referenced package in Step 4):
+
+```bash
+node tools/migrate/package.mjs \
+  --src tools/migrate/jcr-out/knee \
+  --jcr-root /content/personalized-knee/knee \
+  --name personalized-knee-articles-dam \
+  --out personalized-knee-articles-dam-refs.zip \
+  --asset-mapping tools/migrate/asset-mapping.json
+```
+
+Install order in AEM: **assets package first**, then the DAM-referenced content
+package.
 
 ## One-shot
 
