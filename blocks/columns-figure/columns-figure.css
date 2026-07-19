@@ -1,33 +1,37 @@
+/* columns-figure -- side-by-side illustration images, no captions.
+   Design extracted from thereadypatient.com/knee/knee-pain-explained.html:
+   2 equal AEM grid columns, 24px gap, images fill each column, centered,
+   stack on mobile. Constrained to the 732px article reading canvas. */
+
 .columns-figure > div {
   display: flex;
   flex-direction: column;
-}
-
-.columns-figure img {
-  width: 100%;
+  gap: 24px;
+  align-items: center;
 }
 
 .columns-figure > div > div {
-  order: 1;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
-.columns-figure > div > .columns-figure-img-col {
-  order: 0;
-}
-
-.columns-figure > div > .columns-figure-img-col img {
+.columns-figure img {
   display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
 }
 
 @media (width >= 900px) {
   .columns-figure > div {
+    flex-direction: row;
     align-items: center;
-    flex-direction: unset;
     gap: 24px;
   }
 
   .columns-figure > div > div {
     flex: 1;
-    order: unset;
+    min-width: 0;
   }
 }

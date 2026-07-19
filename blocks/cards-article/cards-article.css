@@ -1,35 +1,74 @@
+/* Block: cards-article — related-article mini cards (horizontal thumbnail + linked title)
+   Values extracted from source computed styles at thereadypatient.com knee article.
+   Source design: 2-up row, small image on the LEFT with rounded left corners,
+   light-grey text panel on the RIGHT with a small blue Roboto title. Stacks on mobile. */
+
 .cards-article > ul {
   list-style: none;
-  margin: 0;
+  margin: 24px 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
+  grid-template-columns: 1fr;
   gap: 24px;
 }
 
+/* Each card: horizontal — image left, text right */
 .cards-article > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  background-color: rgb(248 247 241);
+  overflow: hidden;
+  min-height: 70px;
 }
 
+/* Image (thumbnail) cell — fixed narrow column on the left, rounded left corners */
+.cards-article .cards-article-card-image {
+  flex: 0 0 82px;
+  line-height: 0;
+  border-radius: 4px 0 0 4px;
+  overflow: hidden;
+}
+
+.cards-article .cards-article-card-image picture,
+.cards-article .cards-article-card-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Text cell — light-grey panel, padded, title vertically centered */
 .cards-article .cards-article-card-body {
-  margin: 16px;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  background-color: rgb(241 241 241);
+  padding: 10px;
+  border-radius: 0 4px 4px 0;
+  text-align: left;
 }
 
 .cards-article .cards-article-card-body h4 {
   margin: 0;
+  font-family: Roboto, var(--body-font-family);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 18.75px;
+  letter-spacing: 0.5px;
+  color: rgb(23 140 202);
 }
 
-.cards-article .cards-article-card-body a {
+.cards-article .cards-article-card-body h4 a {
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
   text-decoration: none;
 }
 
-.cards-article .cards-article-card-image {
-  line-height: 0;
-}
-
-.cards-article > ul > li img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+/* Desktop: two cards side by side */
+@media (width >= 900px) {
+  .cards-article > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

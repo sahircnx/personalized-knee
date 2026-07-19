@@ -1,11 +1,11 @@
 :root {
   /* Brand fonts — headings: Butler (serif), body: Roboto */
-  --heading-font-family: "Butler", Georgia, "Times New Roman", serif;
+  --heading-font-family: "Butler", georgia, "Times New Roman", serif;
   --body-font-family: "roboto", "Roboto", -apple-system, system-ui, sans-serif;
   --bold-font-family: var(--body-font-family);
 
   /* Brand colors */
-  --background-color: #ffffff;
+  --background-color: #fff;
   --page-background-color: rgb(232 231 226);
   --text-color: rgb(140 140 140);
   --heading-color: rgb(43 43 128);
@@ -17,7 +17,6 @@
 
   /* Article layout */
   --article-reading-width: 732px;
-
   --section-padding: 0px;
   --nav-height: 80px;
 }

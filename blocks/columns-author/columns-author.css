@@ -1,4 +1,5 @@
 /* Block: columns-author -- author bio (identity left, bio + "More by" links right) */
+
 /* Values extracted from source .author-bio computed styles on thereadypatient.com */
 
 .columns-author {
@@ -88,6 +89,7 @@
 }
 
 /* Bio paragraph */
+/* stylelint-disable-next-line no-descending-specificity */
 .columns-author > div > div:last-child p {
   font-size: 20px;
   font-weight: 300;
@@ -121,6 +123,7 @@
   margin: 0 0 6px;
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 .columns-author > div > div:last-child ul li a:any-link {
   font-size: 20px;
   font-weight: 400;
@@ -129,6 +132,7 @@
   text-decoration: none;
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 .columns-author > div > div:last-child ul li a:hover {
   text-decoration: underline;
 }

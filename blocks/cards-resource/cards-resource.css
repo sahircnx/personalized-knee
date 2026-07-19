@@ -1,29 +1,97 @@
-.cards-resource > ul {
+/* cards-resource — "Here's more you can do" resource cards
+   Source: thereadypatient.com .resource-grid-cards (computed styles extracted).
+   Cards: rounded corners (20px), tinted cream body, navy uppercase CTA. */
+
+/* --- Grid of cards (EDS decorate() builds ul > li) --- */
+.cards-resource ul {
   list-style: none;
-  margin: 0;
+  margin: 32px 0 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 24px;
+  grid-template-columns: 1fr;
+  gap: 20px;
 }
 
-.cards-resource > ul > li {
-  background-color: #f7f6f2;
-  display: flex;
-}
-
-.cards-resource .cards-resource-card-body {
-  margin: 24px;
+/* --- Each card --- */
+.cards-resource ul > li {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  background-color: rgb(248 247 241);
+  border-radius: 20px;
+  box-shadow: rgb(220 220 220) 0 0 0 1px;
+  overflow: hidden;
 }
 
+/* --- Card body cell (H4 + description + CTA) --- */
+.cards-resource .cards-resource-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  padding: 25px;
+  text-align: left;
+  color: rgb(0 52 75);
+}
+
+/* The authored image cell is empty here — collapse it so it takes no space. */
+.cards-resource .cards-resource-card-body:empty {
+  display: none;
+}
+
+/* --- Title --- */
 .cards-resource .cards-resource-card-body h4 {
-  margin: 0;
+  margin: 0 0 12px;
+  color: rgb(43 43 128);
+  font-family: var(--heading-font-family);
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 1.15;
 }
 
-.cards-resource .cards-resource-card-body .button,
-.cards-resource .cards-resource-card-body a {
+/* --- Description --- */
+.cards-resource .cards-resource-card-body p:not(.button-container) {
+  margin: 0;
+  color: rgb(0 52 75);
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+/* --- CTA button (push to bottom of card) --- */
+.cards-resource .cards-resource-card-body .button-container {
   margin-top: auto;
+  padding-top: 24px;
+}
+
+.cards-resource .cards-resource-card-body a.button:any-link {
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 4px;
+  background-color: rgb(0 41 59);
+  color: rgb(255 255 255);
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 800;
+  line-height: normal;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: normal;
+}
+
+.cards-resource .cards-resource-card-body a.button:hover,
+.cards-resource .cards-resource-card-body a.button:focus {
+  background-color: rgb(43 43 128);
+  color: rgb(255 255 255);
+  text-decoration: none;
+}
+
+/* --- Responsive: 4-up row on wide viewports --- */
+@media (width >= 900px) {
+  .cards-resource ul {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
