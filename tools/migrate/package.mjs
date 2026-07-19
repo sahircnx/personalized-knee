@@ -70,7 +70,22 @@ async function main() {
   mkdirSync(join(stage, 'META-INF', 'vault'), { recursive: true });
 
   let mapping = null;
-  if (o.assetMapping) mapping = JSON.parse(readFileSync(resolve(o.assetMapping), 'utf-8'));
+  if (o.assetMapping) {
+    const mapPath = resolve(o.assetMapping);
+    if (!existsSync(mapPath)) {
+      console.error(`Asset mapping not found: ${o.assetMapping}`);
+      console.error('Generate it first by running assets.mjs, e.g.:');
+      console.error(`  node tools/migrate/assets.mjs --src ${o.src} --dam-root /content/dam/personalized-knee/knee --mapping-out ${o.assetMapping} --out personalized-knee-assets.zip`);
+      process.exit(1);
+    }
+    const raw = readFileSync(mapPath, 'utf-8').trim();
+    if (!raw) {
+      console.error(`Asset mapping is empty: ${o.assetMapping}`);
+      console.error('Re-run assets.mjs to (re)generate it before packaging with --asset-mapping.');
+      process.exit(1);
+    }
+    mapping = JSON.parse(raw);
+  }
 
   let n = 0; let repl = 0;
   for (const f of readdirSync(src).filter((x) => x.endsWith('.xml'))) {

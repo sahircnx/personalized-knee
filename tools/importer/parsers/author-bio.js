@@ -75,11 +75,20 @@ export default function parse(element, { document }) {
   const bio = document.createElement('div');
   const bioHint = document.createComment(' field:bio ');
   bio.appendChild(bioHint);
+
+
+
   if (bioEl) {
-    Array.from(bioEl.querySelectorAll('p')).forEach((p) => {
-      if (p.textContent.trim()) bio.appendChild(p.cloneNode(true));
-    });
+    // Array.from(bioEl.querySelectorAll('p')).forEach((p) => {
+    //   if (p.textContent.trim()) bio.appendChild(p.cloneNode(true));
+    // });
+
+    const bioText = document.createElement('div');
+    bioText.setAttribute('class', 'bio-text');
+    bioText.textContent = bioEl.textContent.trim();
+    identity.appendChild(bioText);
   }
+
   if (moreEl && moreEl.textContent.trim()) {
     const h = document.createElement('h4');
     h.textContent = moreEl.textContent.trim();

@@ -252,9 +252,10 @@ var CustomImportScript = (() => {
     const bioHint = document.createComment(" field:bio ");
     bio.appendChild(bioHint);
     if (bioEl) {
-      Array.from(bioEl.querySelectorAll("p")).forEach((p) => {
-        if (p.textContent.trim()) bio.appendChild(p.cloneNode(true));
-      });
+      const bioText = document.createElement("div");
+      bioText.setAttribute("class", "bio-text");
+      bioText.textContent = bioEl.textContent.trim();
+      identity.appendChild(bioText);
     }
     if (moreEl && moreEl.textContent.trim()) {
       const h = document.createElement("h4");
@@ -360,40 +361,61 @@ var CustomImportScript = (() => {
 
   // tools/importer/transformers/thereadypatient-sections.js
   var TransformHook2 = { beforeTransform: "beforeTransform", afterTransform: "afterTransform" };
+  var MORE_HEADING_RE = /here'?s more you can do/i;
+  function blockName(node) {
+    if (!node || node.tagName !== "TABLE") return "";
+    const cell = node.querySelector("tr td, tr th");
+    return cell ? (cell.textContent || "").trim().toLowerCase() : "";
+  }
+  function sectionWrapper(main, node) {
+    let cur = node;
+    let wrapper = null;
+    while (cur && cur !== main) {
+      if (cur.classList && cur.classList.contains("wrapper")) wrapper = cur;
+      cur = cur.parentNode;
+    }
+    if (wrapper) return wrapper;
+    cur = node;
+    while (cur && cur.parentNode && cur.parentNode !== main) cur = cur.parentNode;
+    return cur;
+  }
   function transform2(hookName, element, payload) {
-    if (hookName === TransformHook2.afterTransform) {
-      const doc = payload && payload.document || element.ownerDocument;
-      const sections = payload && payload.template && payload.template.sections;
-      if (!doc || !Array.isArray(sections) || sections.length < 2) {
-        return;
-      }
-      const resolved = sections.map((section) => {
-        let el = null;
-        if (section && section.selector) {
-          el = element.querySelector(section.selector) || doc.querySelector(section.selector);
-        }
-        return { section, el };
+    if (hookName !== TransformHook2.afterTransform) return;
+    const doc = payload && payload.document || element.ownerDocument;
+    const main = element || doc.body;
+    if (!doc || !main) return;
+    const tables = [...main.querySelectorAll("table")];
+    const heroTable = tables.find((t) => blockName(t) === "content hero article");
+    const resourceTable = tables.find((t) => blockName(t) === "cards resource");
+    const insertHrBefore = (node) => {
+      if (!node || !node.parentNode) return;
+      if (node.previousElementSibling && node.previousElementSibling.tagName === "HR") return;
+      node.parentNode.insertBefore(doc.createElement("hr"), node);
+    };
+    let resourceWrapper = null;
+    if (resourceTable) {
+      resourceWrapper = sectionWrapper(main, resourceTable);
+      const metadataBlock = WebImporter.Blocks.createBlock(doc, {
+        name: "Section Metadata",
+        cells: { style: "highlight" }
       });
-      for (let i = resolved.length - 1; i >= 0; i -= 1) {
-        const { section, el } = resolved[i];
-        if (!el) {
-          continue;
-        }
-        if (section && section.style) {
-          const metadataBlock = WebImporter.Blocks.createBlock(doc, {
-            name: "Section Metadata",
-            cells: { style: section.style }
-          });
-          if (el.parentNode) {
-            el.parentNode.insertBefore(metadataBlock, el.nextSibling);
-          }
-        }
-        if (i > 0 && el.previousElementSibling) {
-          const hr = doc.createElement("hr");
-          if (el.parentNode) {
-            el.parentNode.insertBefore(hr, el);
-          }
-        }
+      resourceWrapper.parentNode.insertBefore(metadataBlock, resourceWrapper);
+      insertHrBefore(metadataBlock);
+    }
+    if (heroTable) {
+      const headerWrapper = sectionWrapper(main, heroTable);
+      const candidates = [...main.querySelectorAll("h1, h2, h3, h4, h5, h6, table")];
+      const afterHero = candidates.find((node) => {
+        if (!(heroTable.compareDocumentPosition(node) & 4)) return false;
+        if (headerWrapper.contains(node)) return false;
+        if (resourceWrapper && resourceWrapper.contains(node)) return false;
+        if (/^H[1-6]$/.test(node.tagName) && MORE_HEADING_RE.test(node.textContent || "")) return false;
+        return true;
+      });
+      if (afterHero) {
+        const bodyAnchor = sectionWrapper(main, afterHero) || afterHero;
+        const anchor = bodyAnchor && bodyAnchor !== headerWrapper && !headerWrapper.contains(bodyAnchor) ? bodyAnchor : afterHero;
+        insertHrBefore(anchor);
       }
     }
   }
